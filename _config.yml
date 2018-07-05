@@ -1,0 +1,4 @@
+# See https://github.com/TypeStrong/typedoc/issues/149
+include:
+  - "_*_.html"
+  - "_*_.*.html"
