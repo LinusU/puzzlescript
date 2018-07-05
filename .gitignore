@@ -58,4 +58,4 @@ typings/
 .env
 
 /lib/
-/docs/
+# /docs/ Commented so the docs are hosted
