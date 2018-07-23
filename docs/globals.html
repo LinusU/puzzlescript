@@ -895,8 +895,6 @@ img { max-width: 100%; }
 							</div>
 							<input type="checkbox" id="tsd-filter-inherited" checked />
 							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
-							<input type="checkbox" id="tsd-filter-externals" checked />
-							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
 							<input type="checkbox" id="tsd-filter-only-exported" />
 							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
 						</div>
@@ -924,13 +922,14 @@ img { max-width: 100%; }
 			</ol>
 			<h1 id="screencaps">Screencaps</h1>
 			<p>Here are some screencaps of games being played.</p>
-			<p><a href="https://asciinema.org/a/md0Zep9LOBhdB4nx00OyA0NNH?t=25"><img width="300" alt="video of install and a couple games" src="https://asciinema.org/a/md0Zep9LOBhdB4nx00OyA0NNH.png"/></a></p>
+			<h3 id="pot-wash-panic-original-">Pot Wash Panic! (<a href="https://hauntpun.itch.io/pot-wash-panic">original</a>)</h3>
+			<p><a href="https://asciinema.org/a/188014?t=25"><img width="300" alt="video of install and a couple games" src="https://asciinema.org/a/188014.png"/></a></p>
 			<h3 id="hack-the-net-original-">Hack the Net (<a href="http://www.draknek.org/games/puzzlescript/hack-the-net.php">original</a>)</h3>
-			<p><a href="https://asciinema.org/a/TG6K5iinlW7cnrRjtJ1vz6nJl"><img width="300" alt="video of a couple levels of Hack-the-Net" src="https://asciinema.org/a/TG6K5iinlW7cnrRjtJ1vz6nJl.png"/></a></p>
+			<p><a href="https://asciinema.org/a/188016"><img width="300" alt="video of a couple levels of Hack-the-Net" src="https://asciinema.org/a/188016.png"/></a></p>
 			<h3 id="skipping-stones-to-lonely-homes-original-">Skipping Stones to Lonely Homes (<a href="http://www.draknek.org/games/puzzlescript/skipping-stones.php">original</a>)</h3>
-			<p><a href="https://asciinema.org/a/mvHT4Btkpj49GzN8fawsUgCTX?t=20"><img width="300" alt="video of the beginning of Skipping Stones (BIG)" src="https://asciinema.org/a/mvHT4Btkpj49GzN8fawsUgCTX.png"/></a></p>
-			<h3 id="entanglement-original-">Entanglement (<a href="">original</a>)</h3>
-			<p><a href="https://asciinema.org/a/B6QBhxI4iarolk5k3x4cIRewc?t=23"><img width="300" alt="video of the beginning of Entanglement" src="https://asciinema.org/a/B6QBhxI4iarolk5k3x4cIRewc.png"/></a></p>
+			<p><a href="https://asciinema.org/a/189279?t=20"><img width="300" alt="video of the beginning of Skipping Stones (BIG)" src="https://asciinema.org/a/189279.png"/></a></p>
+			<h3 id="entanglement-original-">Entanglement (<a href="http://www.richardlocke.co.uk/release/entanglement/chapter-1/">original</a>)</h3>
+			<p><a href="https://asciinema.org/a/189281?t=23"><img width="300" alt="video of the beginning of Entanglement" src="https://asciinema.org/a/189281.png"/></a></p>
 			<h1 id="video-games-that-blind-people-can-play-">Video games that blind people can play?</h1>
 			<p>PuzzleScript lends itself nicely to be playable by people with low or no vision:</p>
 			<ol>
@@ -942,17 +941,20 @@ img { max-width: 100%; }
 			</ol>
 			<h3 id="screencap">Screencap</h3>
 			<p>This screencap is a visual demonstration of exploring and then playing a level.</p>
-			<p><a href="https://asciinema.org/a/tlAym1396xgcEw8A49A5WyOgZ?t=4"><img width="600" alt="exploring and playing a level without sight" src="https://asciinema.org/a/tlAym1396xgcEw8A49A5WyOgZ.png"/></a></p>
+			<p><a href="https://asciinema.org/a/190028?t=4"><img width="600" alt="exploring and playing a level without sight (visual depiction)" src="https://asciinema.org/a/190028.png"/></a></p>
+			<p>This screencap is the <strong>non-visual</strong> version of the same steps as shown above. This is what vision-impaired people will read when they move the Inspector cursor around and then move the player to play the game.</p>
+			<p><a href="https://asciinema.org/a/191072?t=10"><img width="600" alt="exploring and playing a level without sight" src="https://asciinema.org/a/191072.png"/></a></p>
 			<h1 id="about">About</h1>
 			<p>The goal of this project is to do 3 things:</p>
 			<ol>
-				<li>make PuzzleScript easier to embed (like in 404 pages, easter eggs, etc)</li>
+				<li>make PuzzleScript easier to embed (like in 404 pages, easter eggs, etc). See <a href="https://philschatz.com/puzzlescript-cli/docs/classes/_engine_.gameengine.html">docs</a></li>
 				<li>allow <strong>blind people to play video games</strong></li>
 				<li>use the terminal as a GUI for playing games</li>
 			</ol>
 			<h1 id="dev-notes">Dev Notes</h1>
 			<p>This is a remake of PuzzleScript that has the following features:</p>
 			<ul>
+				<li>There is <a href="https://philschatz.com/puzzlescript-cli/docs/">documentation</a> for using the <a href="https://www.npmjs.com/package/puzzlescript-cli">NPM package</a></li>
 				<li>There is a <a href="https://en.wikipedia.org/wiki/Parsing_expression_grammar">Grammar</a> file that parses the game file (uses <a href="https://github.com/harc/ohm">ohm</a>)</li>
 				<li>The interpreter is a separate component</li>
 				<li>The rendering code is abstracted out so folks can add a different renderer (the example uses ASCII in the Terminal to show the game)<ul>
@@ -997,6 +999,7 @@ img { max-width: 100%; }
 						<ul class="tsd-index-list">
 							<li class="tsd-kind-external-module"><a href="modules/_colors_.html" class="tsd-kind-icon">"colors"</a></li>
 							<li class="tsd-kind-external-module"><a href="modules/_engine_.html" class="tsd-kind-icon">"engine"</a></li>
+							<li class="tsd-kind-external-module"><a href="modules/_index_.html" class="tsd-kind-icon">"index"</a></li>
 							<li class="tsd-kind-external-module"><a href="modules/_letters_.html" class="tsd-kind-icon">"letters"</a></li>
 							<li class="tsd-kind-external-module"><a href="modules/_models_collisionlayer_.html" class="tsd-kind-icon">"models/collision<wbr>Layer"</a></li>
 							<li class="tsd-kind-external-module"><a href="modules/_models_colors_.html" class="tsd-kind-icon">"models/colors"</a></li>

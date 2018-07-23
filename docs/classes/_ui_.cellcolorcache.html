@@ -895,8 +895,6 @@ img { max-width: 100%; }
 							</div>
 							<input type="checkbox" id="tsd-filter-inherited" checked />
 							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
-							<input type="checkbox" id="tsd-filter-externals" checked />
-							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
 							<input type="checkbox" id="tsd-filter-only-exported" />
 							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
 						</div>
@@ -915,9 +913,6 @@ img { max-width: 100%; }
 				<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-not-exported">
 					<a href="_ui_.cellcolorcache.html#constructor" class="tsd-kind-icon">constructor</a>
 				</li>
-				<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-not-exported">
-					<a href="_ui_.cellcolorcache.html#cache" class="tsd-kind-icon">cache</a>
-				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-not-exported">
 					<a href="_ui_.cellcolorcache.html#clear" class="tsd-kind-icon">clear</a>
 				</li>
@@ -933,6 +928,9 @@ img { max-width: 100%; }
 			<a href="../modules/_ui_.html#supports16mcolors" class="tsd-kind-icon">supports16m<wbr>Colors</a>
 		</li>
 		<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
+			<a href="../modules/_ui_.html#clearlineandwritetextat" class="tsd-kind-icon">clear<wbr>Line<wbr>And<wbr>Write<wbr>Text<wbr>At</a>
+		</li>
+		<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
 			<a href="../modules/_ui_.html#clearscreen" class="tsd-kind-icon">clear<wbr>Screen</a>
 		</li>
 		<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
@@ -941,11 +939,11 @@ img { max-width: 100%; }
 		<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
 			<a href="../modules/_ui_.html#drawpixelchar" class="tsd-kind-icon">draw<wbr>Pixel<wbr>Char</a>
 		</li>
+		<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
+			<a href="../modules/_ui_.html#getrestorecursor" class="tsd-kind-icon">get<wbr>Restore<wbr>Cursor</a>
+		</li>
 		<li class=" tsd-kind-function tsd-parent-kind-external-module">
 			<a href="../modules/_ui_.html#getterminalsize" class="tsd-kind-icon">get<wbr>Terminal<wbr>Size</a>
-		</li>
-		<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
-			<a href="../modules/_ui_.html#restorecursor" class="tsd-kind-icon">restore<wbr>Cursor</a>
 		</li>
 		<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
 			<a href="../modules/_ui_.html#setbgcolor" class="tsd-kind-icon">set<wbr>BgColor</a>
@@ -964,12 +962,6 @@ img { max-width: 100%; }
 		</li>
 		<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
 			<a href="../modules/_ui_.html#writefgcolor" class="tsd-kind-icon">write<wbr>FgColor</a>
-		</li>
-		<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
-			<a href="../modules/_ui_.html#writetext" class="tsd-kind-icon">write<wbr>Text</a>
-		</li>
-		<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
-			<a href="../modules/_ui_.html#writetextat" class="tsd-kind-icon">write<wbr>Text<wbr>At</a>
 		</li>
 	</ul>
 </nav>
@@ -991,12 +983,6 @@ img { max-width: 100%; }
 						<h3>Constructors</h3>
 						<ul class="tsd-index-list">
 							<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-not-exported"><a href="_ui_.cellcolorcache.html#constructor" class="tsd-kind-icon">constructor</a></li>
-						</ul>
-					</section>
-					<section class="tsd-index-section tsd-is-private tsd-is-private-protected tsd-is-not-exported">
-						<h3>Properties</h3>
-						<ul class="tsd-index-list">
-							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-not-exported"><a href="_ui_.cellcolorcache.html#cache" class="tsd-kind-icon">cache</a></li>
 						</ul>
 					</section>
 					<section class="tsd-index-section tsd-is-not-exported">
@@ -1021,25 +1007,12 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/e9defde/src/ui.ts#L69">ui.ts:69</a></li>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/ui.ts#L68">ui.ts:68</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <a href="_ui_.cellcolorcache.html" class="tsd-signature-type">CellColorCache</a></h4>
 					</li>
 				</ul>
-			</section>
-		</section>
-		<section class="tsd-panel-group tsd-member-group tsd-is-private tsd-is-private-protected tsd-is-not-exported">
-			<h2>Properties</h2>
-			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-not-exported">
-				<a name="cache" class="tsd-anchor"></a>
-				<h3><span class="tsd-flag ts-flagPrivate">Private</span> cache</h3>
-				<div class="tsd-signature tsd-kind-icon">cache<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/_models_colors_.icolor.html" class="tsd-signature-type">IColor</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></div>
-				<aside class="tsd-sources">
-					<ul>
-						<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/e9defde/src/ui.ts#L69">ui.ts:69</a></li>
-					</ul>
-				</aside>
 			</section>
 		</section>
 		<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
@@ -1054,7 +1027,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/e9defde/src/ui.ts#L89">ui.ts:89</a></li>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/ui.ts#L88">ui.ts:88</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -1071,7 +1044,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/e9defde/src/ui.ts#L75">ui.ts:75</a></li>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/ui.ts#L74">ui.ts:74</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>

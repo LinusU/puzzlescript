@@ -895,8 +895,6 @@ img { max-width: 100%; }
 							</div>
 							<input type="checkbox" id="tsd-filter-inherited" checked />
 							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
-							<input type="checkbox" id="tsd-filter-externals" checked />
-							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
 							<input type="checkbox" id="tsd-filter-only-exported" />
 							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
 						</div>
@@ -943,10 +941,10 @@ img { max-width: 100%; }
 			<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module">
 				<a name="rule_grammar" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagConst">Const</span> RULE_<wbr>GRAMMAR</h3>
-				<div class="tsd-signature tsd-kind-icon">RULE_<wbr>GRAMMAR<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"RuleItem&#x3D; RuleLoop| RuleGroup // Do this before Rule because we need to look for a &quot;+&quot; on the following Rule| RuleRule &#x3D; t_DEBUGGER? (RuleModifierLeft* RuleBracket)+ &quot;-&gt;&quot; (RuleModifier? RuleBracket)* RuleCommand* MessageCommand? lineTerminator+RuleBracket&#x3D; EllipsisRuleBracket| NormalRuleBracketNormalRuleBracket &#x3D; &quot;[&quot; NonemptyListOf&lt;RuleBracketNeighbor, &quot;|&quot;&gt; t_AGAIN? &quot;]&quot; t_DEBUGGER? // t_AGAIN is a HACK. It should be in the list of commands but it&#x27;s not.EllipsisRuleBracket &#x3D; &quot;[&quot; NonemptyListOf&lt;RuleBracketNeighbor, &quot;|&quot;&gt; t_ELLIPSIS &quot;|&quot; NonemptyListOf&lt;RuleBracketNeighbor, &quot;|&quot;&gt; &quot;]&quot; t_DEBUGGER?RuleBracketNeighbor&#x3D; HackTileNameIsSFX1 // to parse &#x27;... -&gt; [ SFX1 ]&#x27; (they should be commands)| HackTileNameIsSFX2 // to parse &#x27;... -&gt; [ tilename SFX1 ]&#x27;| RuleBracketNoEllipsisNeighborRuleBracketNoEllipsisNeighbor &#x3D; TileWithModifier* t_DEBUGGER?TileWithModifier &#x3D; t_DEBUGGER? tileModifier* lookupRuleVariableNametileModifier &#x3D; space* tileModifierInner space+ // Force-check that there is whitespace after the cellLayerModifier so things like &quot;STATIONARYZ&quot; or &quot;NOZ&quot; are not parsed as a modifier (they are a variable that happens to begin with the same text as a modifier)tileModifierInner&#x3D; t_NO| t_LEFT| t_RIGHT| t_UP| t_DOWN| t_RANDOMDIR| t_RANDOM| t_STATIONARY| t_MOVING| t_ACTION| t_VERTICAL| t_HORIZONTAL| t_PERPENDICULAR| t_ORTHOGONAL| t_ARROW_ANY // This can be a &quot;v&quot; so it needs to go at the end (behind t_VERTICAL)RuleModifier&#x3D; t_RANDOM| t_UP| t_DOWN| t_LEFT| t_RIGHT| t_VERTICAL| t_HORIZONTAL| t_ORTHOGONALRuleModifierLeft&#x3D; RuleModifier // Sometimes people write &quot;RIGHT LATE [...&quot; instead of &quot;LATE RIGHT [...&quot;| t_LATE| t_RIGIDRuleCommand&#x3D; t_AGAIN| t_CANCEL| t_CHECKPOINT| t_RESTART| t_WIN| t_SFXMessageCommand &#x3D; t_MESSAGE words*RuleLoop &#x3D;t_DEBUGGER?t_STARTLOOP lineTerminator+RuleItem+t_ENDLOOP lineTerminator+RuleGroup &#x3D;t_DEBUGGER?Rule(t_GROUP_RULE_PLUS Rule)+HackTileNameIsSFX1 &#x3D; t_SFX t_DEBUGGER?HackTileNameIsSFX2 &#x3D; lookupRuleVariableName t_SFX t_DEBUGGER?"</span><span class="tsd-signature-symbol"> =&nbsp;&#x60;RuleItem&#x3D; RuleLoop| RuleGroup // Do this before Rule because we need to look for a &quot;+&quot; on the following Rule| RuleRule &#x3D; t_DEBUGGER? (RuleModifierLeft* RuleBracket)+ &quot;-&gt;&quot; (RuleModifier? RuleBracket)* RuleCommand* MessageCommand? lineTerminator+RuleBracket&#x3D; EllipsisRuleBracket| NormalRuleBracketNormalRuleBracket &#x3D; &quot;[&quot; NonemptyListOf&lt;RuleBracketNeighbor, &quot;|&quot;&gt; t_AGAIN? &quot;]&quot; t_DEBUGGER? // t_AGAIN is a HACK. It should be in the list of commands but it&#x27;s not.EllipsisRuleBracket &#x3D; &quot;[&quot; NonemptyListOf&lt;RuleBracketNeighbor, &quot;|&quot;&gt; t_ELLIPSIS &quot;|&quot; NonemptyListOf&lt;RuleBracketNeighbor, &quot;|&quot;&gt; &quot;]&quot; t_DEBUGGER?RuleBracketNeighbor&#x3D; HackTileNameIsSFX1 // to parse &#x27;... -&gt; [ SFX1 ]&#x27; (they should be commands)| HackTileNameIsSFX2 // to parse &#x27;... -&gt; [ tilename SFX1 ]&#x27;| RuleBracketNoEllipsisNeighborRuleBracketNoEllipsisNeighbor &#x3D; TileWithModifier* t_DEBUGGER?TileWithModifier &#x3D; t_DEBUGGER? tileModifier* lookupRuleVariableNametileModifier &#x3D; space* tileModifierInner space+ // Force-check that there is whitespace after the cellLayerModifier so things like &quot;STATIONARYZ&quot; or &quot;NOZ&quot; are not parsed as a modifier (they are a variable that happens to begin with the same text as a modifier)tileModifierInner&#x3D; t_NO| t_LEFT| t_RIGHT| t_UP| t_DOWN| t_RANDOMDIR| t_RANDOM| t_STATIONARY| t_MOVING| t_ACTION| t_VERTICAL| t_HORIZONTAL| t_PERPENDICULAR| t_ORTHOGONAL| t_ARROW_ANY // This can be a &quot;v&quot; so it needs to go at the end (behind t_VERTICAL)RuleModifier&#x3D; t_RANDOM| t_UP| t_DOWN| t_LEFT| t_RIGHT| t_VERTICAL| t_HORIZONTAL| t_ORTHOGONALRuleModifierLeft&#x3D; RuleModifier // Sometimes people write &quot;RIGHT LATE [...&quot; instead of &quot;LATE RIGHT [...&quot;| t_LATE| t_RIGIDRuleCommand&#x3D; t_AGAIN| t_CANCEL| t_CHECKPOINT| t_RESTART| t_WIN| t_SFXMessageCommand &#x3D; t_MESSAGE words*RuleLoop &#x3D;t_DEBUGGER?t_STARTLOOP lineTerminator+RuleItem+t_ENDLOOP lineTerminator+RuleGroup &#x3D;t_DEBUGGER?Rule(t_GROUP_RULE_PLUS Rule)+HackTileNameIsSFX1 &#x3D; t_SFX t_DEBUGGER?HackTileNameIsSFX2 &#x3D; lookupRuleVariableName t_SFX t_DEBUGGER?&#x60;</span></div>
+				<div class="tsd-signature tsd-kind-icon">RULE_<wbr>GRAMMAR<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"RuleItem&#x3D; RuleLoop| RuleGroup // Do this before Rule because we need to look for a &quot;+&quot; on the following Rule| RuleRule &#x3D; t_DEBUGGER? (RuleModifierLeft* RuleBracket)+ &quot;-&gt;&quot; (RuleModifier? RuleBracket)* RuleCommand* MessageCommand? lineTerminator+RuleBracket&#x3D; EllipsisRuleBracket| NormalRuleBracketNormalRuleBracket &#x3D; &quot;[&quot; NonemptyListOf&lt;RuleBracketNeighbor, &quot;|&quot;&gt; t_AGAIN? &quot;]&quot; t_DEBUGGER? // t_AGAIN is a HACK. It should be in the list of commands but it&#x27;s not.EllipsisRuleBracket &#x3D; &quot;[&quot; NonemptyListOf&lt;RuleBracketNeighbor, &quot;|&quot;&gt; t_ELLIPSIS &quot;|&quot; NonemptyListOf&lt;RuleBracketNeighbor, &quot;|&quot;&gt; &quot;]&quot; t_DEBUGGER?RuleBracketNeighbor&#x3D; HackTileNameIsSFX1 // to parse &#x27;... -&gt; [ SFX1 ]&#x27; (they should be commands)| HackTileNameIsSFX2 // to parse &#x27;... -&gt; [ tilename SFX1 ]&#x27;| RuleBracketNoEllipsisNeighborRuleBracketNoEllipsisNeighbor &#x3D; TileWithModifier* t_DEBUGGER?TileWithModifier &#x3D; t_DEBUGGER? tileModifier* lookupRuleVariableNametileModifier &#x3D; space* tileModifierInner space+ // Force-check that there is whitespace after the cellLayerModifier so things like &quot;STATIONARYZ&quot; or &quot;NOZ&quot; are not parsed as a modifier (they are a variable that happens to begin with the same text as a modifier)tileModifierInner&#x3D; t_NO| t_LEFT| t_RIGHT| t_UP| t_DOWN| t_RANDOMDIR| t_RANDOM| t_STATIONARY| t_MOVING| t_ACTION| t_VERTICAL| t_HORIZONTAL| t_PERPENDICULAR| t_PARALLEL| t_ORTHOGONAL| t_ARROW_ANY // This can be a &quot;v&quot; so it needs to go at the end (behind t_VERTICAL)RuleModifier&#x3D; t_RANDOM| t_UP| t_DOWN| t_LEFT| t_RIGHT| t_VERTICAL| t_HORIZONTAL| t_ORTHOGONALRuleModifierLeft&#x3D; RuleModifier // Sometimes people write &quot;RIGHT LATE [...&quot; instead of &quot;LATE RIGHT [...&quot;| t_LATE| t_RIGIDRuleCommand&#x3D; t_AGAIN| t_CANCEL| t_CHECKPOINT| t_RESTART| t_WIN| t_SFXMessageCommand &#x3D; t_MESSAGE words*RuleLoop &#x3D;t_DEBUGGER?t_STARTLOOP lineTerminator+RuleItem+t_ENDLOOP lineTerminator+RuleGroup &#x3D;t_DEBUGGER?t_RANDOM?Rule(t_GROUP_RULE_PLUS Rule)+HackTileNameIsSFX1 &#x3D; t_SFX t_DEBUGGER?HackTileNameIsSFX2 &#x3D; lookupRuleVariableName t_SFX t_DEBUGGER?"</span><span class="tsd-signature-symbol"> =&nbsp;&#x60;RuleItem&#x3D; RuleLoop| RuleGroup // Do this before Rule because we need to look for a &quot;+&quot; on the following Rule| RuleRule &#x3D; t_DEBUGGER? (RuleModifierLeft* RuleBracket)+ &quot;-&gt;&quot; (RuleModifier? RuleBracket)* RuleCommand* MessageCommand? lineTerminator+RuleBracket&#x3D; EllipsisRuleBracket| NormalRuleBracketNormalRuleBracket &#x3D; &quot;[&quot; NonemptyListOf&lt;RuleBracketNeighbor, &quot;|&quot;&gt; t_AGAIN? &quot;]&quot; t_DEBUGGER? // t_AGAIN is a HACK. It should be in the list of commands but it&#x27;s not.EllipsisRuleBracket &#x3D; &quot;[&quot; NonemptyListOf&lt;RuleBracketNeighbor, &quot;|&quot;&gt; t_ELLIPSIS &quot;|&quot; NonemptyListOf&lt;RuleBracketNeighbor, &quot;|&quot;&gt; &quot;]&quot; t_DEBUGGER?RuleBracketNeighbor&#x3D; HackTileNameIsSFX1 // to parse &#x27;... -&gt; [ SFX1 ]&#x27; (they should be commands)| HackTileNameIsSFX2 // to parse &#x27;... -&gt; [ tilename SFX1 ]&#x27;| RuleBracketNoEllipsisNeighborRuleBracketNoEllipsisNeighbor &#x3D; TileWithModifier* t_DEBUGGER?TileWithModifier &#x3D; t_DEBUGGER? tileModifier* lookupRuleVariableNametileModifier &#x3D; space* tileModifierInner space+ // Force-check that there is whitespace after the cellLayerModifier so things like &quot;STATIONARYZ&quot; or &quot;NOZ&quot; are not parsed as a modifier (they are a variable that happens to begin with the same text as a modifier)tileModifierInner&#x3D; t_NO| t_LEFT| t_RIGHT| t_UP| t_DOWN| t_RANDOMDIR| t_RANDOM| t_STATIONARY| t_MOVING| t_ACTION| t_VERTICAL| t_HORIZONTAL| t_PERPENDICULAR| t_PARALLEL| t_ORTHOGONAL| t_ARROW_ANY // This can be a &quot;v&quot; so it needs to go at the end (behind t_VERTICAL)RuleModifier&#x3D; t_RANDOM| t_UP| t_DOWN| t_LEFT| t_RIGHT| t_VERTICAL| t_HORIZONTAL| t_ORTHOGONALRuleModifierLeft&#x3D; RuleModifier // Sometimes people write &quot;RIGHT LATE [...&quot; instead of &quot;LATE RIGHT [...&quot;| t_LATE| t_RIGIDRuleCommand&#x3D; t_AGAIN| t_CANCEL| t_CHECKPOINT| t_RESTART| t_WIN| t_SFXMessageCommand &#x3D; t_MESSAGE words*RuleLoop &#x3D;t_DEBUGGER?t_STARTLOOP lineTerminator+RuleItem+t_ENDLOOP lineTerminator+RuleGroup &#x3D;t_DEBUGGER?t_RANDOM?Rule(t_GROUP_RULE_PLUS Rule)+HackTileNameIsSFX1 &#x3D; t_SFX t_DEBUGGER?HackTileNameIsSFX2 &#x3D; lookupRuleVariableName t_SFX t_DEBUGGER?&#x60;</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/e9defde/src/parser/ruleGrammar.ts#L10">parser/ruleGrammar.ts:10</a></li>
+						<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/parser/ruleGrammar.ts#L10">parser/ruleGrammar.ts:10</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -963,7 +961,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/e9defde/src/parser/ruleGrammar.ts#L93">parser/ruleGrammar.ts:93</a></li>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/parser/ruleGrammar.ts#L95">parser/ruleGrammar.ts:95</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -983,7 +981,7 @@ img { max-width: 100%; }
 									<li class="tsd-description">
 										<aside class="tsd-sources">
 											<ul>
-												<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/e9defde/src/parser/ruleGrammar.ts#L127">parser/ruleGrammar.ts:127</a></li>
+												<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/parser/ruleGrammar.ts#L129">parser/ruleGrammar.ts:129</a></li>
 											</ul>
 										</aside>
 										<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1028,7 +1026,7 @@ img { max-width: 100%; }
 									<li class="tsd-description">
 										<aside class="tsd-sources">
 											<ul>
-												<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/e9defde/src/parser/ruleGrammar.ts#L209">parser/ruleGrammar.ts:209</a></li>
+												<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/parser/ruleGrammar.ts#L211">parser/ruleGrammar.ts:211</a></li>
 											</ul>
 										</aside>
 										<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1055,7 +1053,7 @@ img { max-width: 100%; }
 									<li class="tsd-description">
 										<aside class="tsd-sources">
 											<ul>
-												<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/e9defde/src/parser/ruleGrammar.ts#L212">parser/ruleGrammar.ts:212</a></li>
+												<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/parser/ruleGrammar.ts#L214">parser/ruleGrammar.ts:214</a></li>
 											</ul>
 										</aside>
 										<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1085,7 +1083,7 @@ img { max-width: 100%; }
 									<li class="tsd-description">
 										<aside class="tsd-sources">
 											<ul>
-												<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/e9defde/src/parser/ruleGrammar.ts#L171">parser/ruleGrammar.ts:171</a></li>
+												<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/parser/ruleGrammar.ts#L173">parser/ruleGrammar.ts:173</a></li>
 											</ul>
 										</aside>
 										<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1112,7 +1110,7 @@ img { max-width: 100%; }
 									<li class="tsd-description">
 										<aside class="tsd-sources">
 											<ul>
-												<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/e9defde/src/parser/ruleGrammar.ts#L117">parser/ruleGrammar.ts:117</a></li>
+												<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/parser/ruleGrammar.ts#L119">parser/ruleGrammar.ts:119</a></li>
 											</ul>
 										</aside>
 										<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1151,7 +1149,7 @@ img { max-width: 100%; }
 									<li class="tsd-description">
 										<aside class="tsd-sources">
 											<ul>
-												<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/e9defde/src/parser/ruleGrammar.ts#L107">parser/ruleGrammar.ts:107</a></li>
+												<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/parser/ruleGrammar.ts#L109">parser/ruleGrammar.ts:109</a></li>
 											</ul>
 										</aside>
 										<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1199,7 +1197,7 @@ img { max-width: 100%; }
 									<li class="tsd-description">
 										<aside class="tsd-sources">
 											<ul>
-												<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/e9defde/src/parser/ruleGrammar.ts#L145">parser/ruleGrammar.ts:145</a></li>
+												<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/parser/ruleGrammar.ts#L147">parser/ruleGrammar.ts:147</a></li>
 											</ul>
 										</aside>
 										<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1223,7 +1221,7 @@ img { max-width: 100%; }
 									<li class="tsd-description">
 										<aside class="tsd-sources">
 											<ul>
-												<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/e9defde/src/parser/ruleGrammar.ts#L148">parser/ruleGrammar.ts:148</a></li>
+												<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/parser/ruleGrammar.ts#L150">parser/ruleGrammar.ts:150</a></li>
 											</ul>
 										</aside>
 										<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1253,7 +1251,7 @@ img { max-width: 100%; }
 									<li class="tsd-description">
 										<aside class="tsd-sources">
 											<ul>
-												<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/e9defde/src/parser/ruleGrammar.ts#L174">parser/ruleGrammar.ts:174</a></li>
+												<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/parser/ruleGrammar.ts#L176">parser/ruleGrammar.ts:176</a></li>
 											</ul>
 										</aside>
 										<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1284,13 +1282,13 @@ img { max-width: 100%; }
 							<li class="tsd-parameter">
 								<h5>Rule<wbr>Group<span class="tsd-signature-symbol">: </span>function</h5>
 								<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-type-literal tsd-is-not-exported">
-									<li class="tsd-signature tsd-kind-icon">Rule<wbr>Group<span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Node</span>, debugFlag<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../enums/_util_.debug_flag.html" class="tsd-signature-type">DEBUG_FLAG</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span>, firstRule<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../classes/_parser_astrule_.astrule.html" class="tsd-signature-type">ASTRule</a><span class="tsd-signature-symbol">&gt;</span>, _plusses<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span>, followingRules<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../classes/_parser_astrule_.astrule.html" class="tsd-signature-type">ASTRule</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../classes/_parser_astrule_.astrulegroup.html" class="tsd-signature-type">ASTRuleGroup</a></li>
+									<li class="tsd-signature tsd-kind-icon">Rule<wbr>Group<span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Node</span>, debugFlag<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../enums/_util_.debug_flag.html" class="tsd-signature-type">DEBUG_FLAG</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span>, randomFlag<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../enums/_parser_astrule_.ast_rule_modifier.html" class="tsd-signature-type">AST_RULE_MODIFIER</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span>, firstRule<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../classes/_parser_astrule_.astrule.html" class="tsd-signature-type">ASTRule</a><span class="tsd-signature-symbol">&gt;</span>, _plusses<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span>, followingRules<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../classes/_parser_astrule_.astrule.html" class="tsd-signature-type">ASTRule</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../classes/_parser_astrule_.astrulegroup.html" class="tsd-signature-type">ASTRuleGroup</a></li>
 								</ul>
 								<ul class="tsd-descriptions">
 									<li class="tsd-description">
 										<aside class="tsd-sources">
 											<ul>
-												<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/e9defde/src/parser/ruleGrammar.ts#L104">parser/ruleGrammar.ts:104</a></li>
+												<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/parser/ruleGrammar.ts#L106">parser/ruleGrammar.ts:106</a></li>
 											</ul>
 										</aside>
 										<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1300,6 +1298,9 @@ img { max-width: 100%; }
 											</li>
 											<li>
 												<h5>debugFlag: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../enums/_util_.debug_flag.html" class="tsd-signature-type">DEBUG_FLAG</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h5>
+											</li>
+											<li>
+												<h5>randomFlag: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../enums/_parser_astrule_.ast_rule_modifier.html" class="tsd-signature-type">AST_RULE_MODIFIER</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h5>
 											</li>
 											<li>
 												<h5>firstRule: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../classes/_parser_astrule_.astrule.html" class="tsd-signature-type">ASTRule</a><span class="tsd-signature-symbol">&gt;</span></h5>
@@ -1323,7 +1324,7 @@ img { max-width: 100%; }
 									<li class="tsd-description">
 										<aside class="tsd-sources">
 											<ul>
-												<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/e9defde/src/parser/ruleGrammar.ts#L98">parser/ruleGrammar.ts:98</a></li>
+												<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/parser/ruleGrammar.ts#L100">parser/ruleGrammar.ts:100</a></li>
 											</ul>
 										</aside>
 										<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1347,7 +1348,7 @@ img { max-width: 100%; }
 									<li class="tsd-description">
 										<aside class="tsd-sources">
 											<ul>
-												<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/e9defde/src/parser/ruleGrammar.ts#L101">parser/ruleGrammar.ts:101</a></li>
+												<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/parser/ruleGrammar.ts#L103">parser/ruleGrammar.ts:103</a></li>
 											</ul>
 										</aside>
 										<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1386,7 +1387,7 @@ img { max-width: 100%; }
 									<li class="tsd-description">
 										<aside class="tsd-sources">
 											<ul>
-												<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/e9defde/src/parser/ruleGrammar.ts#L158">parser/ruleGrammar.ts:158</a></li>
+												<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/parser/ruleGrammar.ts#L160">parser/ruleGrammar.ts:160</a></li>
 											</ul>
 										</aside>
 										<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1419,7 +1420,7 @@ img { max-width: 100%; }
 									<li class="tsd-description">
 										<aside class="tsd-sources">
 											<ul>
-												<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/e9defde/src/parser/ruleGrammar.ts#L168">parser/ruleGrammar.ts:168</a></li>
+												<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/parser/ruleGrammar.ts#L170">parser/ruleGrammar.ts:170</a></li>
 											</ul>
 										</aside>
 										<h4 class="tsd-parameters-title">Parameters</h4>

@@ -895,8 +895,6 @@ img { max-width: 100%; }
 							</div>
 							<input type="checkbox" id="tsd-filter-inherited" checked />
 							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
-							<input type="checkbox" id="tsd-filter-externals" checked />
-							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
 							<input type="checkbox" id="tsd-filter-only-exported" />
 							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
 						</div>
@@ -909,6 +907,12 @@ img { max-width: 100%; }
 </header>
 <nav class="tsd-navigation secondary">
 	<ul>
+		<li class=" tsd-kind-enum tsd-parent-kind-external-module tsd-is-not-exported">
+			<a href="../enums/_playgame_.cli_sprite_size.html" class="tsd-kind-icon">CLI_<wbr>SPRITE_<wbr>SIZE</a>
+		</li>
+		<li class=" tsd-kind-type-alias tsd-parent-kind-external-module tsd-is-not-exported">
+			<a href="_playgame_.html#clioptions" class="tsd-kind-icon">Cli<wbr>Options</a>
+		</li>
 		<li class=" tsd-kind-type-alias tsd-parent-kind-external-module tsd-is-not-exported">
 			<a href="_playgame_.html#gameinfo" class="tsd-kind-icon">Game<wbr>Info</a>
 		</li>
@@ -919,7 +923,13 @@ img { max-width: 100%; }
 			<a href="_playgame_.html#levelrecording" class="tsd-kind-icon">Level<wbr>Recording</a>
 		</li>
 		<li class=" tsd-kind-type-alias tsd-parent-kind-external-module tsd-is-not-exported">
+			<a href="_playgame_.html#package" class="tsd-kind-icon">Package</a>
+		</li>
+		<li class=" tsd-kind-type-alias tsd-parent-kind-external-module tsd-is-not-exported">
 			<a href="_playgame_.html#savefile" class="tsd-kind-icon">Save<wbr>File</a>
+		</li>
+		<li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported">
+			<a href="_playgame_.html#pkg" class="tsd-kind-icon">pkg</a>
 		</li>
 		<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
 			<a href="_playgame_.html#first2lines" class="tsd-kind-icon">first2<wbr>Lines</a>
@@ -959,13 +969,27 @@ img { max-width: 100%; }
 			<h2>Index</h2>
 			<section class="tsd-panel tsd-index-panel">
 				<div class="tsd-index-content">
+					<section class="tsd-index-section tsd-is-not-exported">
+						<h3>Enumerations</h3>
+						<ul class="tsd-index-list">
+							<li class="tsd-kind-enum tsd-parent-kind-external-module tsd-is-not-exported"><a href="../enums/_playgame_.cli_sprite_size.html" class="tsd-kind-icon">CLI_<wbr>SPRITE_<wbr>SIZE</a></li>
+						</ul>
+					</section>
 					<section class="tsd-index-section ">
 						<h3>Type aliases</h3>
 						<ul class="tsd-index-list">
+							<li class="tsd-kind-type-alias tsd-parent-kind-external-module tsd-is-not-exported"><a href="_playgame_.html#clioptions" class="tsd-kind-icon">Cli<wbr>Options</a></li>
 							<li class="tsd-kind-type-alias tsd-parent-kind-external-module tsd-is-not-exported"><a href="_playgame_.html#gameinfo" class="tsd-kind-icon">Game<wbr>Info</a></li>
 							<li class="tsd-kind-type-alias tsd-parent-kind-external-module"><a href="_playgame_.html#gamerecording" class="tsd-kind-icon">Game<wbr>Recording</a></li>
 							<li class="tsd-kind-type-alias tsd-parent-kind-external-module"><a href="_playgame_.html#levelrecording" class="tsd-kind-icon">Level<wbr>Recording</a></li>
+							<li class="tsd-kind-type-alias tsd-parent-kind-external-module tsd-is-not-exported"><a href="_playgame_.html#package" class="tsd-kind-icon">Package</a></li>
 							<li class="tsd-kind-type-alias tsd-parent-kind-external-module tsd-is-not-exported"><a href="_playgame_.html#savefile" class="tsd-kind-icon">Save<wbr>File</a></li>
+						</ul>
+					</section>
+					<section class="tsd-index-section tsd-is-not-exported">
+						<h3>Variables</h3>
+						<ul class="tsd-index-list">
+							<li class="tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported"><a href="_playgame_.html#pkg" class="tsd-kind-icon">pkg</a></li>
 						</ul>
 					</section>
 					<section class="tsd-index-section tsd-is-not-exported">
@@ -989,12 +1013,48 @@ img { max-width: 100%; }
 		<section class="tsd-panel-group tsd-member-group ">
 			<h2>Type aliases</h2>
 			<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-external-module tsd-is-not-exported">
+				<a name="clioptions" class="tsd-anchor"></a>
+				<h3>Cli<wbr>Options</h3>
+				<div class="tsd-signature tsd-kind-icon">Cli<wbr>Options<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+				<aside class="tsd-sources">
+					<ul>
+						<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/playGame.ts#L33">playGame.ts:33</a></li>
+					</ul>
+				</aside>
+				<div class="tsd-type-declaration">
+					<h4>Type declaration</h4>
+					<ul class="tsd-parameters">
+						<li class="tsd-parameter">
+							<h5>game<span class="tsd-signature-symbol">: </span><a href="_util_.html#optional" class="tsd-signature-type">Optional</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h5>
+						</li>
+						<li class="tsd-parameter">
+							<h5>level<span class="tsd-signature-symbol">: </span><a href="_util_.html#optional" class="tsd-signature-type">Optional</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h5>
+						</li>
+						<li class="tsd-parameter">
+							<h5>new<span class="tsd-signature-symbol">: </span><a href="_util_.html#optional" class="tsd-signature-type">Optional</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">true</span><span class="tsd-signature-symbol">&gt;</span></h5>
+						</li>
+						<li class="tsd-parameter">
+							<h5>resume<span class="tsd-signature-symbol">: </span><a href="_util_.html#optional" class="tsd-signature-type">Optional</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h5>
+						</li>
+						<li class="tsd-parameter">
+							<h5>size<span class="tsd-signature-symbol">: </span><a href="_util_.html#optional" class="tsd-signature-type">Optional</a><span class="tsd-signature-symbol">&lt;</span><a href="../enums/_playgame_.cli_sprite_size.html" class="tsd-signature-type">CLI_SPRITE_SIZE</a><span class="tsd-signature-symbol">&gt;</span></h5>
+						</li>
+						<li class="tsd-parameter">
+							<h5>ui<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></h5>
+						</li>
+						<li class="tsd-parameter">
+							<h5>version<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
+						</li>
+					</ul>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-external-module tsd-is-not-exported">
 				<a name="gameinfo" class="tsd-anchor"></a>
 				<h3>Game<wbr>Info</h3>
 				<div class="tsd-signature tsd-kind-icon">Game<wbr>Info<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/e9defde/src/playGame.ts#L82">playGame.ts:82</a></li>
+						<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/playGame.ts#L31">playGame.ts:31</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-type-declaration">
@@ -1018,7 +1078,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">Game<wbr>Recording<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/e9defde/src/playGame.ts#L19">playGame.ts:19</a></li>
+						<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/playGame.ts#L15">playGame.ts:15</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-type-declaration">
@@ -1039,7 +1099,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">Level<wbr>Recording<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/e9defde/src/playGame.ts#L23">playGame.ts:23</a></li>
+						<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/playGame.ts#L19">playGame.ts:19</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-type-declaration">
@@ -1055,12 +1115,33 @@ img { max-width: 100%; }
 				</div>
 			</section>
 			<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-external-module tsd-is-not-exported">
+				<a name="package" class="tsd-anchor"></a>
+				<h3>Package</h3>
+				<div class="tsd-signature tsd-kind-icon">Package<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+				<aside class="tsd-sources">
+					<ul>
+						<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/playGame.ts#L23">playGame.ts:23</a></li>
+					</ul>
+				</aside>
+				<div class="tsd-type-declaration">
+					<h4>Type declaration</h4>
+					<ul class="tsd-parameters">
+						<li class="tsd-parameter">
+							<h5>homepage<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
+						</li>
+						<li class="tsd-parameter">
+							<h5>version<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
+						</li>
+					</ul>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-external-module tsd-is-not-exported">
 				<a name="savefile" class="tsd-anchor"></a>
 				<h3>Save<wbr>File</h3>
 				<div class="tsd-signature tsd-kind-icon">Save<wbr>File<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/e9defde/src/playGame.ts#L83">playGame.ts:83</a></li>
+						<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/playGame.ts#L32">playGame.ts:32</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-type-declaration">
@@ -1077,6 +1158,19 @@ img { max-width: 100%; }
 			</section>
 		</section>
 		<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
+			<h2>Variables</h2>
+			<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported">
+				<a name="pkg" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagConst">Const</span> pkg</h3>
+				<div class="tsd-signature tsd-kind-icon">pkg<span class="tsd-signature-symbol">:</span> <a href="_playgame_.html#package" class="tsd-signature-type">Package</a><span class="tsd-signature-symbol"> =&nbsp;&lt;Package&gt; require(&#x27;../package.json&#x27;)</span></div>
+				<aside class="tsd-sources">
+					<ul>
+						<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/playGame.ts#L44">playGame.ts:44</a></li>
+					</ul>
+				</aside>
+			</section>
+		</section>
+		<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
 			<h2>Functions</h2>
 			<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
 				<a name="first2lines" class="tsd-anchor"></a>
@@ -1088,7 +1182,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/e9defde/src/playGame.ts#L33">playGame.ts:33</a></li>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/playGame.ts#L50">playGame.ts:50</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1105,13 +1199,13 @@ img { max-width: 100%; }
 				<a name="playgame" class="tsd-anchor"></a>
 				<h3>play<wbr>Game</h3>
 				<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
-					<li class="tsd-signature tsd-kind-icon">play<wbr>Game<span class="tsd-signature-symbol">(</span>data<span class="tsd-signature-symbol">: </span><a href="../classes/_models_game_.gamedata.html" class="tsd-signature-type">GameData</a>, currentLevelNum<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, recordings<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span>, ticksToRunFirst<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, absPath<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, solutionsPath<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					<li class="tsd-signature tsd-kind-icon">play<wbr>Game<span class="tsd-signature-symbol">(</span>data<span class="tsd-signature-symbol">: </span><a href="../classes/_models_game_.gamedata.html" class="tsd-signature-type">GameData</a>, currentLevelNum<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, recordings<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span>, ticksToRunFirst<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, absPath<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, solutionsPath<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, cliUi<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span>, onlyOneLevel<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/e9defde/src/playGame.ts#L192">playGame.ts:192</a></li>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/playGame.ts#L240">playGame.ts:240</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1142,6 +1236,12 @@ img { max-width: 100%; }
 							<li>
 								<h5>solutionsPath: <span class="tsd-signature-type">string</span></h5>
 							</li>
+							<li>
+								<h5>cliUi: <span class="tsd-signature-type">boolean</span></h5>
+							</li>
+							<li>
+								<h5>onlyOneLevel: <span class="tsd-signature-type">boolean</span></h5>
+							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
 					</li>
@@ -1151,13 +1251,13 @@ img { max-width: 100%; }
 				<a name="promptchooselevel" class="tsd-anchor"></a>
 				<h3>prompt<wbr>Choose<wbr>Level</h3>
 				<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
-					<li class="tsd-signature tsd-kind-icon">prompt<wbr>Choose<wbr>Level<span class="tsd-signature-symbol">(</span>recordings<span class="tsd-signature-symbol">: </span><a href="_playgame_.html#savefile" class="tsd-signature-type">SaveFile</a>, data<span class="tsd-signature-symbol">: </span><a href="../classes/_models_game_.gamedata.html" class="tsd-signature-type">GameData</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
+					<li class="tsd-signature tsd-kind-icon">prompt<wbr>Choose<wbr>Level<span class="tsd-signature-symbol">(</span>recordings<span class="tsd-signature-symbol">: </span><a href="_playgame_.html#savefile" class="tsd-signature-type">SaveFile</a>, data<span class="tsd-signature-symbol">: </span><a href="../classes/_models_game_.gamedata.html" class="tsd-signature-type">GameData</a>, cliLevel<span class="tsd-signature-symbol">: </span><a href="_util_.html#optional" class="tsd-signature-type">Optional</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/e9defde/src/playGame.ts#L475">playGame.ts:475</a></li>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/playGame.ts#L524">playGame.ts:524</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1168,6 +1268,9 @@ img { max-width: 100%; }
 							<li>
 								<h5>data: <a href="../classes/_models_game_.gamedata.html" class="tsd-signature-type">GameData</a></h5>
 							</li>
+							<li>
+								<h5>cliLevel: <a href="_util_.html#optional" class="tsd-signature-type">Optional</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h5>
+							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4>
 					</li>
@@ -1177,19 +1280,22 @@ img { max-width: 100%; }
 				<a name="promptgame" class="tsd-anchor"></a>
 				<h3>prompt<wbr>Game</h3>
 				<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
-					<li class="tsd-signature tsd-kind-icon">prompt<wbr>Game<span class="tsd-signature-symbol">(</span>games<span class="tsd-signature-symbol">: </span><a href="_playgame_.html#gameinfo" class="tsd-signature-type">GameInfo</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></li>
+					<li class="tsd-signature tsd-kind-icon">prompt<wbr>Game<span class="tsd-signature-symbol">(</span>games<span class="tsd-signature-symbol">: </span><a href="_playgame_.html#gameinfo" class="tsd-signature-type">GameInfo</a><span class="tsd-signature-symbol">[]</span>, cliGameTitle<span class="tsd-signature-symbol">: </span><a href="_util_.html#optional" class="tsd-signature-type">Optional</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/e9defde/src/playGame.ts#L602">playGame.ts:602</a></li>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/playGame.ts#L658">playGame.ts:658</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
 								<h5>games: <a href="_playgame_.html#gameinfo" class="tsd-signature-type">GameInfo</a><span class="tsd-signature-symbol">[]</span></h5>
+							</li>
+							<li>
+								<h5>cliGameTitle: <a href="_util_.html#optional" class="tsd-signature-type">Optional</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h5>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -1200,19 +1306,22 @@ img { max-width: 100%; }
 				<a name="promptpixelsize" class="tsd-anchor"></a>
 				<h3>prompt<wbr>Pixel<wbr>Size</h3>
 				<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
-					<li class="tsd-signature tsd-kind-icon">prompt<wbr>Pixel<wbr>Size<span class="tsd-signature-symbol">(</span>data<span class="tsd-signature-symbol">: </span><a href="../classes/_models_game_.gamedata.html" class="tsd-signature-type">GameData</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					<li class="tsd-signature tsd-kind-icon">prompt<wbr>Pixel<wbr>Size<span class="tsd-signature-symbol">(</span>data<span class="tsd-signature-symbol">: </span><a href="../classes/_models_game_.gamedata.html" class="tsd-signature-type">GameData</a>, cliSpriteSize<span class="tsd-signature-symbol">: </span><a href="_util_.html#optional" class="tsd-signature-type">Optional</a><span class="tsd-signature-symbol">&lt;</span><a href="../enums/_playgame_.cli_sprite_size.html" class="tsd-signature-type">CLI_SPRITE_SIZE</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/e9defde/src/playGame.ts#L559">playGame.ts:559</a></li>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/playGame.ts#L611">playGame.ts:611</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
 								<h5>data: <a href="../classes/_models_game_.gamedata.html" class="tsd-signature-type">GameData</a></h5>
+							</li>
+							<li>
+								<h5>cliSpriteSize: <a href="_util_.html#optional" class="tsd-signature-type">Optional</a><span class="tsd-signature-symbol">&lt;</span><a href="../enums/_playgame_.cli_sprite_size.html" class="tsd-signature-type">CLI_SPRITE_SIZE</a><span class="tsd-signature-symbol">&gt;</span></h5>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -1229,7 +1338,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/e9defde/src/playGame.ts#L464">playGame.ts:464</a></li>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/playGame.ts#L513">playGame.ts:513</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -1246,7 +1355,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/e9defde/src/playGame.ts#L88">playGame.ts:88</a></li>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/playGame.ts#L117">playGame.ts:117</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -1263,7 +1372,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/e9defde/src/playGame.ts#L713">playGame.ts:713</a></li>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/playGame.ts#L813">playGame.ts:813</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -1280,7 +1389,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/e9defde/src/playGame.ts#L29">playGame.ts:29</a></li>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/playGame.ts#L46">playGame.ts:46</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1303,7 +1412,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/e9defde/src/playGame.ts#L69">playGame.ts:69</a></li>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/playGame.ts#L86">playGame.ts:86</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
