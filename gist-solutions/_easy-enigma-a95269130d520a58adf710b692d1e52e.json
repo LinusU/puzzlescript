@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "solutions": [
+    {
+      "solution": "DDDDD"
+    },
+    {
+      "solution": ".X"
+    },
+    {
+      "solution": "DSDDWWASDSADDDWASAAWWDSAAASD"
+    },
+    {
+      "solution": ".X"
+    },
+    {
+      "solution": ".."
+    }
+  ],
+  "title": "Easy Enigma",
+  "totalLevels": 21,
+  "totalMapLevels": 21
+}

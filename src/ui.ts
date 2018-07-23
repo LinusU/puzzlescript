@@ -2,12 +2,11 @@ import * as _ from 'lodash'
 import * as ansiStyles from 'ansi-styles'
 import * as ansiEscapes from 'ansi-escapes'
 import * as supportsColor from 'supports-color'
-import { GameSprite } from './models/tile'
-import { GameData } from './models/game'
-import { IColor } from './models/colors'
-import { GameEngine, Cell } from './engine'
-import { RULE_DIRECTION, Optional } from './util';
 import chalk from 'chalk';
+
+import { GameEngine, Cell, GameData, Optional, RULE_DIRECTION } from './'
+import { GameSprite } from './models/tile'
+import { IColor } from './models/colors'
 import { makeLetterCell } from './letters';
 
 // Determine if this
@@ -44,16 +43,16 @@ function setShowCursor() {
 function clearScreen() {
     process.stdout.write(ansiEscapes.clearScreen)
 }
-function writeTextAt(x: number, y: number, msg: string) {
-    process.stdout.write(`${setMoveTo(x, y)}${msg}`)
+function clearLineAndWriteTextAt(x: number, y: number, msg: string) {
+    process.stdout.write(`${setMoveTo(x, y)}${ansiEscapes.eraseLine}${msg}`)
 }
 function drawPixelChar(x: number, y: number, fgHex: Optional<string>, bgHex: Optional<string>, char: string) {
-    const out = []
+    const out:string[] = []
     if (fgHex) {
-        out.push(writeFgColor(fgHex))
+        out.push(setFgColor(fgHex))
     }
     if (bgHex) {
-        out.push(writeBgColor(bgHex))
+        out.push(setBgColor(bgHex))
     }
     out.push(setMoveTo(x, y))
     out.push(char)
@@ -61,7 +60,7 @@ function drawPixelChar(x: number, y: number, fgHex: Optional<string>, bgHex: Opt
     out.push(setBgColor('#000000'))
     out.push(setFgColor('#ffffff'))
     out.push(setShowCursor())
-    process.stdout.write(out.join(''))
+    return out.join('')
 }
 
 
@@ -152,6 +151,8 @@ class TerminalUI {
     PIXEL_HEIGHT: number
     private inspectorCol: number
     private inspectorRow: number
+    private debugCategoryMessages: string[]
+    private hasVisualUi: boolean
 
     constructor() {
         this.cellColorCache = new CellColorCache()
@@ -170,6 +171,9 @@ class TerminalUI {
         // This is the "inspector" cursor that allows a11y
         this.inspectorCol = 0
         this.inspectorRow = 0
+
+        this.debugCategoryMessages = []
+        this.hasVisualUi = supportsColor.stdout
     }
     setGame(engine: GameEngine) {
         this.engine = engine
@@ -202,6 +206,9 @@ class TerminalUI {
         this.inspectorCol = 0
         this.inspectorRow = 0
     }
+    setHasVisualUi(flag: boolean) {
+        this.hasVisualUi = flag
+    }
     setSmallTerminal(yesNo: boolean) {
         if (yesNo) {
             this.PIXEL_WIDTH = 1 // number of characters in the terminal used to represent a pixel
@@ -214,6 +221,17 @@ class TerminalUI {
     private isLargeTerminal() {
         return this.PIXEL_HEIGHT === 1
     }
+    private clearLineAndWriteText(x: number, y: number, text: string) {
+        if (!this.hasVisualUi) {
+            console.log(`Writing text at [${y}][${x}]: "${text}"`)
+            return
+        }
+        writeFgColor('#ffffff')
+        writeBgColor('#000000')
+        clearLineAndWriteTextAt(x, y, text)
+        process.stdout.write(getRestoreCursor())
+    }
+
     private getSpriteSize(gameData: GameData) {
         const firstSpriteWithPixels = gameData.objects.filter(sprite => sprite.hasPixels())[0]
         if (firstSpriteWithPixels) {
@@ -363,7 +381,7 @@ class TerminalUI {
         const screenHeight = 13
 
         const {columns, rows} = getTerminalSize()
-        if (supportsColor.stdout && columns >= screenWidth * 5 * this.PIXEL_WIDTH && rows >= screenHeight * 5 * this.PIXEL_HEIGHT) {
+        if (this.hasVisualUi && columns >= screenWidth * 5 * this.PIXEL_WIDTH && rows >= screenHeight * 5 * this.PIXEL_HEIGHT) {
             // re-center the screen so we can show the message
             // remember these values so we can restore them right after rendering the message
             const {windowOffsetColStart, windowOffsetRowStart, windowOffsetHeight, windowOffsetWidth} = this
@@ -374,11 +392,7 @@ class TerminalUI {
             this.clearScreen()
 
             const cells = this.createMessageCells(message)
-            for (const row of cells) {
-                for (const letterCell of row) {
-                    this.drawCell(letterCell, false)
-                }
-            }
+            this.drawCells(_.flatten(cells), false)
 
             this.windowOffsetColStart = windowOffsetColStart
             this.windowOffsetRowStart = windowOffsetRowStart
@@ -414,7 +428,7 @@ class TerminalUI {
         }
 
         // Perform this AFTER the renderMessageScreen so that messages are always rendered (but puzzle levels are not)
-        if (!supportsColor.stdout) {
+        if (!this.hasVisualUi) {
             console.log('Playing a game in the console requires color support. Unfortunately, color is not supported so not rendering (for now). We could just do an ASCII dump or something, using  ░▒▓█ to denote shades of cells')
             return
         }
@@ -437,14 +451,10 @@ class TerminalUI {
             process.stdout.on('resize', this.resizeHandler)
         }
 
-        levelRows.forEach((row, rowIndex) => {
-            row.forEach((cell, colIndex) => {
-                this.drawCell(cell, false, renderScreenDepth)
-            })
-        })
+        this.drawCells(_.flatten(levelRows), false, renderScreenDepth)
 
         // Just for debugging, print the game title (doing it here helps with Jest rendering correctly)
-        this.writeDebug(`"${this.gameData.title}"`)
+        this.writeDebug(`"${this.gameData.title}"`, 0)
     }
 
     private cellPosToXY(cell: Cell) {
@@ -481,6 +491,7 @@ class TerminalUI {
     }
 
     private setPixel(x: number, y: number, hex: string, fgHex: Optional<string>, chars: string) {
+        const ret: string[] = []
         const getColor = (y: number, x: number) => {
             if (this.renderedPixels[y] && this.renderedPixels[y][x]) {
                 return this.renderedPixels[y][x].hex
@@ -503,11 +514,11 @@ class TerminalUI {
             this.renderedPixels[y][x] = {hex, chars}
 
             if (this.isDumpingScreen) {
-                return // don't actually render the pixel
+                return '' // don't actually render the pixel
             }
             if (this.PIXEL_HEIGHT === 1) {
-                drawPixelChar(x * this.PIXEL_WIDTH, y + 1/*titlebar*/, fgHex, hex, chars[0] || ' ')
-                drawPixelChar(x * this.PIXEL_WIDTH + 1, y + 1/*titlebar*/, fgHex, hex, chars[1] || ' ')
+                ret.push(drawPixelChar(x * this.PIXEL_WIDTH, y + 1/*titlebar*/, fgHex, hex, chars[0] || ' '))
+                ret.push(drawPixelChar(x * this.PIXEL_WIDTH + 1, y + 1/*titlebar*/, fgHex, hex, chars[1] || ' '))
             } else {
                 let upperColor
                 let lowerColor
@@ -518,9 +529,10 @@ class TerminalUI {
                     upperColor = getColor(y - 1, x)
                     lowerColor = hex
                 }
-                drawPixelChar(x * this.PIXEL_WIDTH, Math.floor(y * this.PIXEL_HEIGHT) + 1/*titlebar*/, lowerColor, upperColor, '▄')
+                ret.push(drawPixelChar(x * this.PIXEL_WIDTH, Math.floor(y * this.PIXEL_HEIGHT) + 1/*titlebar*/, lowerColor, upperColor, '▄'))
             }
         }
+        return ret.join('')
     }
 
 
@@ -648,35 +660,55 @@ class TerminalUI {
         return false
     }
 
-    drawCell(cell: Cell, dontRestoreCursor: boolean, renderScreenDepth: number = 0) {
+    drawCells(cells: Iterable<Cell>, dontRestoreCursor: boolean, renderScreenDepth: number = 0) {
         if (!this.gameData) {
             throw new Error(`BUG: gameData was not set yet`)
         }
-        if (!supportsColor.stdout) {
+        if (!this.engine) {
+            throw new Error(`BUG: gameEngine was not set yet`)
+        }
+        const ret: string[] = []
+
+        // Sort of HACKy... If the player is not visible on the screen then we need to
+        // move the screen so that they are visible.
+        const playerTile = this.gameData.getPlayer()
+        if (playerTile.getCellsThatMatch().size === 1) {
+            // if the screen can only show an even number of cells (eg 4) then this will oscillate indefinitely
+            // So we limit the recursion to just a couple of recursions
+            if (renderScreenDepth <= 1) {
+                const playerCell = [...playerTile.getCellsThatMatch()][0]
+                const { isOnScreen } = this.cellPosToXY(playerCell)
+                if (this.recenterPlayerIfNeeded(playerCell, isOnScreen)) {
+                    // if we moved the screen then re-render the whole screen
+                    cells = _.flatten(this.engine.getCurrentLevelCells())
+                }
+            }
+            // otherwise, keep rendering cells like normal
+        }
+
+        for (const cell of cells) {
+            const instructions = this._drawCell(cell, dontRestoreCursor, renderScreenDepth)
+            if (instructions) {
+                ret.push(instructions)
+            }
+        }
+        process.stdout.write(ret.join(''))
+    }
+    private _drawCell(cell: Cell, dontRestoreCursor: boolean, renderScreenDepth: number = 0) {
+        const ret: string[] = []
+        if (!this.gameData) {
+            throw new Error(`BUG: gameData was not set yet`)
+        }
+        if (!this.hasVisualUi) {
             // Commented just to reduce noise. Maybe it shoud be brought back
             // console.log(`Updating cell [${cell.rowIndex}][${cell.colIndex}] to have sprites: [${cell.getSprites().map(sprite => sprite.getName())}]`)
-            return
+            return // don't output anything
         }
 
         // TODO: Also eventually filter out the Background ones when Background is an OR Tile
         const spritesForDebugging = cell.getSprites().filter(s => !s.isBackground())
 
         let { isOnScreen, cellStartX, cellStartY } = this.cellPosToXY(cell)
-
-        // Sort of HACKy... If the player is not visible on the screen then we need to
-        // move the screen so that they are visible.
-        const playerTile = this.gameData.getPlayer()
-        const cellHasPlayer = playerTile.matchesCell(cell)
-        if (playerTile.getCellsThatMatch().size === 1 && cellHasPlayer) {
-            // if the screen can only show an even number of cells (eg 4) then this will oscillate indefinitely
-            // So we limit the recursion to just a couple of recursions
-            if (renderScreenDepth <= 1) {
-                if (this.recenterPlayerIfNeeded(cell, isOnScreen)) {
-                    return this.renderScreen(false, renderScreenDepth + 1)
-                }
-            }
-            // otherwise, keep rendering cells like normal
-        }
 
         if (!isOnScreen) {
             return // no need to render because it is off-screen
@@ -751,13 +783,13 @@ class TerminalUI {
                             }
                             spriteName = `${wantsToMove}${spriteName}`
                             if (spriteName.length > 10) {
-                                spriteName = `${spriteName.substring(0, 5)}.${spriteName.substring(spriteName.length - 4)}`
+                                spriteName = `${spriteName.substring(0, this.SPRITE_WIDTH)}.${spriteName.substring(spriteName.length - this.SPRITE_WIDTH + 1)}`
                             }
                             const msg = `${spriteName.substring(spriteColIndex * 2, spriteColIndex * 2 + 2)}`
                             chars = msg.substring(0, 2)
                         }
-                        if (spriteRowIndex === 4 && spriteColIndex === 4) {
-                            if (spritesForDebugging.length > 9) {
+                        if (spriteRowIndex === this.SPRITE_HEIGHT - 1 && spriteColIndex === this.SPRITE_WIDTH - 1) {
+                            if (spritesForDebugging.length > this.SPRITE_WIDTH * 2 - 1) {
                                 chars = `${spritesForDebugging.length}`
                             } else {
                                 chars = ` ${spritesForDebugging.length}`
@@ -766,15 +798,16 @@ class TerminalUI {
                     }
 
 
-                    this.setPixel(x, y, hex, fgHex, chars)
+                    ret.push(this.setPixel(x, y, hex, fgHex, chars))
 
                 }
             })
         })
 
         if (!dontRestoreCursor) {
-            restoreCursor()
+            ret.push(getRestoreCursor())
         }
+        return ret.join('')
     }
 
     private getPixelsForCell(cell: Cell) {
@@ -794,7 +827,7 @@ class TerminalUI {
     }
 
     clearScreen() {
-        if (!supportsColor.stdout) {
+        if (!this.hasVisualUi) {
             console.log(`Clearing screen`)
             return
         }
@@ -812,15 +845,23 @@ class TerminalUI {
         clearScreen()
     }
 
-    writeDebug(text: string) {
-        if (!supportsColor.stdout) {
+    writeDebug(text: string, category: number) {
+        this.debugCategoryMessages[category] = text
+
+        if (!this.hasVisualUi) {
             // console.log(`Writing Debug text "${text}"`)
             return
         }
         if (!this.isDumpingScreen) {
-            writeFgColor('#ffffff')
-            writeBgColor('#000000')
-            writeText(0, 0, `[${text}]`)
+            this.clearLineAndWriteText(0, 0, `[${this.debugCategoryMessages.join(' | ')}]`)
+        }
+    }
+
+    a11yWrite(text: string) {
+        if (this.hasVisualUi) {
+            this.writeDebug(text, 0)
+        } else {
+            console.log(text)
         }
     }
 
@@ -887,21 +928,20 @@ class TerminalUI {
             this.inspectorCol = newCol
             this.inspectorRow = newRow
             // draw the old cell (to remove the graphic artfact)
-            if (supportsColor.stdout && this.isLargeTerminal()) {
+            if (this.hasVisualUi && this.isLargeTerminal()) {
+                const cells = [newInspectorCell]
                 if (oldInspectorCell) {
-                    this.drawCell(oldInspectorCell, false)
+                    cells.push(oldInspectorCell)
                 }
-                // draw the new cell
-                this.drawCell(newInspectorCell, false)
+                // draw the new and old cells
+                this.drawCells(cells, false)
             }
 
-            if (!supportsColor.stdout) {
-                const spriteNames = cell.getSprites()
-                .filter(s => !s.isBackground())
-                .map(s => s.getName())
-                console.log(`${spriteNames.join(', ')} (${cell.rowIndex}, ${cell.colIndex})`)
-                return
-            }
+            const spriteNames = cell.getSprites()
+            .filter(s => !s.isBackground())
+            .map(s => s.getName())
+            const msg = `${spriteNames.join(', ')} (${cell.rowIndex}, ${cell.colIndex})`
+            this.a11yWrite(msg)
 
         }
 
@@ -928,26 +968,15 @@ export function getTerminalSize() {
     }
 }
 
-function restoreCursor() {
-    if (!supportsColor.stdout) {
-        return
-    }
+function getRestoreCursor() {
     const {columns, rows} = getTerminalSize()
-    process.stdout.write([
+    return [
         setFgColor('#ffffff'),
         setBgColor('#000000'),
         setMoveTo(columns, rows)
-    ].join(''))
+    ].join('')
 }
 
-function writeText(x: number, y: number, text: string) {
-    if (!supportsColor.stdout) {
-        console.log(`Writing text at [${y}][${x}]: "${text}"`)
-        return
-    }
-    writeTextAt(x, y, text)
-    restoreCursor()
-}
 
 export default new TerminalUI()
 

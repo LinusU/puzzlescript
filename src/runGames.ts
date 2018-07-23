@@ -3,12 +3,10 @@ import * as path from 'path'
 import * as glob from 'glob'
 import * as pify from 'pify'
 
-import Parser from './parser/parser'
+import {Parser, GameEngine, closeSounds, RULE_DIRECTION} from './'
+
 import TerminalUI from './ui'
-import { GameEngine } from './engine'
-import { RULE_DIRECTION } from './util';
 import { saveCoverageFile } from './recordCoverage';
-import { closeSounds } from './models/sound';
 import { LevelRecording } from './playGame';
 
 async function sleep(ms: number) {
@@ -97,7 +95,7 @@ async function run() {
                 TerminalUI.setGame(engine)
                 TerminalUI.clearScreen()
                 TerminalUI.renderScreen(true)
-                TerminalUI.writeDebug(`Game: "${data.title}"`)
+                TerminalUI.writeDebug(`"${data.title}"`, 0)
 
 
                 startTime = Date.now()
@@ -133,15 +131,13 @@ async function run() {
                     // UI.renderScreen(data, engine.currentLevel)
 
                     // Draw any cells that moved
-                    for (const cell of changedCells) {
-                        TerminalUI.drawCell(cell, false)
-                    }
+                    TerminalUI.drawCells(changedCells, false)
                     if (i > 1) { // Skip the 1st couple because they might be cleaning up the level
                         maxTickAndRenderTime = Math.max(maxTickAndRenderTime, Date.now() - startTime)
                     }
 
                     const msg = `Tick ${i} of "${data.title}" (took ${Date.now() - startTime}ms)`
-                    TerminalUI.writeDebug(msg.substring(0, 160))
+                    TerminalUI.writeDebug(msg.substring(0, 160), 0)
 
                     // if (soundToPlay) {
                     //     await soundToPlay.play()

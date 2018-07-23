@@ -1,0 +1,113 @@
+{
+  "version": 1,
+  "solutions": [
+    {
+      "solution": "X"
+    },
+    {
+      "solution": "XX.DDDDD"
+    },
+    {
+      "solution": "X"
+    },
+    {
+      "solution": ".DDDDS"
+    },
+    {
+      "solution": "X"
+    },
+    {
+      "solution": ".SDDDWDDSD"
+    },
+    {
+      "solution": "X"
+    },
+    {
+      "solution": ".SAWWDDDDDSD"
+    },
+    {
+      "solution": "X"
+    },
+    {
+      "solution": ".SAWWDDDSWAAASDSDWDDDD"
+    },
+    {
+      "solution": "X"
+    },
+    {
+      "solution": ".DDAASDDDDW"
+    },
+    {
+      "solution": "X"
+    },
+    {
+      "solution": ".AWDASDDWDDSD"
+    },
+    {
+      "solution": "X"
+    },
+    {
+      "solution": ".DDWDSSAWWAWWDSDDDDWDDDDSSSSAWWDWAAWAASD"
+    },
+    {
+      "solution": "X"
+    },
+    {
+      "solution": ".DDSDDWDADDWDDDSWSWSSSS"
+    },
+    {
+      "solution": "X"
+    },
+    {
+      "solution": ".DWAAAAAAAAWSWSWSWWAWDWWDDDDDDSSAAAADDDDWWAAAAAAASSSDSSWSWWDWWDDDD"
+    },
+    {
+      "solution": "X"
+    },
+    {
+      "solution": "AWDDSSSASDDDDDSDDWAAAAASAWWWAAWDDDDADDDDDD"
+    },
+    {
+      "solution": "X"
+    },
+    {
+      "solution": ".DDDDDSSASAAWAASSDSSWWDDSSWWAASSDAWWDASSDSSAAWDSDWAWWWDSASSSDDWSAAWWWDDDAAASSSDWWAWWDDDAAASSDWAWDDAAAWWDDSDDSDSWAWAAWAASSSDDDDSDSS"
+    },
+    {
+      "solution": "X"
+    },
+    {
+      "solution": ".DSDDWSDDWDASSDAWWDSASDDDWWDSS"
+    },
+    {
+      "solution": "X"
+    },
+    {
+      "solution": ".AAAAAAAAWDDDWSWSWSDDDDSDSS"
+    },
+    {
+      "solution": "X"
+    },
+    {
+      "solution": ".DDDDDDDDAAAWWWWDDDWDASSDWDDAAAAAAAAAAWAAWWWWADSSSSSSDDWASAWWWWWSSSDDWWWWAAADDDDDDDDDAAAAASSWWDDDDDDDDD"
+    },
+    {
+      "solution": "X"
+    },
+    {
+      "solution": ".DWAWWSSDDWAAWSDDWWAASSDWDWAASSSDSAAWWWWWDWDD"
+    },
+    {
+      "solution": "X"
+    },
+    {
+      "solution": ".SAAWWWWDDWWDDWDDDSSSASSSDDDDWWAAAAWASDSSAAWDSDWAWDDASSDDDDWWAAAWAASSDWAWDSDWWWAWWDSSAWAASAASSAASSSSDDWWWDWWDDDDDDAAAAAASSASSSAAWWWWDDWWDDWDDSAADDDSSASSSDDDDWWWWWWWWSSSSSSAAAWAASSDWAWDSDWWWAWWDSSAAAAAWAASDDSSAASSSSDDWWWDWWDDDDDWWWWSWSWSWSWSWWAAAAASSSSSSSASSSDDDDWWWWDWWAWWDSSSSASDAASSSAAAAAWWWWDDWWDDDDWDSAAAAAASSASSSSDDWWWDWWDDDDDSSSDAWWWWWWWSWSWSWSWSWWAAAAAASSWWAAA"
+    },
+    {
+      "solution": "X"
+    }
+  ],
+  "title": "out of bounds [lite demo v2]",
+  "totalLevels": 47,
+  "totalMapLevels": 22
+}

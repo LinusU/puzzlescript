@@ -35,7 +35,7 @@ export const COMMON_GRAMMAR = `
 
     newline = "\\n"
     whitespace = " " | "\\u0009" /*tab*/
-    space := whitespace | multiLineComment // redefine what a space is so we can ignore comments
+    space := (whitespace | multiLineComment) ")"* // redefine what a space is so we can ignore comments
 
     nonVarChar = whitespace | newline | "[" | "]" | "(" | ")" | "|" | "."
 
@@ -130,6 +130,7 @@ export const STRINGTOKEN_GRAMMAR = `
     t_MOVING = caseInsensitive<"MOVING">
     t_ORTHOGONAL = caseInsensitive<"ORTHOGONAL">
     t_PERPENDICULAR = caseInsensitive<"PERPENDICULAR">
+    t_PARALLEL = caseInsensitive<"PARALLEL">
     t_STATIONARY = caseInsensitive<"STATIONARY">
     t_HORIZONTAL = caseInsensitive<"HORIZONTAL">
     t_VERTICAL = caseInsensitive<"VERTICAL">

@@ -428,30 +428,28 @@ yellow
     `)
 
         function expector(rule, late, rigid) {
-            expect(rule.isLate()).toBe(late)
-            expect(rule.isRigid()).toBe(rigid)
+            expect(rule.getChildRules()[0].isLate()).toBe(late)
+            expect(rule.hasRigid()).toBe(rigid)
         }
-        expector(data.rules[0].getChildRules()[0], true, false)
-        expector(data.rules[1].getChildRules()[0], false, true)
-        expector(data.rules[2].getChildRules()[0], false, false)
-        expector(data.rules[3].getChildRules()[0], true, true)
-        expector(data.rules[4].getChildRules()[0], false, false)
-        expector(data.rules[5].getChildRules()[0], false, false)
+        expector(data.rules[0], true, false)
+        expector(data.rules[1], false, true)
+        expector(data.rules[2], false, false)
+        expector(data.rules[3], true, true)
+        expector(data.rules[4], false, false)
+        expector(data.rules[5], false, false)
     })
 
-    describe('RANDOM keywork propagation', () => {
+    describe('RANDOM keyword propagation', () => {
         it('marks a rule as being RANDOM', () => {
             const {data} = parseRule('RANDOM [.] -> []', ['.'])
-            expect(data.rules[0].isRandom()).toBe(true)
+            expect(data.rules[0].isRandom).toBe(true)
         })
 
         it('marks a rule Group as being RANDOM', () => {
             const {data} = parseRule(`
 RANDOM [.] -> []
 + [Player] -> []`, ['.', 'Player'])
-            expect(data.rules[0].isRandom()).toBe(true)
-            // But make sure the actual rule is not marked as being random
-            expect(data.rules[0].rules[0].isRandom()).toBe(false)
+            expect(data.rules[0].isRandom).toBe(true)
         })
 
         it('does not mark a rule Loop as being RANDOM', () => {
@@ -461,7 +459,7 @@ RANDOM [.] -> []
 + [Player] -> []
 ENDLOOP
     `, ['.', 'Player'])
-            expect(data.rules[0].isRandom()).toBe(false)
+            expect(data.rules[0].isRandom).toBe(false)
         })
 
         it('properly groups loops and groups', () => {

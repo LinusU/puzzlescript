@@ -6,12 +6,11 @@
     "ci-codecov": "codecov",
     "tsc": "tsc",
     "tsc-watch": "tsc --watch",
-    "docs": "typedoc --ignoreCompilerErrors --mode modules --theme minimal --readme ./README.md --out ./docs/ ./src/",
+    "docs": "typedoc --ignoreCompilerErrors --mode modules --excludePrivate --excludeExternals --theme minimal --readme ./README.md --out ./docs/ ./src/",
     "play": "NODE_ENV=production node -r source-map-support/register lib/playGame.js",
     "play-only": "NODE_ENV=production node -r source-map-support/register lib/playGame.js",
     "play-debug": "LOG_LEVEL=debug NODE_ENV=development node --inspect -r source-map-support/register ./lib/playGame.js 2> ./play.log",
     "play-dev": "LOG_LEVEL=debug NODE_ENV=development node -r source-map-support/register ./lib/playGame.js 2> ./play.log",
-    "prestart": "rm -rf ./lib/; rm ./coverage/coverage-*.json; rm -rf ./coverage/lcov-report/; tsc",
     "start": "NODE_ENV=production node -r source-map-support/register ./lib/runGames.js",
     "start-dev": "LOG_LEVEL=debug NODE_ENV=development node -r source-map-support/register ./lib/runGames.js 2> ./start.log",
     "start-coverage": "LOG_LEVEL=debug NODE_ENV=development istanbul cover -x '**/node_modules/**' ./lib/runGames.js 2> ./start.log",
@@ -19,8 +18,9 @@
     "start-debug-cli": "LOG_LEVEL=debug NODE_ENV=development node inspect lib/runGames.js 2> ./start.log",
     "poststart": "npm run-script coverage && echo 'Generated coverage. Type open ./coverage/lcov-html/index.html to see it'",
     "coverage": "istanbul report --root ./coverage/ lcov",
-    "test": "tsc && NODE_ENV=development jest --coverage --updateSnapshot @*",
+    "test": "tsc && NODE_ENV=development jest --coverage --updateSnapshot @* && npm run-script test-cli",
     "test-debug": "NODE_ENV=development node --inspect-brk -r source-map-support/register $(npm bin)/jest -i --updateSnapshot $@",
+    "test-cli": "./bin/puzzlescript.js --no-ui --game 'Beam Islands' --level 1 --size small --resume",
     "watch": "jest --updateSnapshot --watch",
     "debug": "NODE_ENV=development node --inspect-brk lib/runGames.js"
   },
@@ -33,6 +33,7 @@
     "ansi-styles": "^3.2.1",
     "bitset": "^5.0.3",
     "chalk": "^2.4.1",
+    "commander": "^2.16.0",
     "eventemitter2": "^5.0.1",
     "firstline": "^2.0.2",
     "glob": "^7.1.2",
@@ -61,6 +62,9 @@
     "http-server": "^0.11.1",
     "istanbul": "^0.4.5",
     "jest-watch-typeahead": "^0.1.0",
+    "mkdirp": "^0.5.1",
+    "node-fetch": "^2.1.2",
+    "puppeteer": "^1.6.0",
     "standard": "^11.0.1",
     "tslint": "^5.10.0",
     "typedoc": "^0.11.1",
@@ -94,8 +98,8 @@
   },
   "name": "puzzlescript-cli",
   "description": "Play PuzzleScript games in your terminal!",
-  "version": "1.2.3",
-  "main": "lib/playGame.js",
+  "version": "1.4.0",
+  "main": "lib/index.js",
   "directories": {
     "lib": "lib",
     "test": "test"
@@ -115,5 +119,5 @@
   "bugs": {
     "url": "https://github.com/philschatz/puzzlescript-cli/issues"
   },
-  "homepage": "https://github.com/philschatz/puzzlescript-cli#readme"
+  "homepage": "https://github.com/philschatz/puzzlescript-cli"
 }
