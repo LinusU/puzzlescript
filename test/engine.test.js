@@ -498,24 +498,24 @@ describe('engine', () => {
         const { engine, data } = parseEngine(EMPTY_GAME)
         const player = data.getPlayer()
         engine.tick()
-        expect(engine.currentLevel[0][0].getSpritesAsSet().has(player)).toBe(true)
+        expect(engine.currentLevel.getCells()[0][0].getSpritesAsSet().has(player)).toBe(true)
 
         engine.press(RULE_DIRECTION.RIGHT)
         engine.tick()
         expect(player.getCellsThatMatch().size).toBe(1)
-        expect(engine.currentLevel[0][1].getSpritesAsSet().has(player)).toBe(true)
+        expect(engine.currentLevel.getCells()[0][1].getSpritesAsSet().has(player)).toBe(true)
         expect(engine.toSnapshot()).toMatchSnapshot()
     })
     it('evaluates a no-op game', () => {
         const { engine, data } = parseEngine(NOOP_GAME)
         const player = data.getPlayer()
         engine.tick()
-        expect(engine.currentLevel[0][0].getSpritesAsSet().has(player)).toBe(true)
+        expect(engine.currentLevel.getCells()[0][0].getSpritesAsSet().has(player)).toBe(true)
 
         engine.press(RULE_DIRECTION.RIGHT)
         engine.tick()
         expect(player.getCellsThatMatch().size).toBe(1)
-        expect(engine.currentLevel[0][1].getSpritesAsSet().has(player)).toBe(true)
+        expect(engine.currentLevel.getCells()[0][1].getSpritesAsSet().has(player)).toBe(true)
         expect(engine.toSnapshot()).toMatchSnapshot()
     })
 
@@ -525,7 +525,7 @@ describe('engine', () => {
         // const zero = data._getSpriteByName('zero')
         engine.tick()
         expect(engine.toSnapshot()).toMatchSnapshot()
-        expect(engine.currentLevel[0][0].getSpritesAsSet()).toContain(one)
+        expect(engine.currentLevel.getCells()[0][0].getSpritesAsSet()).toContain(one)
     })
 
     it('draws corner sprites correctly (according to mirror isles)', () => {
@@ -533,7 +533,7 @@ describe('engine', () => {
         engine.tick()
         expect(engine.toSnapshot()).toMatchSnapshot()
         const expectedSprite = data._getSpriteByName('RemoveLandRUD')
-        const interestingCell = engine.currentLevel[0][0]
+        const interestingCell = engine.currentLevel.getCells()[0][0]
         const sprites = interestingCell.getSpritesAsSet()
         expect(sprites.has(expectedSprite)).toBe(true)
 
@@ -547,7 +547,7 @@ describe('engine', () => {
         engine.tick()
         expect(engine.toSnapshot()).toMatchSnapshot()
         const expectedSprite = data._getSpriteByName('RemoveLandRUD')
-        const interestingCell = engine.currentLevel[0][0]
+        const interestingCell = engine.currentLevel.getCells()[0][0]
         const sprites = interestingCell.getSpritesAsSet()
         expect(sprites.has(expectedSprite)).toBe(true)
 
@@ -555,7 +555,7 @@ describe('engine', () => {
         expect(engine.toSnapshot()).toMatchSnapshot()
 
         expect(sprites.has(expectedSprite)).toBe(true)
-        const neighborCell = engine.currentLevel[0][1]
+        const neighborCell = engine.currentLevel.getCells()[0][1]
         const neighborSprites = neighborCell.getSpritesAsSet()
         expect(neighborSprites.has(expectedSprite)).toBe(false)
     })
@@ -565,10 +565,10 @@ describe('engine', () => {
         engine.tick()
         const expectedSprite = data._getSpriteByName('RemoveLandRU')
         const expectedSprite2 = data._getSpriteByName('RemoveLandRD')
-        const interestingCell = engine.currentLevel[0][0]
+        const interestingCell = engine.currentLevel.getCells()[0][0]
         let sprites = interestingCell.getSpritesAsSet()
         expect(sprites.has(expectedSprite)).toBe(true)
-        expect(engine.currentLevel[1][0].getSpritesAsSet().has(expectedSprite2)).toBe(true)
+        expect(engine.currentLevel.getCells()[1][0].getSpritesAsSet().has(expectedSprite2)).toBe(true)
 
         // Ensure that the CrateInHole does not exist anywhere
         const crateInHole = data._getSpriteByName('CrateInHole')
@@ -970,9 +970,9 @@ describe('engine', () => {
         engine.tick()
 
         // Check that movement was transferred from A to B
-        expect(engine.currentLevel[0][2].getSpritesAsSet().has(spriteB)).toBe(true)
+        expect(engine.currentLevel.getCells()[0][2].getSpritesAsSet().has(spriteB)).toBe(true)
         // The rest are just sanity-checks
-        expect(engine.currentLevel[0][2].getSpritesAsSet().has(spriteA)).toBe(false)
+        expect(engine.currentLevel.getCells()[0][2].getSpritesAsSet().has(spriteA)).toBe(false)
         expect(spriteA.getCellsThatMatch().size).toBe(0)
         expect(spriteB.getCellsThatMatch().size).toBe(1)
     })
@@ -1134,8 +1134,8 @@ describe('engine', () => {
         expect(red.getCellsThatMatch().size).toBe(0)
         expect(green.getCellsThatMatch().size).toBe(0)
         expect(blue.getCellsThatMatch().size).toBe(1)
-        expect(engine.currentLevel[0][0].getSpritesAsSet().has(blue)).toBe(false)
-        expect(engine.currentLevel[0][1].getSpritesAsSet().has(blue)).toBe(true)
+        expect(engine.currentLevel.getCells()[0][0].getSpritesAsSet().has(blue)).toBe(false)
+        expect(engine.currentLevel.getCells()[0][1].getSpritesAsSet().has(blue)).toBe(true)
     })
 
     it('moves sprites to a new neighbor (intermediate)', () => {
@@ -1208,9 +1208,9 @@ describe('engine', () => {
         expect(red.getCellsThatMatch().size).toBe(1)
         expect(green.getCellsThatMatch().size).toBe(1)
         expect(blue.getCellsThatMatch().size).toBe(1)
-        expect(engine.currentLevel[0][3].getSpritesAsSet().has(red)).toBe(true)
-        expect(engine.currentLevel[0][4].getSpritesAsSet().has(green)).toBe(true)
-        expect(engine.currentLevel[0][5].getSpritesAsSet().has(blue)).toBe(true)
+        expect(engine.currentLevel.getCells()[0][3].getSpritesAsSet().has(red)).toBe(true)
+        expect(engine.currentLevel.getCells()[0][4].getSpritesAsSet().has(green)).toBe(true)
+        expect(engine.currentLevel.getCells()[0][5].getSpritesAsSet().has(blue)).toBe(true)
     })
 
     it('swaps an OR tile to a different bracket', () => {
@@ -1285,9 +1285,9 @@ describe('engine', () => {
         expect(red.getCellsThatMatch().size).toBe(1)
         expect(green.getCellsThatMatch().size).toBe(1)
         expect(blue.getCellsThatMatch().size).toBe(1)
-        expect(engine.currentLevel[0][0].getSpritesAsSet().has(red)).toBe(true)
-        expect(engine.currentLevel[0][2].getSpritesAsSet().has(green)).toBe(true)
-        expect(engine.currentLevel[0][3].getSpritesAsSet().has(blue)).toBe(true)
+        expect(engine.currentLevel.getCells()[0][0].getSpritesAsSet().has(red)).toBe(true)
+        expect(engine.currentLevel.getCells()[0][2].getSpritesAsSet().has(green)).toBe(true)
+        expect(engine.currentLevel.getCells()[0][3].getSpritesAsSet().has(blue)).toBe(true)
     })
 
     it('keeps running the rule even when only the direction changed', () => {
@@ -1364,15 +1364,15 @@ describe('engine', () => {
         expect(red.getCellsThatMatch().size).toBe(3)
         expect(green.getCellsThatMatch().size).toBe(3)
         expect(blue.getCellsThatMatch().size).toBe(3)
-        expect(engine.currentLevel[0][0].getSpritesAsSet().has(green)).toBe(true)
-        expect(engine.currentLevel[0][1].getSpritesAsSet().has(green)).toBe(true)
-        expect(engine.currentLevel[0][2].getSpritesAsSet().has(green)).toBe(true)
-        expect(engine.currentLevel[1][0].getSpritesAsSet().has(red)).toBe(true)
-        expect(engine.currentLevel[1][1].getSpritesAsSet().has(red)).toBe(true)
-        expect(engine.currentLevel[1][2].getSpritesAsSet().has(red)).toBe(true)
-        expect(engine.currentLevel[1][0].getSpritesAsSet().has(blue)).toBe(true)
-        expect(engine.currentLevel[1][1].getSpritesAsSet().has(blue)).toBe(true)
-        expect(engine.currentLevel[1][2].getSpritesAsSet().has(blue)).toBe(true)
+        expect(engine.currentLevel.getCells()[0][0].getSpritesAsSet().has(green)).toBe(true)
+        expect(engine.currentLevel.getCells()[0][1].getSpritesAsSet().has(green)).toBe(true)
+        expect(engine.currentLevel.getCells()[0][2].getSpritesAsSet().has(green)).toBe(true)
+        expect(engine.currentLevel.getCells()[1][0].getSpritesAsSet().has(red)).toBe(true)
+        expect(engine.currentLevel.getCells()[1][1].getSpritesAsSet().has(red)).toBe(true)
+        expect(engine.currentLevel.getCells()[1][2].getSpritesAsSet().has(red)).toBe(true)
+        expect(engine.currentLevel.getCells()[1][0].getSpritesAsSet().has(blue)).toBe(true)
+        expect(engine.currentLevel.getCells()[1][1].getSpritesAsSet().has(blue)).toBe(true)
+        expect(engine.currentLevel.getCells()[1][2].getSpritesAsSet().has(blue)).toBe(true)
     })
 
     it('does not move the island when there is a bridge in the way (simulated RIGID keyword)', () => {
@@ -1499,17 +1499,17 @@ describe('engine', () => {
         expect(island.getCellsThatMatch().size).toBe(2)
         expect(playerIsland.getCellsThatMatch().size).toBe(2)
         // Check that the Island did not move
-        expect(engine.currentLevel[0][0].getSpritesAsSet().has(island)).toBe(false)
-        expect(engine.currentLevel[0][1].getSpritesAsSet().has(island)).toBe(true)
-        expect(engine.currentLevel[1][1].getSpritesAsSet().has(island)).toBe(true)
+        expect(engine.currentLevel.getCells()[0][0].getSpritesAsSet().has(island)).toBe(false)
+        expect(engine.currentLevel.getCells()[0][1].getSpritesAsSet().has(island)).toBe(true)
+        expect(engine.currentLevel.getCells()[1][1].getSpritesAsSet().has(island)).toBe(true)
         // Check that the PlayerIsland didn't move either
-        expect(engine.currentLevel[0][0].getSpritesAsSet().has(playerIsland)).toBe(false)
-        expect(engine.currentLevel[0][1].getSpritesAsSet().has(playerIsland)).toBe(true)
-        expect(engine.currentLevel[1][1].getSpritesAsSet().has(playerIsland)).toBe(true)
+        expect(engine.currentLevel.getCells()[0][0].getSpritesAsSet().has(playerIsland)).toBe(false)
+        expect(engine.currentLevel.getCells()[0][1].getSpritesAsSet().has(playerIsland)).toBe(true)
+        expect(engine.currentLevel.getCells()[1][1].getSpritesAsSet().has(playerIsland)).toBe(true)
 
         // Check that the player did not move either
-        expect(engine.currentLevel[0][0].getSpritesAsSet().has(player)).toBe(false)
-        expect(engine.currentLevel[0][1].getSpritesAsSet().has(player)).toBe(true)
+        expect(engine.currentLevel.getCells()[0][0].getSpritesAsSet().has(player)).toBe(false)
+        expect(engine.currentLevel.getCells()[0][1].getSpritesAsSet().has(player)).toBe(true)
     })
 
 
@@ -1568,9 +1568,9 @@ describe('engine', () => {
 
         expect(player.getCellsThatMatch().size).toBe(1)
         // Don't double-move the Player (verify that we remove the wantsToMove)
-        expect(engine.currentLevel[0][0].getSpritesAsSet().has(player)).toBe(false)
-        expect(engine.currentLevel[0][2].getSpritesAsSet().has(player)).toBe(false)
-        expect(engine.currentLevel[0][1].getSpritesAsSet().has(player)).toBe(true)
+        expect(engine.currentLevel.getCells()[0][0].getSpritesAsSet().has(player)).toBe(false)
+        expect(engine.currentLevel.getCells()[0][2].getSpritesAsSet().has(player)).toBe(false)
+        expect(engine.currentLevel.getCells()[0][1].getSpritesAsSet().has(player)).toBe(true)
     })
 
 
@@ -1631,7 +1631,7 @@ describe('engine', () => {
         expect(engine.toSnapshot()).toMatchSnapshot()
 
         expect(hat.getCellsThatMatch().size).toBe(0)
-        expect(engine.currentLevel[0][0].getSpritesAsSet().has(hat)).toBe(false)
+        expect(engine.currentLevel.getCells()[0][0].getSpritesAsSet().has(hat)).toBe(false)
     })
 
 
@@ -1699,8 +1699,8 @@ describe('engine', () => {
 
         expect(hat.getCellsThatMatch().size).toBe(0)
         expect(shirt.getCellsThatMatch().size).toBe(0)
-        expect(engine.currentLevel[0][0].getSpritesAsSet().has(hat)).toBe(false)
-        expect(engine.currentLevel[0][0].getSpritesAsSet().has(shirt)).toBe(false)
+        expect(engine.currentLevel.getCells()[0][0].getSpritesAsSet().has(hat)).toBe(false)
+        expect(engine.currentLevel.getCells()[0][0].getSpritesAsSet().has(shirt)).toBe(false)
     })
 
 
@@ -1772,8 +1772,8 @@ describe('engine', () => {
 
         expect(hat.getCellsThatMatch().size).toBe(1)
         expect(shirt.getCellsThatMatch().size).toBe(0)
-        expect(engine.currentLevel[0][0].getSpritesAsSet().has(hat)).toBe(false)
-        expect(engine.currentLevel[0][1].getSpritesAsSet().has(hat)).toBe(true)
+        expect(engine.currentLevel.getCells()[0][0].getSpritesAsSet().has(hat)).toBe(false)
+        expect(engine.currentLevel.getCells()[0][1].getSpritesAsSet().has(hat)).toBe(true)
     })
 
     it('moves a tile from one bracket to another (OR tile is in DIFFERENT collisionlayer', () => {
@@ -1845,8 +1845,8 @@ describe('engine', () => {
 
         expect(hat.getCellsThatMatch().size).toBe(1)
         expect(shirt.getCellsThatMatch().size).toBe(0)
-        expect(engine.currentLevel[0][0].getSpritesAsSet().has(hat)).toBe(false)
-        expect(engine.currentLevel[0][1].getSpritesAsSet().has(hat)).toBe(true)
+        expect(engine.currentLevel.getCells()[0][0].getSpritesAsSet().has(hat)).toBe(false)
+        expect(engine.currentLevel.getCells()[0][1].getSpritesAsSet().has(hat)).toBe(true)
     })
 
     it('swaps 2 OR tiles (OR tile has sprites in DIFFERENT collisionlayer', () => {
@@ -1925,10 +1925,10 @@ describe('engine', () => {
 
         expect(hat.getCellsThatMatch().size).toBe(1)
         expect(shirt.getCellsThatMatch().size).toBe(1)
-        expect(engine.currentLevel[0][0].getSpritesAsSet().has(hat)).toBe(false)
-        expect(engine.currentLevel[0][1].getSpritesAsSet().has(hat)).toBe(true)
-        expect(engine.currentLevel[0][0].getSpritesAsSet().has(shirt)).toBe(true)
-        expect(engine.currentLevel[0][1].getSpritesAsSet().has(shirt)).toBe(false)
+        expect(engine.currentLevel.getCells()[0][0].getSpritesAsSet().has(hat)).toBe(false)
+        expect(engine.currentLevel.getCells()[0][1].getSpritesAsSet().has(hat)).toBe(true)
+        expect(engine.currentLevel.getCells()[0][0].getSpritesAsSet().has(shirt)).toBe(true)
+        expect(engine.currentLevel.getCells()[0][1].getSpritesAsSet().has(shirt)).toBe(false)
     })
 
     it('ignores negated OR tiles in the condition', () => {
@@ -2082,7 +2082,7 @@ describe('engine', () => {
         engine.tick()
 
         expect(hat.getCellsThatMatch().size).toBe(0)
-        expect(shirt.getCellsThatMatch().size).toBe(0)
+        expect(shirt.getCellsThatMatch().size).toBe(1) // reference implementation only removes the 1st tile
     })
 
 
@@ -2142,14 +2142,14 @@ describe('engine', () => {
         engine.tick()
 
         expect(cat.getCellsThatMatch().size).toBe(1)
-        expect(engine.currentLevel[0][2].getSpritesAsSet().has(cat)).toBe(false) // the Cat moved
-        expect(engine.currentLevel[0][3].getSpritesAsSet().has(cat)).toBe(true)
+        expect(engine.currentLevel.getCells()[0][2].getSpritesAsSet().has(cat)).toBe(false) // the Cat moved
+        expect(engine.currentLevel.getCells()[0][3].getSpritesAsSet().has(cat)).toBe(true)
 
         engine.tick()
 
         expect(cat.getCellsThatMatch().size).toBe(1)
-        expect(engine.currentLevel[0][3].getSpritesAsSet().has(cat)).toBe(false) // the Cat moved
-        expect(engine.currentLevel[0][4].getSpritesAsSet().has(cat)).toBe(true)
+        expect(engine.currentLevel.getCells()[0][3].getSpritesAsSet().has(cat)).toBe(false) // the Cat moved
+        expect(engine.currentLevel.getCells()[0][4].getSpritesAsSet().has(cat)).toBe(true)
     })
 
     it('supports ellipsis rules (all matches move, not just the 1st match)', () => {
@@ -2208,10 +2208,10 @@ describe('engine', () => {
         engine.tick()
 
         expect(cat.getCellsThatMatch().size).toBe(2)
-        expect(engine.currentLevel[0][4].getSpritesAsSet().has(cat)).toBe(false) // the further cat moved
-        expect(engine.currentLevel[0][5].getSpritesAsSet().has(cat)).toBe(true)
-        expect(engine.currentLevel[0][2].getSpritesAsSet().has(cat)).toBe(false) // the closer Cat moved too
-        expect(engine.currentLevel[0][3].getSpritesAsSet().has(cat)).toBe(true)
+        expect(engine.currentLevel.getCells()[0][4].getSpritesAsSet().has(cat)).toBe(false) // the further cat moved
+        expect(engine.currentLevel.getCells()[0][5].getSpritesAsSet().has(cat)).toBe(true)
+        expect(engine.currentLevel.getCells()[0][2].getSpritesAsSet().has(cat)).toBe(false) // the closer Cat moved too
+        expect(engine.currentLevel.getCells()[0][3].getSpritesAsSet().has(cat)).toBe(true)
     })
 
 
@@ -2298,7 +2298,7 @@ describe('engine', () => {
         engine.tick()
 
         expect(dot.getCellsThatMatch().size).toBe(1)
-        expect(engine.currentLevel[0][2].getSpritesAsSet().has(dot)).toBe(true) // the dot appeared
+        expect(engine.currentLevel.getCells()[0][2].getSpritesAsSet().has(dot)).toBe(true) // the dot appeared
 
         // Verify that the bracket no longer has any matches (since things are no longer moving bc the tick is done)
         expect(engine.gameData.rules[1].rules[0].conditionBrackets[0].firstCells.size).toBe(0)
@@ -2307,13 +2307,13 @@ describe('engine', () => {
         engine.tick()
 
         expect(dot.getCellsThatMatch().size).toBe(0)
-        expect(engine.currentLevel[0][2].getSpritesAsSet().has(dot)).toBe(false) // the dot disappeared
+        expect(engine.currentLevel.getCells()[0][2].getSpritesAsSet().has(dot)).toBe(false) // the dot disappeared
 
         engine.press('LEFT')
         engine.tick()
 
         expect(dot.getCellsThatMatch().size).toBe(0)
-        expect(engine.currentLevel[0][2].getSpritesAsSet().has(dot)).toBe(false) // the dot did not appear
+        expect(engine.currentLevel.getCells()[0][2].getSpritesAsSet().has(dot)).toBe(false) // the dot did not appear
 
     })
 
@@ -2378,7 +2378,7 @@ describe('engine', () => {
         engine.tick()
 
         expect(player.getCellsThatMatch().size).toBe(1)
-        expect(engine.currentLevel[1][0].getSpritesAsSet().has(player)).toBe(true) // the player fell down (gravity)
+        expect(engine.currentLevel.getCells()[1][0].getSpritesAsSet().has(player)).toBe(true) // the player fell down (gravity)
         expect(engine.hasAgainThatNeedsToRun).toBe(true)
 
         engine.tick()
@@ -2445,9 +2445,553 @@ describe('engine', () => {
         engine.tick()
 
         expect(player.getCellsThatMatch().size).toBe(1)
-        expect(engine.currentLevel[0][0].getSpritesAsSet().has(player)).toBe(true)
+        expect(engine.currentLevel.getCells()[0][0].getSpritesAsSet().has(player)).toBe(true)
         expect(engine.hasAgainThatNeedsToRun).toBe(false)
     })
 
+    it('Only removes one OR tile per evaluation', () => {
+        const { engine, data } = parseEngine(`title OR test
 
+        ========
+        OBJECTS
+        ========
+
+        Background
+        BLACK
+
+        A
+        Red
+        0....
+        0....
+        0....
+        0....
+        0....
+
+        B
+        Yellow
+        .0...
+        .0...
+        .0...
+        .0...
+        .0...
+
+
+        Player
+        White
+        0...0
+        .0.0.
+        ..0..
+        .0.0.
+        0...0
+
+
+        C
+        Blue
+        ..0..
+        ..0..
+        ..0..
+        ..0..
+        ..0..
+
+
+
+        =======
+        LEGEND
+        =======
+
+        . = Background
+        P = Player
+        letter = A or B or C
+        X = B and C
+
+        =======
+        SOUNDS
+        =======
+
+        ================
+        COLLISIONLAYERS
+        ================
+
+        Background
+        Player
+        A
+        B
+        C
+
+        ======
+        RULES
+        ======
+
+        [ Letter NO Player ] -> [  Player  ]
+
+        ==============
+        WINCONDITIONS
+        ==============
+
+
+        =======
+        LEVELS
+        =======
+
+        X
+
+    `) // end game definition
+
+        const player = data._getSpriteByName('player')
+        const b = data._getSpriteByName('b')
+        const c = data._getSpriteByName('c')
+        engine.tick()
+
+        expect(player.getCellsThatMatch().size).toBe(1)
+        // remove the 1st OR tile, but not the second.
+        // The reference implementation removes "b" and keeps "c"
+        // but it the current implementation removes the githest collision layer first.
+        // It does not seem like any games rely directly on _which_ is removed
+        // so it does not matter. If a game _does_ rely, then getSprites() should sort
+        // them in the order they occured.
+        expect(b.getCellsThatMatch().size).toBe(1)
+        expect(c.getCellsThatMatch().size).toBe(0)
+    })
+
+    it('Supports Magic OR tiles in different neighbors', () => {
+        const { engine, data } = parseEngine(`title OR test
+
+        ========
+        OBJECTS
+        ========
+
+        Background
+        BLACK
+
+        A
+        Red
+        0....
+        0....
+        0....
+        0....
+        0....
+
+        B
+        Yellow
+        .0...
+        .0...
+        .0...
+        .0...
+        .0...
+
+
+        Player
+        White
+        0...0
+        .0.0.
+        ..0..
+        .0.0.
+        0...0
+
+
+        C
+        Blue
+        ..0..
+        ..0..
+        ..0..
+        ..0..
+        ..0..
+
+
+
+        =======
+        LEGEND
+        =======
+
+        . = Background
+        P = Player
+        letter = A or B or C
+
+        =======
+        SOUNDS
+        =======
+
+        ================
+        COLLISIONLAYERS
+        ================
+
+        Background
+        Player
+        A
+        B
+        C
+
+        ======
+        RULES
+        ======
+
+        RIGHT [ | Letter ] -> [ Letter | ]
+
+        ==============
+        WINCONDITIONS
+        ==============
+
+        =======
+        LEVELS
+        =======
+
+        .B
+
+    `) // end game definition
+
+        const player = data._getSpriteByName('player')
+        const a = data._getSpriteByName('a')
+        const b = data._getSpriteByName('b')
+        const c = data._getSpriteByName('c')
+        engine.tick()
+
+        expect(a.getCellsThatMatch().size).toBe(0)
+        expect(b.getCellsThatMatch().size).toBe(1)
+        expect(c.getCellsThatMatch().size).toBe(0)
+        // ensure that B was moved left
+        expect(engine.currentLevel.getCells()[0][0].getSpritesAsSet().has(b)).toBe(true)
+        expect(engine.currentLevel.getCells()[0][1].getSpritesAsSet().has(b)).toBe(false)
+    })
+
+    it('Supports Magic OR tiles in different brackets', () => {
+        const { engine, data } = parseEngine(`title OR test
+
+        ========
+        OBJECTS
+        ========
+
+        Background
+        BLACK
+
+        A
+        Red
+        0....
+        0....
+        0....
+        0....
+        0....
+
+        B
+        Yellow
+        .0...
+        .0...
+        .0...
+        .0...
+        .0...
+
+
+        Player
+        White
+        0...0
+        .0.0.
+        ..0..
+        .0.0.
+        0...0
+
+
+        C
+        Blue
+        ..0..
+        ..0..
+        ..0..
+        ..0..
+        ..0..
+
+
+
+        =======
+        LEGEND
+        =======
+
+        . = Background
+        P = Player
+        letter = A or B or C
+
+        =======
+        SOUNDS
+        =======
+
+        ================
+        COLLISIONLAYERS
+        ================
+
+        Background
+        Player
+        A
+        B
+        C
+
+        ======
+        RULES
+        ======
+
+        RIGHT [ Player ] [ Letter ] -> [ Letter ] [ ]
+
+        ==============
+        WINCONDITIONS
+        ==============
+
+        =======
+        LEVELS
+        =======
+
+        PB
+
+    `) // end game definition
+
+        const player = data._getSpriteByName('player')
+        const a = data._getSpriteByName('a')
+        const b = data._getSpriteByName('b')
+        const c = data._getSpriteByName('c')
+        engine.tick()
+
+        expect(player.getCellsThatMatch().size).toBe(0)
+        expect(a.getCellsThatMatch().size).toBe(0)
+        expect(b.getCellsThatMatch().size).toBe(1)
+        expect(c.getCellsThatMatch().size).toBe(0)
+        // ensure that B was moved left
+        expect(engine.currentLevel.getCells()[0][0].getSpritesAsSet().has(b)).toBe(true)
+        expect(engine.currentLevel.getCells()[0][1].getSpritesAsSet().has(b)).toBe(false)
+
+    })
+
+    it('supports partially matching an OR tile (e.g. [ LEFT Movable ] when the cell says [ STATIONARY Player LEFT Island ]', () => {
+        const { engine, data } = parseEngine(`title BeamishIslands testing
+        author mjau
+        run_rules_on_level_start
+        realtime_interval 0.3
+
+        ( for ludum dare 29 )
+
+        =========
+         OBJECTS
+        =========
+
+        BgNW1 .
+        #6719ac #a13cb7
+        00000
+        00000
+        00000
+        00000
+        00000
+
+
+        Player
+        #f7e26b #000000
+        01010
+        .000.
+        .0.0.
+        .....
+        .....
+
+        Island #
+        #000000
+
+        ========
+         LEGEND
+        ========
+
+        @ = Player AND Island
+
+        Background = BgNW1
+        Movable = Player OR Island
+
+        ========
+         SOUNDS
+        ========
+
+        =================
+         COLLISIONLAYERS
+        =================
+
+        Background
+        Island
+        Player
+
+        =======
+         RULES
+        =======
+
+        (Cause the Island to be moving but the Player to be stationary)
+        RIGHT [ Island ] -> [ > Island ]
+        RIGHT [ LEFT Movable ]  -> [ STATIONARY Movable ]
+
+        ===============
+         WINCONDITIONS
+        ===============
+
+        ========
+         LEVELS
+        ========
+
+        .@
+
+    `) // end game definition
+
+        const island = data._getSpriteByName('island')
+        engine.tick()
+        expect(engine.toSnapshot()).toMatchSnapshot()
+
+        expect(island.getCellsThatMatch().size).toBe(1)
+        // Check that the Island did not move
+        expect(engine.currentLevel.getCells()[0][0].getSpritesAsSet().has(island)).toBe(false)
+        expect(engine.currentLevel.getCells()[0][1].getSpritesAsSet().has(island)).toBe(true)
+    })
+
+    it('supports trickling up a `NO OrTile` on load', () => {
+        const { engine, data } = parseEngine(`title NO OrTile
+
+        =========
+         OBJECTS
+        =========
+
+        Background .
+        white
+
+        Player P
+        yellow
+
+        Correct
+        green
+
+        Count0
+        transparent
+
+        Count1
+        transparent
+
+        ========
+         LEGEND
+        ========
+
+        Count = Count0 OR Count1
+
+        ========
+         SOUNDS
+        ========
+
+        =================
+         COLLISIONLAYERS
+        =================
+
+        Background
+        Player
+        Count
+        Correct
+
+        =======
+         RULES
+        =======
+
+        RIGHT [ NO Count ] -> [ Correct ]
+
+        ===============
+         WINCONDITIONS
+        ===============
+
+        ========
+         LEVELS
+        ========
+
+        .P
+
+    `) // end game definition
+
+        const correct = data._getSpriteByName('correct')
+        engine.tick()
+        expect(engine.toSnapshot()).toMatchSnapshot()
+
+        expect(correct.getCellsThatMatch().size).toBe(2)
+        // Check that the rule executed
+        expect(engine.currentLevel.getCells()[0][0].getSpritesAsSet().has(correct)).toBe(true)
+    })
+
+    it('supports matching the same cells in multiple brackets and executes correctly if one of those brackets no longer matches', () => {
+        const { engine, data } = parseEngine(`title Test multimatch
+
+        ========
+        OBJECTS
+        ========
+
+        Background
+        LIGHTGREEN GREEN
+        11111
+        01111
+        11101
+        11111
+        10111
+
+
+        Wall
+        BROWN DARKBROWN
+        00010
+        11111
+        01000
+        11111
+        00010
+
+        Player
+        Black Orange White Blue
+        .000.
+        .111.
+        22222
+        .333.
+        .3.3.
+
+        Crate
+        Orange Yellow
+        00000
+        0...0
+        0...0
+        0...0
+        00000
+
+
+        =======
+        LEGEND
+        =======
+
+        . = Background
+        P = Player
+
+
+        =======
+        SOUNDS
+        =======
+
+        ================
+        COLLISIONLAYERS
+        ================
+
+        Background
+        Player, Wall, Crate
+
+        ======
+        RULES
+        ======
+
+        [ Player ] [ Player ] [ ] -> [ ] [ Wall ] [ Crate ]
+
+        ==============
+        WINCONDITIONS
+        ==============
+
+        =======
+        LEVELS
+        =======
+
+
+        ..P
+    `) // end game definition
+
+        const player = data._getSpriteByName('player')
+        const crate = data._getSpriteByName('crate')
+        const wall = data._getSpriteByName('wall')
+        engine.tick()
+        expect(engine.toSnapshot()).toMatchSnapshot()
+
+        expect(player.getCellsThatMatch().size).toBe(0)
+        expect(crate.getCellsThatMatch().size).toBe(1)
+        // expect(wall.getCellsThatMatch().size).toBe(1)
+    })
 })

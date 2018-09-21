@@ -117,7 +117,7 @@ describe('Rule simplifier', () => {
         const rightExtension = data._getSpriteByName('RightExtension')
         engine.tick()
 
-        expect(engine.currentLevel[0][0].getSpritesAsSet().has(rightExtension)).toBe(true)
+        expect(engine.currentLevel.getCells()[0][0].getSpritesAsSet().has(rightExtension)).toBe(true)
     })
 
     it('converts VERTICAL and HORIZONTAL at the beginning of a rule into 2 rules', () => {
@@ -203,17 +203,17 @@ describe('Rule simplifier', () => {
         expect(data.rules[0].rules.length).toBe(2) // just LEFT RIGHT
         expect(data.rules[1].rules.length).toBe(2) // just UP DOWN
 
-        expect(engine.currentLevel[0][1].getSpritesAsSet().has(horiz)).toBe(true)
-        expect(engine.currentLevel[0][2].getSpritesAsSet().has(horiz)).toBe(true)
+        expect(engine.currentLevel.getCells()[0][1].getSpritesAsSet().has(horiz)).toBe(true)
+        expect(engine.currentLevel.getCells()[0][2].getSpritesAsSet().has(horiz)).toBe(true)
 
-        expect(engine.currentLevel[3][1].getSpritesAsSet().has(horiz)).toBe(true)
-        expect(engine.currentLevel[3][2].getSpritesAsSet().has(horiz)).toBe(true)
+        expect(engine.currentLevel.getCells()[3][1].getSpritesAsSet().has(horiz)).toBe(true)
+        expect(engine.currentLevel.getCells()[3][2].getSpritesAsSet().has(horiz)).toBe(true)
 
-        expect(engine.currentLevel[1][0].getSpritesAsSet().has(vert)).toBe(true)
-        expect(engine.currentLevel[1][3].getSpritesAsSet().has(vert)).toBe(true)
+        expect(engine.currentLevel.getCells()[1][0].getSpritesAsSet().has(vert)).toBe(true)
+        expect(engine.currentLevel.getCells()[1][3].getSpritesAsSet().has(vert)).toBe(true)
 
-        expect(engine.currentLevel[2][0].getSpritesAsSet().has(vert)).toBe(true)
-        expect(engine.currentLevel[2][3].getSpritesAsSet().has(vert)).toBe(true)
+        expect(engine.currentLevel.getCells()[2][0].getSpritesAsSet().has(vert)).toBe(true)
+        expect(engine.currentLevel.getCells()[2][3].getSpritesAsSet().has(vert)).toBe(true)
 
     })
 
@@ -275,11 +275,11 @@ describe('Rule simplifier', () => {
 
         expect(engine.toSnapshot()).toMatchSnapshot()
 
-        expect(engine.currentLevel[0][0].getSpritesAsSet().has(player)).toBe(false)
-        expect(engine.currentLevel[0][1].getSpritesAsSet().has(player)).toBe(true)
+        expect(engine.currentLevel.getCells()[0][0].getSpritesAsSet().has(player)).toBe(false)
+        expect(engine.currentLevel.getCells()[0][1].getSpritesAsSet().has(player)).toBe(true)
 
-        expect(engine.currentLevel[1][0].getSpritesAsSet().has(shadow)).toBe(false)
-        expect(engine.currentLevel[1][1].getSpritesAsSet().has(shadow)).toBe(true)
+        expect(engine.currentLevel.getCells()[1][0].getSpritesAsSet().has(shadow)).toBe(false)
+        expect(engine.currentLevel.getCells()[1][1].getSpritesAsSet().has(shadow)).toBe(true)
     })
 
     it('expands MOVING in multiple brackets into simple UP DOWN LEFT RIGHT ACTION rules', () => {
@@ -339,10 +339,159 @@ describe('Rule simplifier', () => {
 
         expect(engine.toSnapshot()).toMatchSnapshot()
 
-        expect(engine.currentLevel[0][0].getSpritesAsSet().has(player)).toBe(false)
-        expect(engine.currentLevel[0][1].getSpritesAsSet().has(player)).toBe(true)
+        expect(engine.currentLevel.getCells()[0][0].getSpritesAsSet().has(player)).toBe(false)
+        expect(engine.currentLevel.getCells()[0][1].getSpritesAsSet().has(player)).toBe(true)
 
-        expect(engine.currentLevel[1][0].getSpritesAsSet().has(shadow)).toBe(false)
-        expect(engine.currentLevel[1][1].getSpritesAsSet().has(shadow)).toBe(true)
+        expect(engine.currentLevel.getCells()[1][0].getSpritesAsSet().has(shadow)).toBe(false)
+        expect(engine.currentLevel.getCells()[1][1].getSpritesAsSet().has(shadow)).toBe(true)
     })
+
+
+    it('collapses rules when they do not depend on the direction (major performance speedup)', () => {
+        const { engine, data } = parseEngine(`title foo
+
+    ========
+    OBJECTS
+    ========
+
+    Background
+    blue
+
+    Player
+    green
+
+    =======
+    LEGEND
+    =======
+
+    . = Background
+    P = Player
+
+    ================
+    COLLISIONLAYERS
+    ================
+
+    Background
+    Player
+
+    ======
+    RULES
+    ======
+
+    [ Player ] -> [ ]
+    [ ] -> [ Player ]
+
+    =======
+    LEVELS
+    =======
+
+    P
+
+    `) // end game
+
+        expect(data.rules.length).toBe(2)
+
+        // Ensure that both rules were collapsed because they do not depend on the direction
+        expect(data.rules[0].rules.length).toBe(1)
+        expect(data.rules[1].rules.length).toBe(1)
+    })
+
+    it('keeps rules expanded when they have neighbors', () => {
+        const { engine, data } = parseEngine(`title foo
+
+    ========
+    OBJECTS
+    ========
+
+    Background
+    blue
+
+    Player
+    green
+
+    =======
+    LEGEND
+    =======
+
+    . = Background
+    P = Player
+
+    ================
+    COLLISIONLAYERS
+    ================
+
+    Background
+    Player
+
+    ======
+    RULES
+    ======
+
+    [ Player | Player ] -> [ | ]
+    [ | ] -> [ Player | Player]
+
+    =======
+    LEVELS
+    =======
+
+    P
+
+    `) // end game
+
+        expect(data.rules.length).toBe(2)
+
+        // Ensure that both rules were collapsed because they do not depend on the direction
+        expect(data.rules[0].rules.length).toBe(4)
+        expect(data.rules[1].rules.length).toBe(4)
+    })
+
+    it('keeps rules expanded when the action has a direction', () => {
+        const { engine, data } = parseEngine(`title foo
+
+    ========
+    OBJECTS
+    ========
+
+    Background
+    blue
+
+    Player
+    green
+
+    =======
+    LEGEND
+    =======
+
+    . = Background
+    P = Player
+
+    ================
+    COLLISIONLAYERS
+    ================
+
+    Background
+    Player
+
+    ======
+    RULES
+    ======
+
+    [ ] -> [ > Player ]
+    [ > Player ] -> [ Player]
+
+    =======
+    LEVELS
+    =======
+
+    P
+
+    `) // end game
+
+        expect(data.rules.length).toBe(2)
+
+        // Ensure that both rules were collapsed because they do not depend on the direction
+        expect(data.rules[0].rules.length).toBe(4)
+        expect(data.rules[1].rules.length).toBe(4)
+    })
+
 })

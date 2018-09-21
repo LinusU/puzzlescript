@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "solutions": [
+    {
+      "solution": "X"
+    },
+    {
+      "solution": ".ADWWWWWWSAAAAADDDDDDDDSSSSSSDDDDAAAS"
+    },
+    {
+      "solution": "X"
+    },
+    {
+      "solution": ".WDWDDDAAAWWSSAADDSDWD"
+    },
+    {
+      "solution": "X"
+    },
+    {
+      "solution": ".WWWAAAAAAWWWAADAASSSSWWWWDDDDAAAAAWWSSSSSSSDDDDDDAAAAAAADWWWWWWSSSSSSDDDDDSSS"
+    },
+    {
+      "solution": "X"
+    },
+    {
+      "solution": ".SSAAWAADDDSSSDDWWWWWWSSSAAAAAAADWWWWWSAAAAAA"
+    },
+    {
+      "solution": "X"
+    },
+    {
+      "solution": ".SDDDDWWWWWAAAASSSAAASSWAAWWWAAAADDDDWWWSSSSWWWDDDDDDAAAAASSAAAAA"
+    },
+    {
+      "solution": "X"
+    },
+    {
+      "solution": ".AAAADDDDDDDDAAAAAAAADDDDDDWWWAWWWSSSDDWWWDAWWWWWSSSSSSWWDAWWWW"
+    },
+    {
+      "solution": "X"
+    }
+  ],
+  "title": "2D Whale World",
+  "totalLevels": 17,
+  "totalMapLevels": 8
+}

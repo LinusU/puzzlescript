@@ -429,7 +429,6 @@ describe('engine', () => {
 
 
 
-
         =======
         LEGEND
         =======
@@ -687,8 +686,10 @@ describe('engine', () => {
 
         const player = data.getPlayer()
         const playerReflection = data._getSpriteByName('Reflection')
+        const hasReflection = data._getSpriteByName('HasReflection')
         engine.tick() // To get the reflections to render
         expect(playerReflection.getCellsThatMatch().size).toBe(4)
+        expect(hasReflection.getCellsThatMatch().size).toBe(1)
 
         // press action to get the player to reflect into 4 players
         engine.press(RULE_DIRECTION.ACTION)
@@ -697,17 +698,22 @@ describe('engine', () => {
 
         expect(player.getCellsThatMatch().size).toBe(4)
         // Player should now be in every corner of the level (because of the mirrors)
-        expect(engine.currentLevel[0][0].getSpritesAsSet().has(player)).toBe(true)
-        expect(engine.currentLevel[0][4].getSpritesAsSet().has(player)).toBe(true)
-        expect(engine.currentLevel[4][0].getSpritesAsSet().has(player)).toBe(true)
-        expect(engine.currentLevel[4][4].getSpritesAsSet().has(player)).toBe(true)
+        expect(engine.currentLevel.getCells()[0][0].getSpritesAsSet().has(player)).toBe(true)
+        expect(engine.currentLevel.getCells()[0][4].getSpritesAsSet().has(player)).toBe(true)
+        expect(engine.currentLevel.getCells()[4][0].getSpritesAsSet().has(player)).toBe(true)
+        expect(engine.currentLevel.getCells()[4][4].getSpritesAsSet().has(player)).toBe(true)
+
+        expect(engine.currentLevel.getCells()[0][0].getSpritesAsSet().has(hasReflection)).toBe(true)
+        expect(engine.currentLevel.getCells()[0][4].getSpritesAsSet().has(hasReflection)).toBe(true)
+        expect(engine.currentLevel.getCells()[4][0].getSpritesAsSet().has(hasReflection)).toBe(true)
+        expect(engine.currentLevel.getCells()[4][4].getSpritesAsSet().has(hasReflection)).toBe(true)
 
         // press action again to combing all the players back to one
         engine.press(RULE_DIRECTION.ACTION)
         engine.tick()
         expect(player.getCellsThatMatch().size).toBe(1)
 
-        expect(engine.currentLevel[2][2].getSpritesAsSet().has(player)).toBe(true)
+        expect(engine.currentLevel.getCells()[2][2].getSpritesAsSet().has(player)).toBe(true)
 
 
     })
@@ -772,7 +778,7 @@ describe('engine', () => {
 
         expect(randomTile.getCellsThatMatch().size).toBe(1)
         // Player should now be in every corner of the level (because of the mirrors)
-        expect(engine.currentLevel[0][0].getSpritesAsSet().has(randomTile)).toBe(true)
+        expect(engine.currentLevel.getCells()[0][0].getSpritesAsSet().has(randomTile)).toBe(true)
 
     })
 
@@ -856,7 +862,7 @@ describe('engine', () => {
         expect(num.getCellsThatMatch().size).toBe(2)
     })
 
-    it('runs exactly one rule when group is RANDOM', () => {
+    it('runs exactly one rule when group is RANDOM2', () => {
         const { engine, data } = parseEngine(`title Random
 
         ========

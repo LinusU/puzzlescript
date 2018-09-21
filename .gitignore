@@ -59,3 +59,12 @@ typings/
 
 /lib/
 # /docs/ Commented so the docs are hosted
+
+
+test/webpack-output.js
+test/webpack-output.js.map
+gists/__test/script.txt
+game-runtimes.csv
+*.cpuprofile
+src/parser/grammar.ts
+webpack-stats.json

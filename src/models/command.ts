@@ -1,6 +1,6 @@
-import { BaseForLines, IGameCode } from "./game";
-import { GameSound } from "./sound";
-import { Optional } from "../util";
+import { Optional } from '../util'
+import { BaseForLines, IGameCode } from './BaseForLines'
+import { GameSound } from './sound'
 
 export enum COMMAND_TYPE {
     SFX = 'SFX',
@@ -13,14 +13,15 @@ export enum COMMAND_TYPE {
 }
 
 export abstract class AbstractCommand extends BaseForLines {
-    abstract getType(): COMMAND_TYPE
-    getSound(): GameSound {
+    public abstract getType(): COMMAND_TYPE
+    public getSound(): GameSound {
         throw new Error(`BUG: Check getType() first`)
     }
-    getMessage(): string {
+    public getMessage(): string {
         throw new Error(`BUG: Check getType() first`)
     }
- }
+    public abstract toKey(): string
+}
 
 export class MessageCommand extends AbstractCommand {
     private readonly message: string
@@ -30,16 +31,17 @@ export class MessageCommand extends AbstractCommand {
         this.message = message
     }
 
-    getType() { return COMMAND_TYPE.MESSAGE }
-    getMessage() { return this.message }
+    public getType() { return COMMAND_TYPE.MESSAGE }
+    public getMessage() { return this.message }
 
     // These are used by message levels. Maybe we should split this into 2 classes
-    isInvalid(): Optional<string> {
+    public isInvalid(): Optional<string> {
         return null
     }
-    isMap() {
+    public isMap() {
         return false
     }
+    public toKey() { return `[MESSAGE:"${this.message}"]` }
 }
 
 export class SoundCommand extends AbstractCommand {
@@ -48,49 +50,53 @@ export class SoundCommand extends AbstractCommand {
         super(source)
         this.sound = sound
         if (!sound) {
-            debugger
-            console.error(this.toString())
-            throw new Error(`ERROR: Sound not found`)
+            throw new Error(`ERROR: Sound not found\n${this.toString()}`)
         }
     }
 
-    getType() { return COMMAND_TYPE.SFX }
-    getSound() {
+    public getType() { return COMMAND_TYPE.SFX }
+    public getSound() {
         return this.sound
     }
+    public toKey() { return `[SOUND:${this.sound.soundCode}]` }
 }
 
 export class CancelCommand extends AbstractCommand {
     constructor(source: IGameCode) {
         super(source)
     }
-    getType() { return COMMAND_TYPE.CANCEL }
+    public getType() { return COMMAND_TYPE.CANCEL }
+    public toKey() { return `[CANCEL]` }
 }
 
 export class CheckpointCommand extends AbstractCommand {
     constructor(source: IGameCode) {
         super(source)
     }
-    getType() { return COMMAND_TYPE.CHECKPOINT }
+    public getType() { return COMMAND_TYPE.CHECKPOINT }
+    public toKey() { return `[CHECKPOINT]` }
 }
 
 export class RestartCommand extends AbstractCommand {
     constructor(source: IGameCode) {
         super(source)
     }
-    getType() { return COMMAND_TYPE.RESTART }
+    public getType() { return COMMAND_TYPE.RESTART }
+    public toKey() { return `[RESTART]` }
 }
 
 export class WinCommand extends AbstractCommand {
     constructor(source: IGameCode) {
         super(source)
     }
-    getType() { return COMMAND_TYPE.WIN }
+    public getType() { return COMMAND_TYPE.WIN }
+    public toKey() { return `[WIN]` }
 }
 
 export class AgainCommand extends AbstractCommand {
     constructor(source: IGameCode) {
         super(source)
     }
-    getType() { return COMMAND_TYPE.AGAIN }
+    public getType() { return COMMAND_TYPE.AGAIN }
+    public toKey() { return `[AGAIN]` }
 }
