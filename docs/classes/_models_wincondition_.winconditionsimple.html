@@ -950,6 +950,9 @@ img { max-width: 100%; }
 					<a href="_models_wincondition_.winconditionsimple.html#issatisfied" class="tsd-kind-icon">is<wbr>Satisfied</a>
 				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a href="_models_wincondition_.winconditionsimple.html#tosourcestring" class="tsd-kind-icon">to<wbr>Source<wbr>String</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a href="_models_wincondition_.winconditionsimple.html#tostring" class="tsd-kind-icon">to<wbr>String</a>
 				</li>
 			</ul>
@@ -962,7 +965,7 @@ img { max-width: 100%; }
 			<h3>Hierarchy</h3>
 			<ul class="tsd-hierarchy">
 				<li>
-					<a href="_models_game_.baseforlines.html" class="tsd-signature-type">BaseForLines</a>
+					<a href="_models_baseforlines_.baseforlines.html" class="tsd-signature-type">BaseForLines</a>
 					<ul class="tsd-hierarchy">
 						<li>
 							<span class="target">WinConditionSimple</span>
@@ -1004,6 +1007,7 @@ img { max-width: 100%; }
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="_models_wincondition_.winconditionsimple.html#_issatisfied" class="tsd-kind-icon">_is<wbr>Satisfied</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="_models_wincondition_.winconditionsimple.html#cellsthatmatchtile" class="tsd-kind-icon">cells<wbr>That<wbr>Match<wbr>Tile</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="_models_wincondition_.winconditionsimple.html#issatisfied" class="tsd-kind-icon">is<wbr>Satisfied</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_models_wincondition_.winconditionsimple.html#tosourcestring" class="tsd-kind-icon">to<wbr>Source<wbr>String</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_models_wincondition_.winconditionsimple.html#tostring" class="tsd-kind-icon">to<wbr>String</a></li>
 						</ul>
 					</section>
@@ -1016,20 +1020,20 @@ img { max-width: 100%; }
 				<a name="constructor" class="tsd-anchor"></a>
 				<h3>constructor</h3>
 				<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-					<li class="tsd-signature tsd-kind-icon">new <wbr>Win<wbr>Condition<wbr>Simple<span class="tsd-signature-symbol">(</span>source<span class="tsd-signature-symbol">: </span><a href="../modules/_models_game_.html#igamecode" class="tsd-signature-type">IGameCode</a>, qualifierEnum<span class="tsd-signature-symbol">: </span><a href="../enums/_models_wincondition_.win_qualifier.html" class="tsd-signature-type">WIN_QUALIFIER</a>, tile<span class="tsd-signature-symbol">: </span><a href="../interfaces/_models_tile_.igametile.html" class="tsd-signature-type">IGameTile</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_models_wincondition_.winconditionsimple.html" class="tsd-signature-type">WinConditionSimple</a></li>
+					<li class="tsd-signature tsd-kind-icon">new <wbr>Win<wbr>Condition<wbr>Simple<span class="tsd-signature-symbol">(</span>source<span class="tsd-signature-symbol">: </span><a href="../interfaces/_models_baseforlines_.igamecode.html" class="tsd-signature-type">IGameCode</a>, qualifierEnum<span class="tsd-signature-symbol">: </span><a href="../enums/_models_wincondition_.win_qualifier.html" class="tsd-signature-type">WIN_QUALIFIER</a>, tile<span class="tsd-signature-symbol">: </span><a href="../interfaces/_models_tile_.igametile.html" class="tsd-signature-type">IGameTile</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_models_wincondition_.winconditionsimple.html" class="tsd-signature-type">WinConditionSimple</a></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
-							<p>Overrides <a href="_models_game_.baseforlines.html">BaseForLines</a>.<a href="_models_game_.baseforlines.html#constructor">constructor</a></p>
+							<p>Overrides <a href="_models_baseforlines_.baseforlines.html">BaseForLines</a>.<a href="_models_baseforlines_.baseforlines.html#constructor">constructor</a></p>
 							<ul>
-								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/models/winCondition.ts#L14">models/winCondition.ts:14</a></li>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/models/winCondition.ts#L14">models/winCondition.ts:14</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5>source: <a href="../modules/_models_game_.html#igamecode" class="tsd-signature-type">IGameCode</a></h5>
+								<h5>source: <a href="../interfaces/_models_baseforlines_.igamecode.html" class="tsd-signature-type">IGameCode</a></h5>
 							</li>
 							<li>
 								<h5>qualifierEnum: <a href="../enums/_models_wincondition_.win_qualifier.html" class="tsd-signature-type">WIN_QUALIFIER</a></h5>
@@ -1050,20 +1054,20 @@ img { max-width: 100%; }
 				<h3>__coverage<wbr>Count</h3>
 				<div class="tsd-signature tsd-kind-icon">__coverage<wbr>Count<span class="tsd-signature-symbol">:</span> <a href="../modules/_util_.html#optional" class="tsd-signature-type">Optional</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></div>
 				<aside class="tsd-sources">
-					<p>Inherited from <a href="_models_game_.baseforlines.html">BaseForLines</a>.<a href="_models_game_.baseforlines.html#__coveragecount">__coverageCount</a></p>
+					<p>Inherited from <a href="_models_baseforlines_.baseforlines.html">BaseForLines</a>.<a href="_models_baseforlines_.baseforlines.html#__coveragecount">__coverageCount</a></p>
 					<ul>
-						<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/models/game.ts#L33">models/game.ts:33</a></li>
+						<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/models/BaseForLines.ts#L69">models/BaseForLines.ts:69</a></li>
 					</ul>
 				</aside>
 			</section>
 			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 				<a name="__source" class="tsd-anchor"></a>
 				<h3>__source</h3>
-				<div class="tsd-signature tsd-kind-icon">__source<span class="tsd-signature-symbol">:</span> <a href="../modules/_models_game_.html#igamecode" class="tsd-signature-type">IGameCode</a></div>
+				<div class="tsd-signature tsd-kind-icon">__source<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_models_baseforlines_.igamecode.html" class="tsd-signature-type">IGameCode</a></div>
 				<aside class="tsd-sources">
-					<p>Inherited from <a href="_models_game_.baseforlines.html">BaseForLines</a>.<a href="_models_game_.baseforlines.html#__source">__source</a></p>
+					<p>Inherited from <a href="_models_baseforlines_.baseforlines.html">BaseForLines</a>.<a href="_models_baseforlines_.baseforlines.html#__source">__source</a></p>
 					<ul>
-						<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/models/game.ts#L32">models/game.ts:32</a></li>
+						<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/models/BaseForLines.ts#L68">models/BaseForLines.ts:68</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -1073,7 +1077,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">qualifier<span class="tsd-signature-symbol">:</span> <a href="../enums/_models_wincondition_.win_qualifier.html" class="tsd-signature-type">WIN_QUALIFIER</a></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/models/winCondition.ts#L13">models/winCondition.ts:13</a></li>
+						<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/models/winCondition.ts#L13">models/winCondition.ts:13</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -1083,7 +1087,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">tile<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_models_tile_.igametile.html" class="tsd-signature-type">IGameTile</a></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/models/winCondition.ts#L14">models/winCondition.ts:14</a></li>
+						<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/models/winCondition.ts#L14">models/winCondition.ts:14</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -1099,9 +1103,9 @@ img { max-width: 100%; }
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
-							<p>Inherited from <a href="_models_game_.baseforlines.html">BaseForLines</a>.<a href="_models_game_.baseforlines.html#__getlineandcolumnrange">__getLineAndColumnRange</a></p>
+							<p>Inherited from <a href="_models_baseforlines_.baseforlines.html">BaseForLines</a>.<a href="_models_baseforlines_.baseforlines.html#__getlineandcolumnrange">__getLineAndColumnRange</a></p>
 							<ul>
-								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/models/game.ts#L55">models/game.ts:55</a></li>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/models/BaseForLines.ts#L95">models/BaseForLines.ts:95</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">object</span></h4>
@@ -1141,9 +1145,9 @@ img { max-width: 100%; }
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
-							<p>Inherited from <a href="_models_game_.baseforlines.html">BaseForLines</a>.<a href="_models_game_.baseforlines.html#__getsourcelineandcolumn">__getSourceLineAndColumn</a></p>
+							<p>Inherited from <a href="_models_baseforlines_.baseforlines.html">BaseForLines</a>.<a href="_models_baseforlines_.baseforlines.html#__getsourcelineandcolumn">__getSourceLineAndColumn</a></p>
 							<ul>
-								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/models/game.ts#L45">models/game.ts:45</a></li>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/models/BaseForLines.ts#L80">models/BaseForLines.ts:80</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">object</span></h4>
@@ -1176,9 +1180,9 @@ img { max-width: 100%; }
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
-							<p>Inherited from <a href="_models_game_.baseforlines.html">BaseForLines</a>.<a href="_models_game_.baseforlines.html#__incrementcoverage">__incrementCoverage</a></p>
+							<p>Inherited from <a href="_models_baseforlines_.baseforlines.html">BaseForLines</a>.<a href="_models_baseforlines_.baseforlines.html#__incrementcoverage">__incrementCoverage</a></p>
 							<ul>
-								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/models/game.ts#L64">models/game.ts:64</a></li>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/models/BaseForLines.ts#L103">models/BaseForLines.ts:103</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -1195,7 +1199,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/models/winCondition.ts#L39">models/winCondition.ts:39</a></li>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/models/winCondition.ts#L39">models/winCondition.ts:39</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1218,7 +1222,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/models/winCondition.ts#L25">models/winCondition.ts:25</a></li>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/models/winCondition.ts#L25">models/winCondition.ts:25</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1244,7 +1248,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/models/winCondition.ts#L29">models/winCondition.ts:29</a></li>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/models/winCondition.ts#L29">models/winCondition.ts:29</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1258,6 +1262,24 @@ img { max-width: 100%; }
 				</ul>
 			</section>
 			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+				<a name="tosourcestring" class="tsd-anchor"></a>
+				<h3>to<wbr>Source<wbr>String</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<li class="tsd-signature tsd-kind-icon">to<wbr>Source<wbr>String<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<p>Inherited from <a href="_models_baseforlines_.baseforlines.html">BaseForLines</a>.<a href="_models_baseforlines_.baseforlines.html#tosourcestring">toSourceString</a></p>
+							<ul>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/models/BaseForLines.ts#L89">models/BaseForLines.ts:89</a></li>
+							</ul>
+						</aside>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 				<a name="tostring" class="tsd-anchor"></a>
 				<h3>to<wbr>String</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
@@ -1266,9 +1288,9 @@ img { max-width: 100%; }
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
-							<p>Inherited from <a href="_models_game_.baseforlines.html">BaseForLines</a>.<a href="_models_game_.baseforlines.html#tostring">toString</a></p>
+							<p>Inherited from <a href="_models_baseforlines_.baseforlines.html">BaseForLines</a>.<a href="_models_baseforlines_.baseforlines.html#tostring">toString</a></p>
 							<ul>
-								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/models/game.ts#L49">models/game.ts:49</a></li>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/models/BaseForLines.ts#L84">models/BaseForLines.ts:84</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>

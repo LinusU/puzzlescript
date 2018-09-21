@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>&quot;parser/tileGrammar&quot; | puzzlescript-cli</title>
+	<title>AbstractRuleish | puzzlescript-cli</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<style type="text/css">/*! normalize.css v1.1.3 | MIT License | git.io/normalize */
@@ -907,374 +907,350 @@ img { max-width: 100%; }
 </header>
 <nav class="tsd-navigation secondary">
 	<ul>
-		<li class=" tsd-kind-variable tsd-parent-kind-external-module">
-			<a href="_parser_tilegrammar_.html#legend_grammar" class="tsd-kind-icon">LEGEND_<wbr>GRAMMAR</a>
+		<li class=" tsd-kind-enum tsd-parent-kind-external-module">
+			<a href="../enums/_parser_astrule_.ast_rule_modifier.html" class="tsd-kind-icon">AST_<wbr>RULE_<wbr>MODIFIER</a>
 		</li>
-		<li class=" tsd-kind-variable tsd-parent-kind-external-module">
-			<a href="_parser_tilegrammar_.html#sprite_grammar" class="tsd-kind-icon">SPRITE_<wbr>GRAMMAR</a>
+		<li class=" tsd-kind-class tsd-parent-kind-external-module">
+			<a href="_parser_astrule_.astrule.html" class="tsd-kind-icon">ASTRule</a>
+		</li>
+		<li class=" tsd-kind-class tsd-parent-kind-external-module">
+			<a href="_parser_astrule_.astrulebracket.html" class="tsd-kind-icon">ASTRule<wbr>Bracket</a>
+		</li>
+		<li class=" tsd-kind-class tsd-parent-kind-external-module">
+			<a href="_parser_astrule_.astrulebracketellipsis.html" class="tsd-kind-icon">ASTRule<wbr>Bracket<wbr>Ellipsis</a>
+		</li>
+		<li class=" tsd-kind-class tsd-parent-kind-external-module">
+			<a href="_parser_astrule_.astrulebracketneighbor.html" class="tsd-kind-icon">ASTRule<wbr>Bracket<wbr>Neighbor</a>
+		</li>
+		<li class=" tsd-kind-class tsd-parent-kind-external-module">
+			<a href="_parser_astrule_.astrulebracketneighborhack.html" class="tsd-kind-icon">ASTRule<wbr>Bracket<wbr>Neighbor<wbr>Hack</a>
+		</li>
+		<li class=" tsd-kind-class tsd-parent-kind-external-module">
+			<a href="_parser_astrule_.astrulegroup.html" class="tsd-kind-icon">ASTRule<wbr>Group</a>
+		</li>
+		<li class=" tsd-kind-class tsd-parent-kind-external-module">
+			<a href="_parser_astrule_.astruleloop.html" class="tsd-kind-icon">ASTRule<wbr>Loop</a>
+		</li>
+		<li class=" tsd-kind-class tsd-parent-kind-external-module">
+			<a href="_parser_astrule_.asttilewithmodifier.html" class="tsd-kind-icon">ASTTile<wbr>With<wbr>Modifier</a>
+		</li>
+		<li class="current tsd-kind-class tsd-parent-kind-external-module">
+			<a href="_parser_astrule_.abstractruleish.html" class="tsd-kind-icon">Abstract<wbr>Ruleish</a>
+			<ul>
+				<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited">
+					<a href="_parser_astrule_.abstractruleish.html#constructor" class="tsd-kind-icon">constructor</a>
+				</li>
+				<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+					<a href="_parser_astrule_.abstractruleish.html#__coveragecount" class="tsd-kind-icon">__coverage<wbr>Count</a>
+				</li>
+				<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+					<a href="_parser_astrule_.abstractruleish.html#__source" class="tsd-kind-icon">__source</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a href="_parser_astrule_.abstractruleish.html#__getlineandcolumnrange" class="tsd-kind-icon">__get<wbr>Line<wbr>And<wbr>Column<wbr>Range</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a href="_parser_astrule_.abstractruleish.html#__getsourcelineandcolumn" class="tsd-kind-icon">__get<wbr>Source<wbr>Line<wbr>And<wbr>Column</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a href="_parser_astrule_.abstractruleish.html#__incrementcoverage" class="tsd-kind-icon">__increment<wbr>Coverage</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class">
+					<a href="_parser_astrule_.abstractruleish.html#simplify" class="tsd-kind-icon">simplify</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a href="_parser_astrule_.abstractruleish.html#tosourcestring" class="tsd-kind-icon">to<wbr>Source<wbr>String</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a href="_parser_astrule_.abstractruleish.html#tostring" class="tsd-kind-icon">to<wbr>String</a>
+				</li>
+			</ul>
+		</li>
+		<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+			<a href="../interfaces/_parser_astrule_.iastrulebracket.html" class="tsd-kind-icon">IASTRule<wbr>Bracket</a>
+		</li>
+		<li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported">
+			<a href="../modules/_parser_astrule_.html#m_no" class="tsd-kind-icon">M_<wbr>NO</a>
+		</li>
+		<li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported">
+			<a href="../modules/_parser_astrule_.html#rule_direction_list" class="tsd-kind-icon">RULE_<wbr>DIRECTION_<wbr>LIST</a>
+		</li>
+		<li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported">
+			<a href="../modules/_parser_astrule_.html#rule_direction_set" class="tsd-kind-icon">RULE_<wbr>DIRECTION_<wbr>SET</a>
+		</li>
+		<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter tsd-is-not-exported">
+			<a href="../modules/_parser_astrule_.html#cachesetandget" class="tsd-kind-icon">cache<wbr>Set<wbr>And<wbr>Get</a>
 		</li>
 		<li class=" tsd-kind-function tsd-parent-kind-external-module">
-			<a href="_parser_tilegrammar_.html#gettilesemantics" class="tsd-kind-icon">get<wbr>Tile<wbr>Semantics</a>
+			<a href="../modules/_parser_astrule_.html#relativedirectiontoabsolute" class="tsd-kind-icon">relative<wbr>Direction<wbr>ToAbsolute</a>
 		</li>
 	</ul>
 </nav>
 <div class="container container-main">
 	<div class="content-wrap">
+		<section class="tsd-panel tsd-hierarchy">
+			<h3>Hierarchy</h3>
+			<ul class="tsd-hierarchy">
+				<li>
+					<a href="_models_baseforlines_.baseforlines.html" class="tsd-signature-type">BaseForLines</a>
+					<ul class="tsd-hierarchy">
+						<li>
+							<span class="target">AbstractRuleish</span>
+							<ul class="tsd-hierarchy">
+								<li>
+									<a href="_parser_astrule_.astruleloop.html" class="tsd-signature-type">ASTRuleLoop</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</section>
 		<section class="tsd-panel-group tsd-index-group">
 			<h2>Index</h2>
 			<section class="tsd-panel tsd-index-panel">
 				<div class="tsd-index-content">
-					<section class="tsd-index-section ">
-						<h3>Variables</h3>
+					<section class="tsd-index-section tsd-is-inherited">
+						<h3>Constructors</h3>
 						<ul class="tsd-index-list">
-							<li class="tsd-kind-variable tsd-parent-kind-external-module"><a href="_parser_tilegrammar_.html#legend_grammar" class="tsd-kind-icon">LEGEND_<wbr>GRAMMAR</a></li>
-							<li class="tsd-kind-variable tsd-parent-kind-external-module"><a href="_parser_tilegrammar_.html#sprite_grammar" class="tsd-kind-icon">SPRITE_<wbr>GRAMMAR</a></li>
+							<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><a href="_parser_astrule_.abstractruleish.html#constructor" class="tsd-kind-icon">constructor</a></li>
+						</ul>
+					</section>
+					<section class="tsd-index-section tsd-is-inherited">
+						<h3>Properties</h3>
+						<ul class="tsd-index-list">
+							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_parser_astrule_.abstractruleish.html#__coveragecount" class="tsd-kind-icon">__coverage<wbr>Count</a></li>
+							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_parser_astrule_.abstractruleish.html#__source" class="tsd-kind-icon">__source</a></li>
 						</ul>
 					</section>
 					<section class="tsd-index-section ">
-						<h3>Functions</h3>
+						<h3>Methods</h3>
 						<ul class="tsd-index-list">
-							<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_parser_tilegrammar_.html#gettilesemantics" class="tsd-kind-icon">get<wbr>Tile<wbr>Semantics</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_parser_astrule_.abstractruleish.html#__getlineandcolumnrange" class="tsd-kind-icon">__get<wbr>Line<wbr>And<wbr>Column<wbr>Range</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_parser_astrule_.abstractruleish.html#__getsourcelineandcolumn" class="tsd-kind-icon">__get<wbr>Source<wbr>Line<wbr>And<wbr>Column</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_parser_astrule_.abstractruleish.html#__incrementcoverage" class="tsd-kind-icon">__increment<wbr>Coverage</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class"><a href="_parser_astrule_.abstractruleish.html#simplify" class="tsd-kind-icon">simplify</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_parser_astrule_.abstractruleish.html#tosourcestring" class="tsd-kind-icon">to<wbr>Source<wbr>String</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_parser_astrule_.abstractruleish.html#tostring" class="tsd-kind-icon">to<wbr>String</a></li>
 						</ul>
 					</section>
 				</div>
 			</section>
 		</section>
-		<section class="tsd-panel-group tsd-member-group ">
-			<h2>Variables</h2>
-			<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module">
-				<a name="legend_grammar" class="tsd-anchor"></a>
-				<h3><span class="tsd-flag ts-flagConst">Const</span> LEGEND_<wbr>GRAMMAR</h3>
-				<div class="tsd-signature tsd-kind-icon">LEGEND_<wbr>GRAMMAR<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"LegendTile&#x3D; LegendTileSimple| LegendTileAnd| LegendTileOrLegendTileSimple &#x3D; LegendVarNameDefn &quot;&#x3D;&quot; LookupLegendVarName lineTerminator+LegendTileAnd &#x3D; LegendVarNameDefn &quot;&#x3D;&quot; NonemptyListOf&lt;LookupLegendVarName, t_AND&gt; lineTerminator+LegendTileOr &#x3D; LegendVarNameDefn &quot;&#x3D;&quot; NonemptyListOf&lt;LookupLegendVarName, t_OR&gt; lineTerminator+LegendVarNameDefn &#x3D; ruleVariableName | legendVariableCharLookupLegendVarName &#x3D; LegendVarNameDefn"</span><span class="tsd-signature-symbol"> =&nbsp;&#x60;LegendTile&#x3D; LegendTileSimple| LegendTileAnd| LegendTileOrLegendTileSimple &#x3D; LegendVarNameDefn &quot;&#x3D;&quot; LookupLegendVarName lineTerminator+LegendTileAnd &#x3D; LegendVarNameDefn &quot;&#x3D;&quot; NonemptyListOf&lt;LookupLegendVarName, t_AND&gt; lineTerminator+LegendTileOr &#x3D; LegendVarNameDefn &quot;&#x3D;&quot; NonemptyListOf&lt;LookupLegendVarName, t_OR&gt; lineTerminator+LegendVarNameDefn &#x3D; ruleVariableName | legendVariableCharLookupLegendVarName &#x3D; LegendVarNameDefn&#x60;</span></div>
-				<aside class="tsd-sources">
-					<ul>
-						<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/parser/tileGrammar.ts#L39">parser/tileGrammar.ts:39</a></li>
-					</ul>
-				</aside>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module">
-				<a name="sprite_grammar" class="tsd-anchor"></a>
-				<h3><span class="tsd-flag ts-flagConst">Const</span> SPRITE_<wbr>GRAMMAR</h3>
-				<div class="tsd-signature tsd-kind-icon">SPRITE_<wbr>GRAMMAR<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"Sprite&#x3D; SpritePixels| SpriteNoPixelsSpriteNoPixels &#x3D;spriteName legendShortcutChar? lineTerminatorcolorNameOrHex+ lineTerminator+SpritePixels &#x3D;spriteName legendShortcutChar? lineTerminatorcolorNameOrHex+ lineTerminator+PixelRowslineTerminator*spriteName &#x3D; ruleVariableNamepixelRow &#x3D; pixelDigit+ lineTerminatorpixelDigit &#x3D; digit | &quot;.&quot;legendShortcutChar &#x3D; (~lineTerminator any)// Support at least 5x5 sprites (so we can disambiguate from single-color definitions)PixelRows &#x3D; pixelRow pixelRow pixelRow pixelRow pixelRow+"</span><span class="tsd-signature-symbol"> =&nbsp;&#x60;Sprite&#x3D; SpritePixels| SpriteNoPixelsSpriteNoPixels &#x3D;spriteName legendShortcutChar? lineTerminatorcolorNameOrHex+ lineTerminator+SpritePixels &#x3D;spriteName legendShortcutChar? lineTerminatorcolorNameOrHex+ lineTerminator+PixelRowslineTerminator*spriteName &#x3D; ruleVariableNamepixelRow &#x3D; pixelDigit+ lineTerminatorpixelDigit &#x3D; digit | &quot;.&quot;legendShortcutChar &#x3D; (~lineTerminator any)// Support at least 5x5 sprites (so we can disambiguate from single-color definitions)PixelRows &#x3D; pixelRow pixelRow pixelRow pixelRow pixelRow+&#x60;</span></div>
-				<aside class="tsd-sources">
-					<ul>
-						<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/parser/tileGrammar.ts#L15">parser/tileGrammar.ts:15</a></li>
-					</ul>
-				</aside>
-			</section>
-		</section>
-		<section class="tsd-panel-group tsd-member-group ">
-			<h2>Functions</h2>
-			<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-				<a name="gettilesemantics" class="tsd-anchor"></a>
-				<h3>get<wbr>Tile<wbr>Semantics</h3>
-				<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-					<li class="tsd-signature tsd-kind-icon">get<wbr>Tile<wbr>Semantics<span class="tsd-signature-symbol">(</span>lookup<span class="tsd-signature-symbol">: </span><a href="../classes/_parser_lookup_.lookuphelper.html" class="tsd-signature-type">LookupHelper</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></li>
+		<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
+			<h2>Constructors</h2>
+			<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited">
+				<a name="constructor" class="tsd-anchor"></a>
+				<h3>constructor</h3>
+				<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited">
+					<li class="tsd-signature tsd-kind-icon">new <wbr>Abstract<wbr>Ruleish<span class="tsd-signature-symbol">(</span>source<span class="tsd-signature-symbol">: </span><a href="../interfaces/_models_baseforlines_.igamecode.html" class="tsd-signature-type">IGameCode</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_parser_astrule_.abstractruleish.html" class="tsd-signature-type">AbstractRuleish</a></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
+							<p>Inherited from <a href="_models_baseforlines_.baseforlines.html">BaseForLines</a>.<a href="_models_baseforlines_.baseforlines.html#constructor">constructor</a></p>
 							<ul>
-								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/parser/tileGrammar.ts#L53">parser/tileGrammar.ts:53</a></li>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/models/BaseForLines.ts#L69">models/BaseForLines.ts:69</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5>lookup: <a href="../classes/_parser_lookup_.lookuphelper.html" class="tsd-signature-type">LookupHelper</a></h5>
+								<h5>source: <a href="../interfaces/_models_baseforlines_.igamecode.html" class="tsd-signature-type">IGameCode</a></h5>
 							</li>
 						</ul>
+						<h4 class="tsd-returns-title">Returns <a href="_parser_astrule_.abstractruleish.html" class="tsd-signature-type">AbstractRuleish</a></h4>
+					</li>
+				</ul>
+			</section>
+		</section>
+		<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
+			<h2>Properties</h2>
+			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+				<a name="__coveragecount" class="tsd-anchor"></a>
+				<h3>__coverage<wbr>Count</h3>
+				<div class="tsd-signature tsd-kind-icon">__coverage<wbr>Count<span class="tsd-signature-symbol">:</span> <a href="../modules/_util_.html#optional" class="tsd-signature-type">Optional</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></div>
+				<aside class="tsd-sources">
+					<p>Inherited from <a href="_models_baseforlines_.baseforlines.html">BaseForLines</a>.<a href="_models_baseforlines_.baseforlines.html#__coveragecount">__coverageCount</a></p>
+					<ul>
+						<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/models/BaseForLines.ts#L69">models/BaseForLines.ts:69</a></li>
+					</ul>
+				</aside>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+				<a name="__source" class="tsd-anchor"></a>
+				<h3>__source</h3>
+				<div class="tsd-signature tsd-kind-icon">__source<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_models_baseforlines_.igamecode.html" class="tsd-signature-type">IGameCode</a></div>
+				<aside class="tsd-sources">
+					<p>Inherited from <a href="_models_baseforlines_.baseforlines.html">BaseForLines</a>.<a href="_models_baseforlines_.baseforlines.html#__source">__source</a></p>
+					<ul>
+						<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/models/BaseForLines.ts#L68">models/BaseForLines.ts:68</a></li>
+					</ul>
+				</aside>
+			</section>
+		</section>
+		<section class="tsd-panel-group tsd-member-group ">
+			<h2>Methods</h2>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+				<a name="__getlineandcolumnrange" class="tsd-anchor"></a>
+				<h3>__get<wbr>Line<wbr>And<wbr>Column<wbr>Range</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<li class="tsd-signature tsd-kind-icon">__get<wbr>Line<wbr>And<wbr>Column<wbr>Range<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<p>Inherited from <a href="_models_baseforlines_.baseforlines.html">BaseForLines</a>.<a href="_models_baseforlines_.baseforlines.html#__getlineandcolumnrange">__getLineAndColumnRange</a></p>
+							<ul>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/models/BaseForLines.ts#L95">models/BaseForLines.ts:95</a></li>
+							</ul>
+						</aside>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">object</span></h4>
 						<ul class="tsd-parameters">
 							<li class="tsd-parameter">
-								<h5>Legend<wbr>Tile<span class="tsd-signature-symbol">: </span>function</h5>
-								<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-type-literal tsd-is-not-exported">
-									<li class="tsd-signature tsd-kind-icon">Legend<wbr>Tile<span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Node</span>, tile<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../classes/_models_tile_.gamelegendtilesimple.html" class="tsd-signature-type">GameLegendTileSimple</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../classes/_models_tile_.gamelegendtilesimple.html" class="tsd-signature-type">GameLegendTileSimple</a></li>
-								</ul>
-								<ul class="tsd-descriptions">
-									<li class="tsd-description">
-										<aside class="tsd-sources">
-											<ul>
-												<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/parser/tileGrammar.ts#L84">parser/tileGrammar.ts:84</a></li>
-											</ul>
-										</aside>
-										<h4 class="tsd-parameters-title">Parameters</h4>
-										<ul class="tsd-parameters">
-											<li>
-												<h5>this: <span class="tsd-signature-type">Node</span></h5>
-											</li>
-											<li>
-												<h5>tile: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../classes/_models_tile_.gamelegendtilesimple.html" class="tsd-signature-type">GameLegendTileSimple</a><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-										</ul>
-										<h4 class="tsd-returns-title">Returns <a href="../classes/_models_tile_.gamelegendtilesimple.html" class="tsd-signature-type">GameLegendTileSimple</a></h4>
+								<h5>end<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></h5>
+								<ul class="tsd-parameters">
+									<li class="tsd-parameter">
+										<h5>col<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
 									</li>
-							</ul>        </li>
+									<li class="tsd-parameter">
+										<h5>line<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
+									</li>
+								</ul>
+							</li>
 							<li class="tsd-parameter">
-								<h5>Legend<wbr>Tile<wbr>And<span class="tsd-signature-symbol">: </span>function</h5>
-								<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-type-literal tsd-is-not-exported">
-									<li class="tsd-signature tsd-kind-icon">Legend<wbr>Tile<wbr>And<span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Node</span>, spriteNameOrLevelChar<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span>, _equals<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span>, tiles<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_models_tile_.igametile.html" class="tsd-signature-type">IGameTile</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span>, _whitespace<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../classes/_models_tile_.gamelegendtileand.html" class="tsd-signature-type">GameLegendTileAnd</a></li>
-								</ul>
-								<ul class="tsd-descriptions">
-									<li class="tsd-description">
-										<aside class="tsd-sources">
-											<ul>
-												<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/parser/tileGrammar.ts#L96">parser/tileGrammar.ts:96</a></li>
-											</ul>
-										</aside>
-										<h4 class="tsd-parameters-title">Parameters</h4>
-										<ul class="tsd-parameters">
-											<li>
-												<h5>this: <span class="tsd-signature-type">Node</span></h5>
-											</li>
-											<li>
-												<h5>spriteNameOrLevelChar: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-											<li>
-												<h5>_equals: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-											<li>
-												<h5>tiles: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_models_tile_.igametile.html" class="tsd-signature-type">IGameTile</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-											<li>
-												<h5>_whitespace: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-										</ul>
-										<h4 class="tsd-returns-title">Returns <a href="../classes/_models_tile_.gamelegendtileand.html" class="tsd-signature-type">GameLegendTileAnd</a></h4>
+								<h5>start<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></h5>
+								<ul class="tsd-parameters">
+									<li class="tsd-parameter">
+										<h5>col<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
 									</li>
-							</ul>        </li>
-							<li class="tsd-parameter">
-								<h5>Legend<wbr>Tile<wbr>Or<span class="tsd-signature-symbol">: </span>function</h5>
-								<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-type-literal tsd-is-not-exported">
-									<li class="tsd-signature tsd-kind-icon">Legend<wbr>Tile<wbr>Or<span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Node</span>, spriteNameOrLevelChar<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span>, _equals<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span>, tiles<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_models_tile_.igametile.html" class="tsd-signature-type">IGameTile</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span>, _whitespace<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../classes/_models_tile_.gamelegendtileor.html" class="tsd-signature-type">GameLegendTileOr</a></li>
-								</ul>
-								<ul class="tsd-descriptions">
-									<li class="tsd-description">
-										<aside class="tsd-sources">
-											<ul>
-												<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/parser/tileGrammar.ts#L99">parser/tileGrammar.ts:99</a></li>
-											</ul>
-										</aside>
-										<h4 class="tsd-parameters-title">Parameters</h4>
-										<ul class="tsd-parameters">
-											<li>
-												<h5>this: <span class="tsd-signature-type">Node</span></h5>
-											</li>
-											<li>
-												<h5>spriteNameOrLevelChar: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-											<li>
-												<h5>_equals: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-											<li>
-												<h5>tiles: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_models_tile_.igametile.html" class="tsd-signature-type">IGameTile</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-											<li>
-												<h5>_whitespace: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-										</ul>
-										<h4 class="tsd-returns-title">Returns <a href="../classes/_models_tile_.gamelegendtileor.html" class="tsd-signature-type">GameLegendTileOr</a></h4>
+									<li class="tsd-parameter">
+										<h5>line<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
 									</li>
-							</ul>        </li>
-							<li class="tsd-parameter">
-								<h5>Legend<wbr>Tile<wbr>Simple<span class="tsd-signature-symbol">: </span>function</h5>
-								<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-type-literal tsd-is-not-exported">
-									<li class="tsd-signature tsd-kind-icon">Legend<wbr>Tile<wbr>Simple<span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Node</span>, spriteNameOrLevelChar<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span>, _equals<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span>, tile<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../classes/_models_tile_.gamesprite.html" class="tsd-signature-type">GameSprite</a><span class="tsd-signature-symbol">&gt;</span>, _whitespace<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../classes/_models_tile_.gamelegendtilesimple.html" class="tsd-signature-type">GameLegendTileSimple</a></li>
 								</ul>
-								<ul class="tsd-descriptions">
-									<li class="tsd-description">
-										<aside class="tsd-sources">
-											<ul>
-												<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/parser/tileGrammar.ts#L92">parser/tileGrammar.ts:92</a></li>
-											</ul>
-										</aside>
-										<h4 class="tsd-parameters-title">Parameters</h4>
-										<ul class="tsd-parameters">
-											<li>
-												<h5>this: <span class="tsd-signature-type">Node</span></h5>
-											</li>
-											<li>
-												<h5>spriteNameOrLevelChar: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-											<li>
-												<h5>_equals: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-											<li>
-												<h5>tile: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../classes/_models_tile_.gamesprite.html" class="tsd-signature-type">GameSprite</a><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-											<li>
-												<h5>_whitespace: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-										</ul>
-										<h4 class="tsd-returns-title">Returns <a href="../classes/_models_tile_.gamelegendtilesimple.html" class="tsd-signature-type">GameLegendTileSimple</a></h4>
-									</li>
-							</ul>        </li>
-							<li class="tsd-parameter">
-								<h5>Lookup<wbr>Legend<wbr>Var<wbr>Name<span class="tsd-signature-symbol">: </span>function</h5>
-								<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-type-literal tsd-is-not-exported">
-									<li class="tsd-signature tsd-kind-icon">Lookup<wbr>Legend<wbr>Var<wbr>Name<span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Node</span>, tileName<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_models_tile_.igametile.html" class="tsd-signature-type">IGameTile</a><span class="tsd-signature-symbol"> | </span><a href="../classes/_models_tile_.gamesprite.html" class="tsd-signature-type">GameSprite</a></li>
-								</ul>
-								<ul class="tsd-descriptions">
-									<li class="tsd-description">
-										<aside class="tsd-sources">
-											<ul>
-												<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/parser/tileGrammar.ts#L80">parser/tileGrammar.ts:80</a></li>
-											</ul>
-										</aside>
-										<h4 class="tsd-parameters-title">Parameters</h4>
-										<ul class="tsd-parameters">
-											<li>
-												<h5>this: <span class="tsd-signature-type">Node</span></h5>
-											</li>
-											<li>
-												<h5>tileName: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-										</ul>
-										<h4 class="tsd-returns-title">Returns <a href="../interfaces/_models_tile_.igametile.html" class="tsd-signature-type">IGameTile</a>
-											<span class="tsd-signature-symbol"> | </span>
-											<a href="../classes/_models_tile_.gamesprite.html" class="tsd-signature-type">GameSprite</a>
-										</h4>
-									</li>
-							</ul>        </li>
-							<li class="tsd-parameter">
-								<h5>Pixel<wbr>Rows<span class="tsd-signature-symbol">: </span>function</h5>
-								<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-type-literal tsd-is-not-exported">
-									<li class="tsd-signature tsd-kind-icon">Pixel<wbr>Rows<span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Node</span>, row1<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span>, row2<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span>, row3<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span>, row4<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span>, rows<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></li>
-								</ul>
-								<ul class="tsd-descriptions">
-									<li class="tsd-description">
-										<aside class="tsd-sources">
-											<ul>
-												<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/parser/tileGrammar.ts#L72">parser/tileGrammar.ts:72</a></li>
-											</ul>
-										</aside>
-										<h4 class="tsd-parameters-title">Parameters</h4>
-										<ul class="tsd-parameters">
-											<li>
-												<h5>this: <span class="tsd-signature-type">Node</span></h5>
-											</li>
-											<li>
-												<h5>row1: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-											<li>
-												<h5>row2: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-											<li>
-												<h5>row3: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-											<li>
-												<h5>row4: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-											<li>
-												<h5>rows: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-										</ul>
-										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h4>
-									</li>
-							</ul>        </li>
-							<li class="tsd-parameter">
-								<h5>Sprite<span class="tsd-signature-symbol">: </span>function</h5>
-								<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-type-literal tsd-is-not-exported">
-									<li class="tsd-signature tsd-kind-icon">Sprite<span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Node</span>, _1<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../classes/_models_tile_.gamesprite.html" class="tsd-signature-type">GameSprite</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../classes/_models_tile_.gamesprite.html" class="tsd-signature-type">GameSprite</a></li>
-								</ul>
-								<ul class="tsd-descriptions">
-									<li class="tsd-description">
-										<aside class="tsd-sources">
-											<ul>
-												<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/parser/tileGrammar.ts#L55">parser/tileGrammar.ts:55</a></li>
-											</ul>
-										</aside>
-										<h4 class="tsd-parameters-title">Parameters</h4>
-										<ul class="tsd-parameters">
-											<li>
-												<h5>this: <span class="tsd-signature-type">Node</span></h5>
-											</li>
-											<li>
-												<h5>_1: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../classes/_models_tile_.gamesprite.html" class="tsd-signature-type">GameSprite</a><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-										</ul>
-										<h4 class="tsd-returns-title">Returns <a href="../classes/_models_tile_.gamesprite.html" class="tsd-signature-type">GameSprite</a></h4>
-									</li>
-							</ul>        </li>
-							<li class="tsd-parameter">
-								<h5>Sprite<wbr>NoPixels<span class="tsd-signature-symbol">: </span>function</h5>
-								<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-type-literal tsd-is-not-exported">
-									<li class="tsd-signature tsd-kind-icon">Sprite<wbr>NoPixels<span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Node</span>, name<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span>, optionalLegendChar<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span>, _3<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span>, colors<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../classes/_models_colors_.hexcolor.html" class="tsd-signature-type">HexColor</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span>, _5<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../classes/_models_tile_.gamespritesinglecolor.html" class="tsd-signature-type">GameSpriteSingleColor</a></li>
-								</ul>
-								<ul class="tsd-descriptions">
-									<li class="tsd-description">
-										<aside class="tsd-sources">
-											<ul>
-												<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/parser/tileGrammar.ts#L69">parser/tileGrammar.ts:69</a></li>
-											</ul>
-										</aside>
-										<h4 class="tsd-parameters-title">Parameters</h4>
-										<ul class="tsd-parameters">
-											<li>
-												<h5>this: <span class="tsd-signature-type">Node</span></h5>
-											</li>
-											<li>
-												<h5>name: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-											<li>
-												<h5>optionalLegendChar: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-											<li>
-												<h5>_3: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-											<li>
-												<h5>colors: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../classes/_models_colors_.hexcolor.html" class="tsd-signature-type">HexColor</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-											<li>
-												<h5>_5: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-										</ul>
-										<h4 class="tsd-returns-title">Returns <a href="../classes/_models_tile_.gamespritesinglecolor.html" class="tsd-signature-type">GameSpriteSingleColor</a></h4>
-									</li>
-							</ul>        </li>
-							<li class="tsd-parameter">
-								<h5>Sprite<wbr>Pixels<span class="tsd-signature-symbol">: </span>function</h5>
-								<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-type-literal tsd-is-not-exported">
-									<li class="tsd-signature tsd-kind-icon">Sprite<wbr>Pixels<span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Node</span>, name<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span>, optionalLegendChar<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span>, _3<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span>, colors<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../classes/_models_colors_.hexcolor.html" class="tsd-signature-type">HexColor</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span>, _5<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span>, pixels<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"."</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span>, _7<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../classes/_models_tile_.gamespritepixels.html" class="tsd-signature-type">GameSpritePixels</a></li>
-								</ul>
-								<ul class="tsd-descriptions">
-									<li class="tsd-description">
-										<aside class="tsd-sources">
-											<ul>
-												<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/parser/tileGrammar.ts#L66">parser/tileGrammar.ts:66</a></li>
-											</ul>
-										</aside>
-										<h4 class="tsd-parameters-title">Parameters</h4>
-										<ul class="tsd-parameters">
-											<li>
-												<h5>this: <span class="tsd-signature-type">Node</span></h5>
-											</li>
-											<li>
-												<h5>name: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-											<li>
-												<h5>optionalLegendChar: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-											<li>
-												<h5>_3: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-											<li>
-												<h5>colors: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../classes/_models_colors_.hexcolor.html" class="tsd-signature-type">HexColor</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-											<li>
-												<h5>_5: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-											<li>
-												<h5>pixels: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"."</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-											<li>
-												<h5>_7: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-										</ul>
-										<h4 class="tsd-returns-title">Returns <a href="../classes/_models_tile_.gamespritepixels.html" class="tsd-signature-type">GameSpritePixels</a></h4>
-									</li>
-							</ul>        </li>
+							</li>
 						</ul>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+				<a name="__getsourcelineandcolumn" class="tsd-anchor"></a>
+				<h3>__get<wbr>Source<wbr>Line<wbr>And<wbr>Column</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<li class="tsd-signature tsd-kind-icon">__get<wbr>Source<wbr>Line<wbr>And<wbr>Column<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<p>Inherited from <a href="_models_baseforlines_.baseforlines.html">BaseForLines</a>.<a href="_models_baseforlines_.baseforlines.html#__getsourcelineandcolumn">__getSourceLineAndColumn</a></p>
+							<ul>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/models/BaseForLines.ts#L80">models/BaseForLines.ts:80</a></li>
+							</ul>
+						</aside>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">object</span></h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter">
+								<h5>col<wbr>Num<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
+							</li>
+							<li class="tsd-parameter">
+								<h5>line<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
+							</li>
+							<li class="tsd-parameter">
+								<h5>line<wbr>Num<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
+							</li>
+							<li class="tsd-parameter">
+								<h5>next<wbr>Line<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h5>
+							</li>
+							<li class="tsd-parameter">
+								<h5>prev<wbr>Line<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h5>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+				<a name="__incrementcoverage" class="tsd-anchor"></a>
+				<h3>__increment<wbr>Coverage</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<li class="tsd-signature tsd-kind-icon">__increment<wbr>Coverage<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<p>Inherited from <a href="_models_baseforlines_.baseforlines.html">BaseForLines</a>.<a href="_models_baseforlines_.baseforlines.html#__incrementcoverage">__incrementCoverage</a></p>
+							<ul>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/models/BaseForLines.ts#L103">models/BaseForLines.ts:103</a></li>
+							</ul>
+						</aside>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+				<a name="simplify" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagAbstract">Abstract</span> simplify</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+					<li class="tsd-signature tsd-kind-icon">simplify<span class="tsd-signature-symbol">(</span>ruleCache<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="_models_rule_.simplerule.html" class="tsd-signature-type">SimpleRule</a><span class="tsd-signature-symbol">&gt;</span>, bracketCache<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="_models_rule_.isimplebracket.html" class="tsd-signature-type">ISimpleBracket</a><span class="tsd-signature-symbol">&gt;</span>, neighborCache<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="_models_rule_.simpleneighbor.html" class="tsd-signature-type">SimpleNeighbor</a><span class="tsd-signature-symbol">&gt;</span>, tileCache<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="_models_rule_.simpletilewithmodifier.html" class="tsd-signature-type">SimpleTileWithModifier</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_models_rule_.irule.html" class="tsd-signature-type">IRule</a></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/parser/astRule.ts#L519">parser/astRule.ts:519</a></li>
+							</ul>
+						</aside>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5>ruleCache: <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="_models_rule_.simplerule.html" class="tsd-signature-type">SimpleRule</a><span class="tsd-signature-symbol">&gt;</span></h5>
+							</li>
+							<li>
+								<h5>bracketCache: <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="_models_rule_.isimplebracket.html" class="tsd-signature-type">ISimpleBracket</a><span class="tsd-signature-symbol">&gt;</span></h5>
+							</li>
+							<li>
+								<h5>neighborCache: <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="_models_rule_.simpleneighbor.html" class="tsd-signature-type">SimpleNeighbor</a><span class="tsd-signature-symbol">&gt;</span></h5>
+							</li>
+							<li>
+								<h5>tileCache: <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="_models_rule_.simpletilewithmodifier.html" class="tsd-signature-type">SimpleTileWithModifier</a><span class="tsd-signature-symbol">&gt;</span></h5>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <a href="../interfaces/_models_rule_.irule.html" class="tsd-signature-type">IRule</a></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+				<a name="tosourcestring" class="tsd-anchor"></a>
+				<h3>to<wbr>Source<wbr>String</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<li class="tsd-signature tsd-kind-icon">to<wbr>Source<wbr>String<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<p>Inherited from <a href="_models_baseforlines_.baseforlines.html">BaseForLines</a>.<a href="_models_baseforlines_.baseforlines.html#tosourcestring">toSourceString</a></p>
+							<ul>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/models/BaseForLines.ts#L89">models/BaseForLines.ts:89</a></li>
+							</ul>
+						</aside>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+				<a name="tostring" class="tsd-anchor"></a>
+				<h3>to<wbr>String</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<li class="tsd-signature tsd-kind-icon">to<wbr>String<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<p>Inherited from <a href="_models_baseforlines_.baseforlines.html">BaseForLines</a>.<a href="_models_baseforlines_.baseforlines.html#tostring">toString</a></p>
+							<ul>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/models/BaseForLines.ts#L84">models/BaseForLines.ts:84</a></li>
+							</ul>
+						</aside>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
 					</li>
 				</ul>
 			</section>

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>&quot;parser/ruleGrammar&quot; | puzzlescript-cli</title>
+	<title>SOUND_SPRITE_EVENT | puzzlescript-cli</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<style type="text/css">/*! normalize.css v1.1.3 | MIT License | git.io/normalize */
@@ -907,11 +907,19 @@ img { max-width: 100%; }
 </header>
 <nav class="tsd-navigation secondary">
 	<ul>
-		<li class=" tsd-kind-variable tsd-parent-kind-external-module">
-			<a href="_parser_rulegrammar_.html#rule_grammar" class="tsd-kind-icon">RULE_<wbr>GRAMMAR</a>
-		</li>
-		<li class=" tsd-kind-function tsd-parent-kind-external-module">
-			<a href="_parser_rulegrammar_.html#getrulesemantics" class="tsd-kind-icon">get<wbr>Rule<wbr>Semantics</a>
+		<li class="current tsd-kind-enum tsd-parent-kind-external-module">
+			<a href="_parser_asttypes_.sound_sprite_event.html" class="tsd-kind-icon">SOUND_<wbr>SPRITE_<wbr>EVENT</a>
+			<ul>
+				<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+					<a href="_parser_asttypes_.sound_sprite_event.html#cantmove" class="tsd-kind-icon">CANTMOVE</a>
+				</li>
+				<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+					<a href="_parser_asttypes_.sound_sprite_event.html#create" class="tsd-kind-icon">CREATE</a>
+				</li>
+				<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+					<a href="_parser_asttypes_.sound_sprite_event.html#destroy" class="tsd-kind-icon">DESTROY</a>
+				</li>
+			</ul>
 		</li>
 	</ul>
 </nav>
@@ -922,528 +930,47 @@ img { max-width: 100%; }
 			<section class="tsd-panel tsd-index-panel">
 				<div class="tsd-index-content">
 					<section class="tsd-index-section ">
-						<h3>Variables</h3>
+						<h3>Enumeration members</h3>
 						<ul class="tsd-index-list">
-							<li class="tsd-kind-variable tsd-parent-kind-external-module"><a href="_parser_rulegrammar_.html#rule_grammar" class="tsd-kind-icon">RULE_<wbr>GRAMMAR</a></li>
-						</ul>
-					</section>
-					<section class="tsd-index-section ">
-						<h3>Functions</h3>
-						<ul class="tsd-index-list">
-							<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_parser_rulegrammar_.html#getrulesemantics" class="tsd-kind-icon">get<wbr>Rule<wbr>Semantics</a></li>
+							<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="_parser_asttypes_.sound_sprite_event.html#cantmove" class="tsd-kind-icon">CANTMOVE</a></li>
+							<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="_parser_asttypes_.sound_sprite_event.html#create" class="tsd-kind-icon">CREATE</a></li>
+							<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="_parser_asttypes_.sound_sprite_event.html#destroy" class="tsd-kind-icon">DESTROY</a></li>
 						</ul>
 					</section>
 				</div>
 			</section>
 		</section>
 		<section class="tsd-panel-group tsd-member-group ">
-			<h2>Variables</h2>
-			<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module">
-				<a name="rule_grammar" class="tsd-anchor"></a>
-				<h3><span class="tsd-flag ts-flagConst">Const</span> RULE_<wbr>GRAMMAR</h3>
-				<div class="tsd-signature tsd-kind-icon">RULE_<wbr>GRAMMAR<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"RuleItem&#x3D; RuleLoop| RuleGroup // Do this before Rule because we need to look for a &quot;+&quot; on the following Rule| RuleRule &#x3D; t_DEBUGGER? (RuleModifierLeft* RuleBracket)+ &quot;-&gt;&quot; (RuleModifier? RuleBracket)* RuleCommand* MessageCommand? lineTerminator+RuleBracket&#x3D; EllipsisRuleBracket| NormalRuleBracketNormalRuleBracket &#x3D; &quot;[&quot; NonemptyListOf&lt;RuleBracketNeighbor, &quot;|&quot;&gt; t_AGAIN? &quot;]&quot; t_DEBUGGER? // t_AGAIN is a HACK. It should be in the list of commands but it&#x27;s not.EllipsisRuleBracket &#x3D; &quot;[&quot; NonemptyListOf&lt;RuleBracketNeighbor, &quot;|&quot;&gt; t_ELLIPSIS &quot;|&quot; NonemptyListOf&lt;RuleBracketNeighbor, &quot;|&quot;&gt; &quot;]&quot; t_DEBUGGER?RuleBracketNeighbor&#x3D; HackTileNameIsSFX1 // to parse &#x27;... -&gt; [ SFX1 ]&#x27; (they should be commands)| HackTileNameIsSFX2 // to parse &#x27;... -&gt; [ tilename SFX1 ]&#x27;| RuleBracketNoEllipsisNeighborRuleBracketNoEllipsisNeighbor &#x3D; TileWithModifier* t_DEBUGGER?TileWithModifier &#x3D; t_DEBUGGER? tileModifier* lookupRuleVariableNametileModifier &#x3D; space* tileModifierInner space+ // Force-check that there is whitespace after the cellLayerModifier so things like &quot;STATIONARYZ&quot; or &quot;NOZ&quot; are not parsed as a modifier (they are a variable that happens to begin with the same text as a modifier)tileModifierInner&#x3D; t_NO| t_LEFT| t_RIGHT| t_UP| t_DOWN| t_RANDOMDIR| t_RANDOM| t_STATIONARY| t_MOVING| t_ACTION| t_VERTICAL| t_HORIZONTAL| t_PERPENDICULAR| t_PARALLEL| t_ORTHOGONAL| t_ARROW_ANY // This can be a &quot;v&quot; so it needs to go at the end (behind t_VERTICAL)RuleModifier&#x3D; t_RANDOM| t_UP| t_DOWN| t_LEFT| t_RIGHT| t_VERTICAL| t_HORIZONTAL| t_ORTHOGONALRuleModifierLeft&#x3D; RuleModifier // Sometimes people write &quot;RIGHT LATE [...&quot; instead of &quot;LATE RIGHT [...&quot;| t_LATE| t_RIGIDRuleCommand&#x3D; t_AGAIN| t_CANCEL| t_CHECKPOINT| t_RESTART| t_WIN| t_SFXMessageCommand &#x3D; t_MESSAGE words*RuleLoop &#x3D;t_DEBUGGER?t_STARTLOOP lineTerminator+RuleItem+t_ENDLOOP lineTerminator+RuleGroup &#x3D;t_DEBUGGER?t_RANDOM?Rule(t_GROUP_RULE_PLUS Rule)+HackTileNameIsSFX1 &#x3D; t_SFX t_DEBUGGER?HackTileNameIsSFX2 &#x3D; lookupRuleVariableName t_SFX t_DEBUGGER?"</span><span class="tsd-signature-symbol"> =&nbsp;&#x60;RuleItem&#x3D; RuleLoop| RuleGroup // Do this before Rule because we need to look for a &quot;+&quot; on the following Rule| RuleRule &#x3D; t_DEBUGGER? (RuleModifierLeft* RuleBracket)+ &quot;-&gt;&quot; (RuleModifier? RuleBracket)* RuleCommand* MessageCommand? lineTerminator+RuleBracket&#x3D; EllipsisRuleBracket| NormalRuleBracketNormalRuleBracket &#x3D; &quot;[&quot; NonemptyListOf&lt;RuleBracketNeighbor, &quot;|&quot;&gt; t_AGAIN? &quot;]&quot; t_DEBUGGER? // t_AGAIN is a HACK. It should be in the list of commands but it&#x27;s not.EllipsisRuleBracket &#x3D; &quot;[&quot; NonemptyListOf&lt;RuleBracketNeighbor, &quot;|&quot;&gt; t_ELLIPSIS &quot;|&quot; NonemptyListOf&lt;RuleBracketNeighbor, &quot;|&quot;&gt; &quot;]&quot; t_DEBUGGER?RuleBracketNeighbor&#x3D; HackTileNameIsSFX1 // to parse &#x27;... -&gt; [ SFX1 ]&#x27; (they should be commands)| HackTileNameIsSFX2 // to parse &#x27;... -&gt; [ tilename SFX1 ]&#x27;| RuleBracketNoEllipsisNeighborRuleBracketNoEllipsisNeighbor &#x3D; TileWithModifier* t_DEBUGGER?TileWithModifier &#x3D; t_DEBUGGER? tileModifier* lookupRuleVariableNametileModifier &#x3D; space* tileModifierInner space+ // Force-check that there is whitespace after the cellLayerModifier so things like &quot;STATIONARYZ&quot; or &quot;NOZ&quot; are not parsed as a modifier (they are a variable that happens to begin with the same text as a modifier)tileModifierInner&#x3D; t_NO| t_LEFT| t_RIGHT| t_UP| t_DOWN| t_RANDOMDIR| t_RANDOM| t_STATIONARY| t_MOVING| t_ACTION| t_VERTICAL| t_HORIZONTAL| t_PERPENDICULAR| t_PARALLEL| t_ORTHOGONAL| t_ARROW_ANY // This can be a &quot;v&quot; so it needs to go at the end (behind t_VERTICAL)RuleModifier&#x3D; t_RANDOM| t_UP| t_DOWN| t_LEFT| t_RIGHT| t_VERTICAL| t_HORIZONTAL| t_ORTHOGONALRuleModifierLeft&#x3D; RuleModifier // Sometimes people write &quot;RIGHT LATE [...&quot; instead of &quot;LATE RIGHT [...&quot;| t_LATE| t_RIGIDRuleCommand&#x3D; t_AGAIN| t_CANCEL| t_CHECKPOINT| t_RESTART| t_WIN| t_SFXMessageCommand &#x3D; t_MESSAGE words*RuleLoop &#x3D;t_DEBUGGER?t_STARTLOOP lineTerminator+RuleItem+t_ENDLOOP lineTerminator+RuleGroup &#x3D;t_DEBUGGER?t_RANDOM?Rule(t_GROUP_RULE_PLUS Rule)+HackTileNameIsSFX1 &#x3D; t_SFX t_DEBUGGER?HackTileNameIsSFX2 &#x3D; lookupRuleVariableName t_SFX t_DEBUGGER?&#x60;</span></div>
+			<h2>Enumeration members</h2>
+			<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+				<a name="cantmove" class="tsd-anchor"></a>
+				<h3>CANTMOVE</h3>
+				<div class="tsd-signature tsd-kind-icon">CANTMOVE<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> =&nbsp;&quot;CANTMOVE&quot;</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/parser/ruleGrammar.ts#L10">parser/ruleGrammar.ts:10</a></li>
+						<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/parser/astTypes.ts#L63">parser/astTypes.ts:63</a></li>
 					</ul>
 				</aside>
 			</section>
-		</section>
-		<section class="tsd-panel-group tsd-member-group ">
-			<h2>Functions</h2>
-			<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-				<a name="getrulesemantics" class="tsd-anchor"></a>
-				<h3>get<wbr>Rule<wbr>Semantics</h3>
-				<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-					<li class="tsd-signature tsd-kind-icon">get<wbr>Rule<wbr>Semantics<span class="tsd-signature-symbol">(</span>lookup<span class="tsd-signature-symbol">: </span><a href="../classes/_parser_lookup_.lookuphelper.html" class="tsd-signature-type">LookupHelper</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></li>
-				</ul>
-				<ul class="tsd-descriptions">
-					<li class="tsd-description">
-						<aside class="tsd-sources">
-							<ul>
-								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/parser/ruleGrammar.ts#L95">parser/ruleGrammar.ts:95</a></li>
-							</ul>
-						</aside>
-						<h4 class="tsd-parameters-title">Parameters</h4>
-						<ul class="tsd-parameters">
-							<li>
-								<h5>lookup: <a href="../classes/_parser_lookup_.lookuphelper.html" class="tsd-signature-type">LookupHelper</a></h5>
-							</li>
-						</ul>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">object</span></h4>
-						<ul class="tsd-parameters">
-							<li class="tsd-parameter">
-								<h5>Ellipsis<wbr>Rule<wbr>Bracket<span class="tsd-signature-symbol">: </span>function</h5>
-								<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-type-literal tsd-is-not-exported">
-									<li class="tsd-signature tsd-kind-icon">Ellipsis<wbr>Rule<wbr>Bracket<span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Node</span>, _openBracket<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span>, beforeEllipsisNeighbors<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../classes/_parser_astrule_.astrulebracketneighbor.html" class="tsd-signature-type">ASTRuleBracketNeighbor</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span>, _ellipsis<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span>, _pipe<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span>, afterEllipsisNeighbors<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../classes/_parser_astrule_.astrulebracketneighbor.html" class="tsd-signature-type">ASTRuleBracketNeighbor</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span>, _closeBracket<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span>, debugFlag<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../enums/_util_.debug_flag.html" class="tsd-signature-type">DEBUG_FLAG</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_parser_astrule_.iastrulebracket.html" class="tsd-signature-type">IASTRuleBracket</a></li>
-								</ul>
-								<ul class="tsd-descriptions">
-									<li class="tsd-description">
-										<aside class="tsd-sources">
-											<ul>
-												<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/parser/ruleGrammar.ts#L129">parser/ruleGrammar.ts:129</a></li>
-											</ul>
-										</aside>
-										<h4 class="tsd-parameters-title">Parameters</h4>
-										<ul class="tsd-parameters">
-											<li>
-												<h5>this: <span class="tsd-signature-type">Node</span></h5>
-											</li>
-											<li>
-												<h5>_openBracket: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-											<li>
-												<h5>beforeEllipsisNeighbors: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../classes/_parser_astrule_.astrulebracketneighbor.html" class="tsd-signature-type">ASTRuleBracketNeighbor</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-											<li>
-												<h5>_ellipsis: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-											<li>
-												<h5>_pipe: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-											<li>
-												<h5>afterEllipsisNeighbors: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../classes/_parser_astrule_.astrulebracketneighbor.html" class="tsd-signature-type">ASTRuleBracketNeighbor</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-											<li>
-												<h5>_closeBracket: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-											<li>
-												<h5>debugFlag: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../enums/_util_.debug_flag.html" class="tsd-signature-type">DEBUG_FLAG</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-										</ul>
-										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">undefined</span>
-											<span class="tsd-signature-symbol"> | </span>
-											<a href="../interfaces/_parser_astrule_.iastrulebracket.html" class="tsd-signature-type">IASTRuleBracket</a>
-										</h4>
-									</li>
-							</ul>        </li>
-							<li class="tsd-parameter">
-								<h5>Hack<wbr>Tile<wbr>Name<wbr>IsSFX1<span class="tsd-signature-symbol">: </span>function</h5>
-								<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-type-literal tsd-is-not-exported">
-									<li class="tsd-signature tsd-kind-icon">Hack<wbr>Tile<wbr>Name<wbr>IsSFX1<span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Node</span>, sfx<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span>, debugFlag<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../enums/_util_.debug_flag.html" class="tsd-signature-type">DEBUG_FLAG</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../classes/_parser_astrule_.astrulebracketneighborhack.html" class="tsd-signature-type">ASTRuleBracketNeighborHack</a></li>
-								</ul>
-								<ul class="tsd-descriptions">
-									<li class="tsd-description">
-										<aside class="tsd-sources">
-											<ul>
-												<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/parser/ruleGrammar.ts#L211">parser/ruleGrammar.ts:211</a></li>
-											</ul>
-										</aside>
-										<h4 class="tsd-parameters-title">Parameters</h4>
-										<ul class="tsd-parameters">
-											<li>
-												<h5>this: <span class="tsd-signature-type">Node</span></h5>
-											</li>
-											<li>
-												<h5>sfx: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-											<li>
-												<h5>debugFlag: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../enums/_util_.debug_flag.html" class="tsd-signature-type">DEBUG_FLAG</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-										</ul>
-										<h4 class="tsd-returns-title">Returns <a href="../classes/_parser_astrule_.astrulebracketneighborhack.html" class="tsd-signature-type">ASTRuleBracketNeighborHack</a></h4>
-									</li>
-							</ul>        </li>
-							<li class="tsd-parameter">
-								<h5>Hack<wbr>Tile<wbr>Name<wbr>IsSFX2<span class="tsd-signature-symbol">: </span>function</h5>
-								<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-type-literal tsd-is-not-exported">
-									<li class="tsd-signature tsd-kind-icon">Hack<wbr>Tile<wbr>Name<wbr>IsSFX2<span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Node</span>, tile<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span>, sfx<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span>, debugFlag<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../enums/_util_.debug_flag.html" class="tsd-signature-type">DEBUG_FLAG</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../classes/_parser_astrule_.astrulebracketneighborhack.html" class="tsd-signature-type">ASTRuleBracketNeighborHack</a></li>
-								</ul>
-								<ul class="tsd-descriptions">
-									<li class="tsd-description">
-										<aside class="tsd-sources">
-											<ul>
-												<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/parser/ruleGrammar.ts#L214">parser/ruleGrammar.ts:214</a></li>
-											</ul>
-										</aside>
-										<h4 class="tsd-parameters-title">Parameters</h4>
-										<ul class="tsd-parameters">
-											<li>
-												<h5>this: <span class="tsd-signature-type">Node</span></h5>
-											</li>
-											<li>
-												<h5>tile: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-											<li>
-												<h5>sfx: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-											<li>
-												<h5>debugFlag: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../enums/_util_.debug_flag.html" class="tsd-signature-type">DEBUG_FLAG</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-										</ul>
-										<h4 class="tsd-returns-title">Returns <a href="../classes/_parser_astrule_.astrulebracketneighborhack.html" class="tsd-signature-type">ASTRuleBracketNeighborHack</a></h4>
-									</li>
-							</ul>        </li>
-							<li class="tsd-parameter">
-								<h5>Message<wbr>Command<span class="tsd-signature-symbol">: </span>function</h5>
-								<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-type-literal tsd-is-not-exported">
-									<li class="tsd-signature tsd-kind-icon">Message<wbr>Command<span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Node</span>, _message<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span>, message<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../classes/_models_command_.messagecommand.html" class="tsd-signature-type">MessageCommand</a></li>
-								</ul>
-								<ul class="tsd-descriptions">
-									<li class="tsd-description">
-										<aside class="tsd-sources">
-											<ul>
-												<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/parser/ruleGrammar.ts#L173">parser/ruleGrammar.ts:173</a></li>
-											</ul>
-										</aside>
-										<h4 class="tsd-parameters-title">Parameters</h4>
-										<ul class="tsd-parameters">
-											<li>
-												<h5>this: <span class="tsd-signature-type">Node</span></h5>
-											</li>
-											<li>
-												<h5>_message: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-											<li>
-												<h5>message: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-										</ul>
-										<h4 class="tsd-returns-title">Returns <a href="../classes/_models_command_.messagecommand.html" class="tsd-signature-type">MessageCommand</a></h4>
-									</li>
-							</ul>        </li>
-							<li class="tsd-parameter">
-								<h5>Normal<wbr>Rule<wbr>Bracket<span class="tsd-signature-symbol">: </span>function</h5>
-								<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-type-literal tsd-is-not-exported">
-									<li class="tsd-signature tsd-kind-icon">Normal<wbr>Rule<wbr>Bracket<span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Node</span>, _openBracket<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span>, neighbors<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../classes/_parser_astrule_.astrulebracketneighbor.html" class="tsd-signature-type">ASTRuleBracketNeighbor</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span>, hackAgain<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span>, _closeBracket<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span>, debugFlag<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../enums/_util_.debug_flag.html" class="tsd-signature-type">DEBUG_FLAG</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_parser_astrule_.iastrulebracket.html" class="tsd-signature-type">IASTRuleBracket</a></li>
-								</ul>
-								<ul class="tsd-descriptions">
-									<li class="tsd-description">
-										<aside class="tsd-sources">
-											<ul>
-												<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/parser/ruleGrammar.ts#L119">parser/ruleGrammar.ts:119</a></li>
-											</ul>
-										</aside>
-										<h4 class="tsd-parameters-title">Parameters</h4>
-										<ul class="tsd-parameters">
-											<li>
-												<h5>this: <span class="tsd-signature-type">Node</span></h5>
-											</li>
-											<li>
-												<h5>_openBracket: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-											<li>
-												<h5>neighbors: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../classes/_parser_astrule_.astrulebracketneighbor.html" class="tsd-signature-type">ASTRuleBracketNeighbor</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-											<li>
-												<h5>hackAgain: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-											<li>
-												<h5>_closeBracket: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-											<li>
-												<h5>debugFlag: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../enums/_util_.debug_flag.html" class="tsd-signature-type">DEBUG_FLAG</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-										</ul>
-										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">undefined</span>
-											<span class="tsd-signature-symbol"> | </span>
-											<a href="../interfaces/_parser_astrule_.iastrulebracket.html" class="tsd-signature-type">IASTRuleBracket</a>
-										</h4>
-									</li>
-							</ul>        </li>
-							<li class="tsd-parameter">
-								<h5>Rule<span class="tsd-signature-symbol">: </span>function</h5>
-								<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-type-literal tsd-is-not-exported">
-									<li class="tsd-signature tsd-kind-icon">Rule<span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Node</span>, debugFlag<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../enums/_util_.debug_flag.html" class="tsd-signature-type">DEBUG_FLAG</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span>, modifiers<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../enums/_parser_astrule_.ast_rule_modifier.html" class="tsd-signature-type">AST_RULE_MODIFIER</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span>, conditions<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../classes/_parser_astrule_.astrulebracket.html" class="tsd-signature-type">ASTRuleBracket</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span>, _arrow<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span>, _unusuedModifer<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span>, actions<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../classes/_parser_astrule_.astrulebracket.html" class="tsd-signature-type">ASTRuleBracket</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span>, commands<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../classes/_models_command_.abstractcommand.html" class="tsd-signature-type">AbstractCommand</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span>, optionalMessageCommand<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../classes/_models_command_.messagecommand.html" class="tsd-signature-type">MessageCommand</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span>, _whitespace<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../classes/_parser_astrule_.astrule.html" class="tsd-signature-type">ASTRule</a></li>
-								</ul>
-								<ul class="tsd-descriptions">
-									<li class="tsd-description">
-										<aside class="tsd-sources">
-											<ul>
-												<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/parser/ruleGrammar.ts#L109">parser/ruleGrammar.ts:109</a></li>
-											</ul>
-										</aside>
-										<h4 class="tsd-parameters-title">Parameters</h4>
-										<ul class="tsd-parameters">
-											<li>
-												<h5>this: <span class="tsd-signature-type">Node</span></h5>
-											</li>
-											<li>
-												<h5>debugFlag: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../enums/_util_.debug_flag.html" class="tsd-signature-type">DEBUG_FLAG</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-											<li>
-												<h5>modifiers: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../enums/_parser_astrule_.ast_rule_modifier.html" class="tsd-signature-type">AST_RULE_MODIFIER</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-											<li>
-												<h5>conditions: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../classes/_parser_astrule_.astrulebracket.html" class="tsd-signature-type">ASTRuleBracket</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-											<li>
-												<h5>_arrow: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-											<li>
-												<h5>_unusuedModifer: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-											<li>
-												<h5>actions: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../classes/_parser_astrule_.astrulebracket.html" class="tsd-signature-type">ASTRuleBracket</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-											<li>
-												<h5>commands: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../classes/_models_command_.abstractcommand.html" class="tsd-signature-type">AbstractCommand</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-											<li>
-												<h5>optionalMessageCommand: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../classes/_models_command_.messagecommand.html" class="tsd-signature-type">MessageCommand</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-											<li>
-												<h5>_whitespace: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-										</ul>
-										<h4 class="tsd-returns-title">Returns <a href="../classes/_parser_astrule_.astrule.html" class="tsd-signature-type">ASTRule</a></h4>
-									</li>
-							</ul>        </li>
-							<li class="tsd-parameter">
-								<h5>Rule<wbr>Bracket<wbr>Neighbor<span class="tsd-signature-symbol">: </span>function</h5>
-								<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-type-literal tsd-is-not-exported">
-									<li class="tsd-signature tsd-kind-icon">Rule<wbr>Bracket<wbr>Neighbor<span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Node</span>, _1<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../classes/_parser_astrule_.astrulebracketneighbor.html" class="tsd-signature-type">ASTRuleBracketNeighbor</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../classes/_parser_astrule_.astrulebracketneighbor.html" class="tsd-signature-type">ASTRuleBracketNeighbor</a></li>
-								</ul>
-								<ul class="tsd-descriptions">
-									<li class="tsd-description">
-										<aside class="tsd-sources">
-											<ul>
-												<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/parser/ruleGrammar.ts#L147">parser/ruleGrammar.ts:147</a></li>
-											</ul>
-										</aside>
-										<h4 class="tsd-parameters-title">Parameters</h4>
-										<ul class="tsd-parameters">
-											<li>
-												<h5>this: <span class="tsd-signature-type">Node</span></h5>
-											</li>
-											<li>
-												<h5>_1: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../classes/_parser_astrule_.astrulebracketneighbor.html" class="tsd-signature-type">ASTRuleBracketNeighbor</a><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-										</ul>
-										<h4 class="tsd-returns-title">Returns <a href="../classes/_parser_astrule_.astrulebracketneighbor.html" class="tsd-signature-type">ASTRuleBracketNeighbor</a></h4>
-									</li>
-							</ul>        </li>
-							<li class="tsd-parameter">
-								<h5>Rule<wbr>Bracket<wbr>NoEllipsis<wbr>Neighbor<span class="tsd-signature-symbol">: </span>function</h5>
-								<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-type-literal tsd-is-not-exported">
-									<li class="tsd-signature tsd-kind-icon">Rule<wbr>Bracket<wbr>NoEllipsis<wbr>Neighbor<span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Node</span>, tileWithModifiers<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../classes/_parser_astrule_.asttilewithmodifier.html" class="tsd-signature-type">ASTTileWithModifier</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span>, debugFlag<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../enums/_util_.debug_flag.html" class="tsd-signature-type">DEBUG_FLAG</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><a href="../classes/_parser_astrule_.astrulebracketneighbor.html" class="tsd-signature-type">ASTRuleBracketNeighbor</a></li>
-								</ul>
-								<ul class="tsd-descriptions">
-									<li class="tsd-description">
-										<aside class="tsd-sources">
-											<ul>
-												<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/parser/ruleGrammar.ts#L150">parser/ruleGrammar.ts:150</a></li>
-											</ul>
-										</aside>
-										<h4 class="tsd-parameters-title">Parameters</h4>
-										<ul class="tsd-parameters">
-											<li>
-												<h5>this: <span class="tsd-signature-type">Node</span></h5>
-											</li>
-											<li>
-												<h5>tileWithModifiers: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../classes/_parser_astrule_.asttilewithmodifier.html" class="tsd-signature-type">ASTTileWithModifier</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-											<li>
-												<h5>debugFlag: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../enums/_util_.debug_flag.html" class="tsd-signature-type">DEBUG_FLAG</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-										</ul>
-										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">undefined</span>
-											<span class="tsd-signature-symbol"> | </span>
-											<a href="../classes/_parser_astrule_.astrulebracketneighbor.html" class="tsd-signature-type">ASTRuleBracketNeighbor</a>
-										</h4>
-									</li>
-							</ul>        </li>
-							<li class="tsd-parameter">
-								<h5>Rule<wbr>Command<span class="tsd-signature-symbol">: </span>function</h5>
-								<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-type-literal tsd-is-not-exported">
-									<li class="tsd-signature tsd-kind-icon">Rule<wbr>Command<span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Node</span>, type<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="../classes/_models_command_.soundcommand.html" class="tsd-signature-type">SoundCommand</a><span class="tsd-signature-symbol"> | </span><a href="../classes/_models_command_.cancelcommand.html" class="tsd-signature-type">CancelCommand</a><span class="tsd-signature-symbol"> | </span><a href="../classes/_models_command_.checkpointcommand.html" class="tsd-signature-type">CheckpointCommand</a><span class="tsd-signature-symbol"> | </span><a href="../classes/_models_command_.restartcommand.html" class="tsd-signature-type">RestartCommand</a><span class="tsd-signature-symbol"> | </span><a href="../classes/_models_command_.wincommand.html" class="tsd-signature-type">WinCommand</a><span class="tsd-signature-symbol"> | </span><a href="../classes/_models_command_.againcommand.html" class="tsd-signature-type">AgainCommand</a></li>
-								</ul>
-								<ul class="tsd-descriptions">
-									<li class="tsd-description">
-										<aside class="tsd-sources">
-											<ul>
-												<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/parser/ruleGrammar.ts#L176">parser/ruleGrammar.ts:176</a></li>
-											</ul>
-										</aside>
-										<h4 class="tsd-parameters-title">Parameters</h4>
-										<ul class="tsd-parameters">
-											<li>
-												<h5>this: <span class="tsd-signature-type">Node</span></h5>
-											</li>
-											<li>
-												<h5>type: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-										</ul>
-										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">null</span>
-											<span class="tsd-signature-symbol"> | </span>
-											<a href="../classes/_models_command_.soundcommand.html" class="tsd-signature-type">SoundCommand</a>
-											<span class="tsd-signature-symbol"> | </span>
-											<a href="../classes/_models_command_.cancelcommand.html" class="tsd-signature-type">CancelCommand</a>
-											<span class="tsd-signature-symbol"> | </span>
-											<a href="../classes/_models_command_.checkpointcommand.html" class="tsd-signature-type">CheckpointCommand</a>
-											<span class="tsd-signature-symbol"> | </span>
-											<a href="../classes/_models_command_.restartcommand.html" class="tsd-signature-type">RestartCommand</a>
-											<span class="tsd-signature-symbol"> | </span>
-											<a href="../classes/_models_command_.wincommand.html" class="tsd-signature-type">WinCommand</a>
-											<span class="tsd-signature-symbol"> | </span>
-											<a href="../classes/_models_command_.againcommand.html" class="tsd-signature-type">AgainCommand</a>
-										</h4>
-									</li>
-							</ul>        </li>
-							<li class="tsd-parameter">
-								<h5>Rule<wbr>Group<span class="tsd-signature-symbol">: </span>function</h5>
-								<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-type-literal tsd-is-not-exported">
-									<li class="tsd-signature tsd-kind-icon">Rule<wbr>Group<span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Node</span>, debugFlag<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../enums/_util_.debug_flag.html" class="tsd-signature-type">DEBUG_FLAG</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span>, randomFlag<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../enums/_parser_astrule_.ast_rule_modifier.html" class="tsd-signature-type">AST_RULE_MODIFIER</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span>, firstRule<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../classes/_parser_astrule_.astrule.html" class="tsd-signature-type">ASTRule</a><span class="tsd-signature-symbol">&gt;</span>, _plusses<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span>, followingRules<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../classes/_parser_astrule_.astrule.html" class="tsd-signature-type">ASTRule</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../classes/_parser_astrule_.astrulegroup.html" class="tsd-signature-type">ASTRuleGroup</a></li>
-								</ul>
-								<ul class="tsd-descriptions">
-									<li class="tsd-description">
-										<aside class="tsd-sources">
-											<ul>
-												<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/parser/ruleGrammar.ts#L106">parser/ruleGrammar.ts:106</a></li>
-											</ul>
-										</aside>
-										<h4 class="tsd-parameters-title">Parameters</h4>
-										<ul class="tsd-parameters">
-											<li>
-												<h5>this: <span class="tsd-signature-type">Node</span></h5>
-											</li>
-											<li>
-												<h5>debugFlag: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../enums/_util_.debug_flag.html" class="tsd-signature-type">DEBUG_FLAG</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-											<li>
-												<h5>randomFlag: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../enums/_parser_astrule_.ast_rule_modifier.html" class="tsd-signature-type">AST_RULE_MODIFIER</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-											<li>
-												<h5>firstRule: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../classes/_parser_astrule_.astrule.html" class="tsd-signature-type">ASTRule</a><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-											<li>
-												<h5>_plusses: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-											<li>
-												<h5>followingRules: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../classes/_parser_astrule_.astrule.html" class="tsd-signature-type">ASTRule</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-										</ul>
-										<h4 class="tsd-returns-title">Returns <a href="../classes/_parser_astrule_.astrulegroup.html" class="tsd-signature-type">ASTRuleGroup</a></h4>
-									</li>
-							</ul>        </li>
-							<li class="tsd-parameter">
-								<h5>Rule<wbr>Item<span class="tsd-signature-symbol">: </span>function</h5>
-								<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-type-literal tsd-is-not-exported">
-									<li class="tsd-signature tsd-kind-icon">Rule<wbr>Item<span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Node</span>, _1<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../classes/_parser_astrule_.astrule.html" class="tsd-signature-type">ASTRule</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../classes/_parser_astrule_.astrule.html" class="tsd-signature-type">ASTRule</a></li>
-								</ul>
-								<ul class="tsd-descriptions">
-									<li class="tsd-description">
-										<aside class="tsd-sources">
-											<ul>
-												<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/parser/ruleGrammar.ts#L100">parser/ruleGrammar.ts:100</a></li>
-											</ul>
-										</aside>
-										<h4 class="tsd-parameters-title">Parameters</h4>
-										<ul class="tsd-parameters">
-											<li>
-												<h5>this: <span class="tsd-signature-type">Node</span></h5>
-											</li>
-											<li>
-												<h5>_1: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../classes/_parser_astrule_.astrule.html" class="tsd-signature-type">ASTRule</a><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-										</ul>
-										<h4 class="tsd-returns-title">Returns <a href="../classes/_parser_astrule_.astrule.html" class="tsd-signature-type">ASTRule</a></h4>
-									</li>
-							</ul>        </li>
-							<li class="tsd-parameter">
-								<h5>Rule<wbr>Loop<span class="tsd-signature-symbol">: </span>function</h5>
-								<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-type-literal tsd-is-not-exported">
-									<li class="tsd-signature tsd-kind-icon">Rule<wbr>Loop<span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Node</span>, debugFlag<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../enums/_util_.debug_flag.html" class="tsd-signature-type">DEBUG_FLAG</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span>, _startloop<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span>, _whitespace1<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span>, rules<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../classes/_parser_astrule_.astrule.html" class="tsd-signature-type">ASTRule</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span>, _endloop<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span>, _whitespace2<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../classes/_parser_astrule_.astruleloop.html" class="tsd-signature-type">ASTRuleLoop</a></li>
-								</ul>
-								<ul class="tsd-descriptions">
-									<li class="tsd-description">
-										<aside class="tsd-sources">
-											<ul>
-												<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/parser/ruleGrammar.ts#L103">parser/ruleGrammar.ts:103</a></li>
-											</ul>
-										</aside>
-										<h4 class="tsd-parameters-title">Parameters</h4>
-										<ul class="tsd-parameters">
-											<li>
-												<h5>this: <span class="tsd-signature-type">Node</span></h5>
-											</li>
-											<li>
-												<h5>debugFlag: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../enums/_util_.debug_flag.html" class="tsd-signature-type">DEBUG_FLAG</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-											<li>
-												<h5>_startloop: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-											<li>
-												<h5>_whitespace1: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-											<li>
-												<h5>rules: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../classes/_parser_astrule_.astrule.html" class="tsd-signature-type">ASTRule</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-											<li>
-												<h5>_endloop: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-											<li>
-												<h5>_whitespace2: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-										</ul>
-										<h4 class="tsd-returns-title">Returns <a href="../classes/_parser_astrule_.astruleloop.html" class="tsd-signature-type">ASTRuleLoop</a></h4>
-									</li>
-							</ul>        </li>
-							<li class="tsd-parameter">
-								<h5>Tile<wbr>With<wbr>Modifier<span class="tsd-signature-symbol">: </span>function</h5>
-								<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-type-literal tsd-is-not-exported">
-									<li class="tsd-signature tsd-kind-icon">Tile<wbr>With<wbr>Modifier<span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Node</span>, debugFlag<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../enums/_util_.debug_flag.html" class="tsd-signature-type">DEBUG_FLAG</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span>, optionalModifier<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span>, tile<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_models_tile_.igametile.html" class="tsd-signature-type">IGameTile</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><a href="../classes/_parser_astrule_.asttilewithmodifier.html" class="tsd-signature-type">ASTTileWithModifier</a></li>
-								</ul>
-								<ul class="tsd-descriptions">
-									<li class="tsd-description">
-										<aside class="tsd-sources">
-											<ul>
-												<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/parser/ruleGrammar.ts#L160">parser/ruleGrammar.ts:160</a></li>
-											</ul>
-										</aside>
-										<h4 class="tsd-parameters-title">Parameters</h4>
-										<ul class="tsd-parameters">
-											<li>
-												<h5>this: <span class="tsd-signature-type">Node</span></h5>
-											</li>
-											<li>
-												<h5>debugFlag: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../enums/_util_.debug_flag.html" class="tsd-signature-type">DEBUG_FLAG</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-											<li>
-												<h5>optionalModifier: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-											<li>
-												<h5>tile: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_models_tile_.igametile.html" class="tsd-signature-type">IGameTile</a><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-										</ul>
-										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">undefined</span>
-											<span class="tsd-signature-symbol"> | </span>
-											<a href="../classes/_parser_astrule_.asttilewithmodifier.html" class="tsd-signature-type">ASTTileWithModifier</a>
-										</h4>
-									</li>
-							</ul>        </li>
-							<li class="tsd-parameter">
-								<h5>tile<wbr>Modifier<span class="tsd-signature-symbol">: </span>function</h5>
-								<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-type-literal tsd-is-not-exported">
-									<li class="tsd-signature tsd-kind-icon">tile<wbr>Modifier<span class="tsd-signature-symbol">(</span>this<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Node</span>, _whitespace1<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span>, tileModifier<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span>, _whitespace2<span class="tsd-signature-symbol">: </span><a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
-								</ul>
-								<ul class="tsd-descriptions">
-									<li class="tsd-description">
-										<aside class="tsd-sources">
-											<ul>
-												<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/parser/ruleGrammar.ts#L170">parser/ruleGrammar.ts:170</a></li>
-											</ul>
-										</aside>
-										<h4 class="tsd-parameters-title">Parameters</h4>
-										<ul class="tsd-parameters">
-											<li>
-												<h5>this: <span class="tsd-signature-type">Node</span></h5>
-											</li>
-											<li>
-												<h5>_whitespace1: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-											<li>
-												<h5>tileModifier: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-											<li>
-												<h5>_whitespace2: <a href="_parser_gamegrammar_.html#parseable" class="tsd-signature-type">Parseable</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h5>
-											</li>
-										</ul>
-										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-									</li>
-							</ul>        </li>
-						</ul>
-					</li>
-				</ul>
+			<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+				<a name="create" class="tsd-anchor"></a>
+				<h3>CREATE</h3>
+				<div class="tsd-signature tsd-kind-icon">CREATE<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> =&nbsp;&quot;CREATE&quot;</span></div>
+				<aside class="tsd-sources">
+					<ul>
+						<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/parser/astTypes.ts#L61">parser/astTypes.ts:61</a></li>
+					</ul>
+				</aside>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+				<a name="destroy" class="tsd-anchor"></a>
+				<h3>DESTROY</h3>
+				<div class="tsd-signature tsd-kind-icon">DESTROY<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> =&nbsp;&quot;DESTROY&quot;</span></div>
+				<aside class="tsd-sources">
+					<ul>
+						<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/parser/astTypes.ts#L62">parser/astTypes.ts:62</a></li>
+					</ul>
+				</aside>
 			</section>
 		</section>
 		<footer class="with-border-bottom">

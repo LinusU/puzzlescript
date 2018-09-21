@@ -910,6 +910,9 @@ img { max-width: 100%; }
 		<li class=" tsd-kind-enum tsd-parent-kind-external-module tsd-is-not-exported">
 			<a href="../enums/_models_rule_.before_or_after.html" class="tsd-kind-icon">BEFORE_<wbr>OR_<wbr>AFTER</a>
 		</li>
+		<li class=" tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter tsd-is-not-exported">
+			<a href="../classes/_models_rule_.bracketpair.html" class="tsd-kind-icon">Bracket<wbr>Pair</a>
+		</li>
 		<li class=" tsd-kind-class tsd-parent-kind-external-module tsd-is-not-exported">
 			<a href="../classes/_models_rule_.cellmutation.html" class="tsd-kind-icon">Cell<wbr>Mutation</a>
 		</li>
@@ -922,11 +925,11 @@ img { max-width: 100%; }
 		<li class=" tsd-kind-class tsd-parent-kind-external-module">
 			<a href="../classes/_models_rule_.isimplebracket.html" class="tsd-kind-icon">ISimple<wbr>Bracket</a>
 		</li>
-		<li class=" tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter tsd-is-not-exported">
-			<a href="../classes/_models_rule_.multimap.html" class="tsd-kind-icon">Multi<wbr>Map</a>
+		<li class=" tsd-kind-class tsd-parent-kind-external-module tsd-is-not-exported">
+			<a href="../classes/_models_rule_.matchedcellsforrule.html" class="tsd-kind-icon">Matched<wbr>Cells<wbr>For<wbr>Rule</a>
 		</li>
 		<li class=" tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter tsd-is-not-exported">
-			<a href="../classes/_models_rule_.pair.html" class="tsd-kind-icon">Pair</a>
+			<a href="../classes/_models_rule_.multimap.html" class="tsd-kind-icon">Multi<wbr>Map</a>
 		</li>
 		<li class=" tsd-kind-class tsd-parent-kind-external-module tsd-is-not-exported">
 			<a href="../classes/_models_rule_.replacedirection.html" class="tsd-kind-icon">Replace<wbr>Direction</a>
@@ -936,9 +939,6 @@ img { max-width: 100%; }
 		</li>
 		<li class=" tsd-kind-class tsd-parent-kind-external-module">
 			<a href="../classes/_models_rule_.simplebracket.html" class="tsd-kind-icon">Simple<wbr>Bracket</a>
-		</li>
-		<li class=" tsd-kind-class tsd-parent-kind-external-module">
-			<a href="../classes/_models_rule_.simplebracketconditiononly.html" class="tsd-kind-icon">Simple<wbr>Bracket<wbr>Condition<wbr>Only</a>
 		</li>
 		<li class=" tsd-kind-class tsd-parent-kind-external-module">
 			<a href="../classes/_models_rule_.simpleellipsisbracket.html" class="tsd-kind-icon">Simple<wbr>Ellipsis<wbr>Bracket</a>
@@ -958,6 +958,9 @@ img { max-width: 100%; }
 		<li class=" tsd-kind-class tsd-parent-kind-external-module">
 			<a href="../classes/_models_rule_.simpletilewithmodifier.html" class="tsd-kind-icon">Simple<wbr>Tile<wbr>With<wbr>Modifier</a>
 		</li>
+		<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
+			<a href="_models_rule_.imatchedcellandcorrespondingneighbors.html" class="tsd-kind-icon">IMatched<wbr>Cell<wbr>And<wbr>Corresponding<wbr>Neighbors</a>
+		</li>
 		<li class=" tsd-kind-interface tsd-parent-kind-external-module">
 			<a href="_models_rule_.imutation.html" class="tsd-kind-icon">IMutation</a>
 		</li>
@@ -968,16 +971,10 @@ img { max-width: 100%; }
 					<a href="_models_rule_.irule.html#__coveragecount" class="tsd-kind-icon">__coverage<wbr>Count</a>
 				</li>
 				<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-					<a href="_models_rule_.irule.html#__getlineandcolumnrange" class="tsd-kind-icon">__get<wbr>Line<wbr>And<wbr>Column<wbr>Range</a>
-				</li>
-				<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-					<a href="_models_rule_.irule.html#__getsourcelineandcolumn" class="tsd-kind-icon">__get<wbr>Source<wbr>Line<wbr>And<wbr>Column</a>
+					<a href="_models_rule_.irule.html#__source" class="tsd-kind-icon">__source</a>
 				</li>
 				<li class=" tsd-kind-property tsd-parent-kind-interface">
 					<a href="_models_rule_.irule.html#addcellstoemptyrules" class="tsd-kind-icon">add<wbr>Cells<wbr>ToEmpty<wbr>Rules</a>
-				</li>
-				<li class=" tsd-kind-property tsd-parent-kind-interface">
-					<a href="_models_rule_.irule.html#canevaluate" class="tsd-kind-icon">can<wbr>Evaluate</a>
 				</li>
 				<li class=" tsd-kind-property tsd-parent-kind-interface">
 					<a href="_models_rule_.irule.html#clearcaches" class="tsd-kind-icon">clear<wbr>Caches</a>
@@ -989,15 +986,42 @@ img { max-width: 100%; }
 					<a href="_models_rule_.irule.html#getchildrules" class="tsd-kind-icon">get<wbr>Child<wbr>Rules</a>
 				</li>
 				<li class=" tsd-kind-property tsd-parent-kind-interface">
+					<a href="_models_rule_.irule.html#hasmatches" class="tsd-kind-icon">has<wbr>Matches</a>
+				</li>
+				<li class=" tsd-kind-property tsd-parent-kind-interface">
 					<a href="_models_rule_.irule.html#hasrigid" class="tsd-kind-icon">has<wbr>Rigid</a>
 				</li>
 				<li class=" tsd-kind-property tsd-parent-kind-interface">
 					<a href="_models_rule_.irule.html#islate" class="tsd-kind-icon">is<wbr>Late</a>
 				</li>
-				<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+				<li class=" tsd-kind-property tsd-parent-kind-interface">
+					<a href="_models_rule_.irule.html#timesran" class="tsd-kind-icon">times<wbr>Ran</a>
+				</li>
+				<li class=" tsd-kind-property tsd-parent-kind-interface">
+					<a href="_models_rule_.irule.html#totaltimems" class="tsd-kind-icon">total<wbr>Time<wbr>Ms</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
+					<a href="_models_rule_.irule.html#__getlineandcolumnrange" class="tsd-kind-icon">__get<wbr>Line<wbr>And<wbr>Column<wbr>Range</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
+					<a href="_models_rule_.irule.html#__getsourcelineandcolumn" class="tsd-kind-icon">__get<wbr>Source<wbr>Line<wbr>And<wbr>Column</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-interface">
+					<a href="_models_rule_.irule.html#tokey" class="tsd-kind-icon">to<wbr>Key</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
+					<a href="_models_rule_.irule.html#tosourcestring" class="tsd-kind-icon">to<wbr>Source<wbr>String</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
 					<a href="_models_rule_.irule.html#tostring" class="tsd-kind-icon">to<wbr>String</a>
 				</li>
 			</ul>
+		</li>
+		<li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported">
+			<a href="../modules/_models_rule_.html#bitset2" class="tsd-kind-icon">Bit<wbr>Set2</a>
+		</li>
+		<li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported">
+			<a href="../modules/_models_rule_.html#lru_cache_size" class="tsd-kind-icon">LRU_<wbr>CACHE_<wbr>SIZE</a>
 		</li>
 		<li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported">
 			<a href="../modules/_models_rule_.html#max_iterations_in_loop" class="tsd-kind-icon">MAX_<wbr>ITERATIONS_<wbr>IN_<wbr>LOOP</a>
@@ -1005,8 +1029,8 @@ img { max-width: 100%; }
 		<li class=" tsd-kind-variable tsd-parent-kind-external-module">
 			<a href="../modules/_models_rule_.html#simple_direction_directions" class="tsd-kind-icon">SIMPLE_<wbr>DIRECTION_<wbr>DIRECTIONS</a>
 		</li>
-		<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
-			<a href="../modules/_models_rule_.html#opposite" class="tsd-kind-icon">opposite</a>
+		<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter tsd-is-not-exported">
+			<a href="../modules/_models_rule_.html#buildpermutations" class="tsd-kind-icon">build<wbr>Permutations</a>
 		</li>
 	</ul>
 </nav>
@@ -1016,7 +1040,7 @@ img { max-width: 100%; }
 			<h3>Hierarchy</h3>
 			<ul class="tsd-hierarchy">
 				<li>
-					<span class="tsd-signature-type">object</span>
+					<a href="_models_game_.igamenode.html" class="tsd-signature-type">IGameNode</a>
 					<ul class="tsd-hierarchy">
 						<li>
 							<span class="target">IRule</span>
@@ -1041,16 +1065,26 @@ img { max-width: 100%; }
 						<h3>Properties</h3>
 						<ul class="tsd-index-list">
 							<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_models_rule_.irule.html#__coveragecount" class="tsd-kind-icon">__coverage<wbr>Count</a></li>
-							<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_models_rule_.irule.html#__getlineandcolumnrange" class="tsd-kind-icon">__get<wbr>Line<wbr>And<wbr>Column<wbr>Range</a></li>
-							<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_models_rule_.irule.html#__getsourcelineandcolumn" class="tsd-kind-icon">__get<wbr>Source<wbr>Line<wbr>And<wbr>Column</a></li>
+							<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_models_rule_.irule.html#__source" class="tsd-kind-icon">__source</a></li>
 							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_models_rule_.irule.html#addcellstoemptyrules" class="tsd-kind-icon">add<wbr>Cells<wbr>ToEmpty<wbr>Rules</a></li>
-							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_models_rule_.irule.html#canevaluate" class="tsd-kind-icon">can<wbr>Evaluate</a></li>
 							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_models_rule_.irule.html#clearcaches" class="tsd-kind-icon">clear<wbr>Caches</a></li>
 							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_models_rule_.irule.html#evaluate" class="tsd-kind-icon">evaluate</a></li>
 							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_models_rule_.irule.html#getchildrules" class="tsd-kind-icon">get<wbr>Child<wbr>Rules</a></li>
+							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_models_rule_.irule.html#hasmatches" class="tsd-kind-icon">has<wbr>Matches</a></li>
 							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_models_rule_.irule.html#hasrigid" class="tsd-kind-icon">has<wbr>Rigid</a></li>
 							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_models_rule_.irule.html#islate" class="tsd-kind-icon">is<wbr>Late</a></li>
-							<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_models_rule_.irule.html#tostring" class="tsd-kind-icon">to<wbr>String</a></li>
+							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_models_rule_.irule.html#timesran" class="tsd-kind-icon">times<wbr>Ran</a></li>
+							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_models_rule_.irule.html#totaltimems" class="tsd-kind-icon">total<wbr>Time<wbr>Ms</a></li>
+						</ul>
+					</section>
+					<section class="tsd-index-section ">
+						<h3>Methods</h3>
+						<ul class="tsd-index-list">
+							<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="_models_rule_.irule.html#__getlineandcolumnrange" class="tsd-kind-icon">__get<wbr>Line<wbr>And<wbr>Column<wbr>Range</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="_models_rule_.irule.html#__getsourcelineandcolumn" class="tsd-kind-icon">__get<wbr>Source<wbr>Line<wbr>And<wbr>Column</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_models_rule_.irule.html#tokey" class="tsd-kind-icon">to<wbr>Key</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="_models_rule_.irule.html#tosourcestring" class="tsd-kind-icon">to<wbr>Source<wbr>String</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="_models_rule_.irule.html#tostring" class="tsd-kind-icon">to<wbr>String</a></li>
 						</ul>
 					</section>
 				</div>
@@ -1063,92 +1097,30 @@ img { max-width: 100%; }
 				<h3>__coverage<wbr>Count</h3>
 				<div class="tsd-signature tsd-kind-icon">__coverage<wbr>Count<span class="tsd-signature-symbol">:</span> <a href="../modules/_util_.html#optional" class="tsd-signature-type">Optional</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></div>
 				<aside class="tsd-sources">
-					<p>Inherited from __type.__coverageCount</p>
+					<p>Inherited from <a href="_models_game_.igamenode.html">IGameNode</a>.<a href="_models_game_.igamenode.html#__coveragecount">__coverageCount</a></p>
 					<ul>
-						<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/models/game.ts#L16">models/game.ts:16</a></li>
+						<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/models/game.ts#L15">models/game.ts:15</a></li>
 					</ul>
 				</aside>
 			</section>
 			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-				<a name="__getlineandcolumnrange" class="tsd-anchor"></a>
-				<h3>__get<wbr>Line<wbr>And<wbr>Column<wbr>Range</h3>
-				<div class="tsd-signature tsd-kind-icon">__get<wbr>Line<wbr>And<wbr>Column<wbr>Range<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
+				<a name="__source" class="tsd-anchor"></a>
+				<h3>__source</h3>
+				<div class="tsd-signature tsd-kind-icon">__source<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 				<aside class="tsd-sources">
-					<p>Inherited from __type.__getLineAndColumnRange</p>
+					<p>Inherited from <a href="_models_game_.igamenode.html">IGameNode</a>.<a href="_models_game_.igamenode.html#__source">__source</a></p>
 					<ul>
-						<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/models/game.ts#L15">models/game.ts:15</a></li>
+						<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/models/game.ts#L14">models/game.ts:14</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-type-declaration">
 					<h4>Type declaration</h4>
 					<ul class="tsd-parameters">
-						<li class="tsd-parameter-siganture">
-							<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-property tsd-is-not-exported">
-								<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></li>
-							</ul>
-							<ul class="tsd-descriptions">
-								<li class="tsd-description">
-									<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">object</span></h4>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter">
-											<h5>end<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></h5>
-											<ul class="tsd-parameters">
-												<li class="tsd-parameter">
-													<h5>col<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
-												</li>
-												<li class="tsd-parameter">
-													<h5>line<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
-												</li>
-											</ul>
-										</li>
-										<li class="tsd-parameter">
-											<h5>start<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></h5>
-											<ul class="tsd-parameters">
-												<li class="tsd-parameter">
-													<h5>col<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
-												</li>
-												<li class="tsd-parameter">
-													<h5>line<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
-												</li>
-											</ul>
-										</li>
-									</ul>
-								</li>
-							</ul>
+						<li class="tsd-parameter">
+							<h5>code<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
 						</li>
-					</ul>
-				</div>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-				<a name="__getsourcelineandcolumn" class="tsd-anchor"></a>
-				<h3>__get<wbr>Source<wbr>Line<wbr>And<wbr>Column</h3>
-				<div class="tsd-signature tsd-kind-icon">__get<wbr>Source<wbr>Line<wbr>And<wbr>Column<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
-				<aside class="tsd-sources">
-					<p>Inherited from __type.__getSourceLineAndColumn</p>
-					<ul>
-						<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/models/game.ts#L14">models/game.ts:14</a></li>
-					</ul>
-				</aside>
-				<div class="tsd-type-declaration">
-					<h4>Type declaration</h4>
-					<ul class="tsd-parameters">
-						<li class="tsd-parameter-siganture">
-							<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-property tsd-is-not-exported">
-								<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></li>
-							</ul>
-							<ul class="tsd-descriptions">
-								<li class="tsd-description">
-									<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">object</span></h4>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter">
-											<h5>col<wbr>Num<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
-										</li>
-										<li class="tsd-parameter">
-											<h5>line<wbr>Num<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
-										</li>
-									</ul>
-								</li>
-							</ul>
+						<li class="tsd-parameter">
+							<h5>source<wbr>Offset<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
 						</li>
 					</ul>
 				</div>
@@ -1159,7 +1131,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">add<wbr>Cells<wbr>ToEmpty<wbr>Rules<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/models/rule.ts#L1814">models/rule.ts:1814</a></li>
+						<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/models/rule.ts#L48">models/rule.ts:48</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-type-declaration">
@@ -1185,37 +1157,12 @@ img { max-width: 100%; }
 				</div>
 			</section>
 			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-				<a name="canevaluate" class="tsd-anchor"></a>
-				<h3>can<wbr>Evaluate</h3>
-				<div class="tsd-signature tsd-kind-icon">can<wbr>Evaluate<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
-				<aside class="tsd-sources">
-					<ul>
-						<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/models/rule.ts#L1813">models/rule.ts:1813</a></li>
-					</ul>
-				</aside>
-				<div class="tsd-type-declaration">
-					<h4>Type declaration</h4>
-					<ul class="tsd-parameters">
-						<li class="tsd-parameter-siganture">
-							<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-property tsd-is-not-exported">
-								<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
-							</ul>
-							<ul class="tsd-descriptions">
-								<li class="tsd-description">
-									<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</div>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 				<a name="clearcaches" class="tsd-anchor"></a>
 				<h3>clear<wbr>Caches</h3>
 				<div class="tsd-signature tsd-kind-icon">clear<wbr>Caches<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/models/rule.ts#L1812">models/rule.ts:1812</a></li>
+						<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/models/rule.ts#L47">models/rule.ts:47</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-type-declaration">
@@ -1240,7 +1187,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">evaluate<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/models/rule.ts#L1808">models/rule.ts:1808</a></li>
+						<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/models/rule.ts#L43">models/rule.ts:43</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-type-declaration">
@@ -1248,12 +1195,15 @@ img { max-width: 100%; }
 					<ul class="tsd-parameters">
 						<li class="tsd-parameter-siganture">
 							<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-property tsd-is-not-exported">
-								<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>onlyEvaluateFirstMatch<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_models_rule_.imutation.html" class="tsd-signature-type">IMutation</a><span class="tsd-signature-symbol">[]</span></li>
+								<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>level<span class="tsd-signature-symbol">: </span><a href="../classes/_engine_.level.html" class="tsd-signature-type">Level</a>, onlyEvaluateFirstMatch<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_models_rule_.imutation.html" class="tsd-signature-type">IMutation</a><span class="tsd-signature-symbol">[]</span></li>
 							</ul>
 							<ul class="tsd-descriptions">
 								<li class="tsd-description">
 									<h4 class="tsd-parameters-title">Parameters</h4>
 									<ul class="tsd-parameters">
+										<li>
+											<h5>level: <a href="../classes/_engine_.level.html" class="tsd-signature-type">Level</a></h5>
+										</li>
 										<li>
 											<h5>onlyEvaluateFirstMatch: <span class="tsd-signature-type">boolean</span></h5>
 										</li>
@@ -1271,7 +1221,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">get<wbr>Child<wbr>Rules<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/models/rule.ts#L1809">models/rule.ts:1809</a></li>
+						<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/models/rule.ts#L44">models/rule.ts:44</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-type-declaration">
@@ -1291,12 +1241,43 @@ img { max-width: 100%; }
 				</div>
 			</section>
 			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+				<a name="hasmatches" class="tsd-anchor"></a>
+				<h3>has<wbr>Matches</h3>
+				<div class="tsd-signature tsd-kind-icon">has<wbr>Matches<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
+				<aside class="tsd-sources">
+					<ul>
+						<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/models/rule.ts#L42">models/rule.ts:42</a></li>
+					</ul>
+				</aside>
+				<div class="tsd-type-declaration">
+					<h4>Type declaration</h4>
+					<ul class="tsd-parameters">
+						<li class="tsd-parameter-siganture">
+							<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-property tsd-is-not-exported">
+								<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>level<span class="tsd-signature-symbol">: </span><a href="../classes/_engine_.level.html" class="tsd-signature-type">Level</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+							</ul>
+							<ul class="tsd-descriptions">
+								<li class="tsd-description">
+									<h4 class="tsd-parameters-title">Parameters</h4>
+									<ul class="tsd-parameters">
+										<li>
+											<h5>level: <a href="../classes/_engine_.level.html" class="tsd-signature-type">Level</a></h5>
+										</li>
+									</ul>
+									<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 				<a name="hasrigid" class="tsd-anchor"></a>
 				<h3>has<wbr>Rigid</h3>
 				<div class="tsd-signature tsd-kind-icon">has<wbr>Rigid<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/models/rule.ts#L1811">models/rule.ts:1811</a></li>
+						<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/models/rule.ts#L46">models/rule.ts:46</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-type-declaration">
@@ -1321,7 +1302,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">is<wbr>Late<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/models/rule.ts#L1810">models/rule.ts:1810</a></li>
+						<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/models/rule.ts#L45">models/rule.ts:45</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-type-declaration">
@@ -1340,31 +1321,149 @@ img { max-width: 100%; }
 					</ul>
 				</div>
 			</section>
-			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-				<a name="tostring" class="tsd-anchor"></a>
-				<h3>to<wbr>String</h3>
-				<div class="tsd-signature tsd-kind-icon">to<wbr>String<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
+			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+				<a name="timesran" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagOptional">Optional</span> times<wbr>Ran</h3>
+				<div class="tsd-signature tsd-kind-icon">times<wbr>Ran<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
 				<aside class="tsd-sources">
-					<p>Inherited from __type.toString</p>
 					<ul>
-						<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/models/game.ts#L17">models/game.ts:17</a></li>
+						<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/models/rule.ts#L51">models/rule.ts:51</a></li>
 					</ul>
 				</aside>
-				<div class="tsd-type-declaration">
-					<h4>Type declaration</h4>
-					<ul class="tsd-parameters">
-						<li class="tsd-parameter-siganture">
-							<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-property tsd-is-not-exported">
-								<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
-							</ul>
-							<ul class="tsd-descriptions">
-								<li class="tsd-description">
-									<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-								</li>
-							</ul>
-						</li>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+				<a name="totaltimems" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagOptional">Optional</span> total<wbr>Time<wbr>Ms</h3>
+				<div class="tsd-signature tsd-kind-icon">total<wbr>Time<wbr>Ms<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
+				<aside class="tsd-sources">
+					<ul>
+						<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/models/rule.ts#L50">models/rule.ts:50</a></li>
 					</ul>
-				</div>
+				</aside>
+			</section>
+		</section>
+		<section class="tsd-panel-group tsd-member-group ">
+			<h2>Methods</h2>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
+				<a name="__getlineandcolumnrange" class="tsd-anchor"></a>
+				<h3>__get<wbr>Line<wbr>And<wbr>Column<wbr>Range</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
+					<li class="tsd-signature tsd-kind-icon">__get<wbr>Line<wbr>And<wbr>Column<wbr>Range<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<p>Inherited from <a href="_models_game_.igamenode.html">IGameNode</a>.<a href="_models_game_.igamenode.html#__getlineandcolumnrange">__getLineAndColumnRange</a></p>
+							<ul>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/models/game.ts#L17">models/game.ts:17</a></li>
+							</ul>
+						</aside>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">object</span></h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter">
+								<h5>end<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></h5>
+								<ul class="tsd-parameters">
+									<li class="tsd-parameter">
+										<h5>col<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
+									</li>
+									<li class="tsd-parameter">
+										<h5>line<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
+									</li>
+								</ul>
+							</li>
+							<li class="tsd-parameter">
+								<h5>start<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></h5>
+								<ul class="tsd-parameters">
+									<li class="tsd-parameter">
+										<h5>col<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
+									</li>
+									<li class="tsd-parameter">
+										<h5>line<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
+				<a name="__getsourcelineandcolumn" class="tsd-anchor"></a>
+				<h3>__get<wbr>Source<wbr>Line<wbr>And<wbr>Column</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
+					<li class="tsd-signature tsd-kind-icon">__get<wbr>Source<wbr>Line<wbr>And<wbr>Column<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<p>Inherited from <a href="_models_game_.igamenode.html">IGameNode</a>.<a href="_models_game_.igamenode.html#__getsourcelineandcolumn">__getSourceLineAndColumn</a></p>
+							<ul>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/models/game.ts#L16">models/game.ts:16</a></li>
+							</ul>
+						</aside>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">object</span></h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter">
+								<h5>col<wbr>Num<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
+							</li>
+							<li class="tsd-parameter">
+								<h5>line<wbr>Num<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+				<a name="tokey" class="tsd-anchor"></a>
+				<h3>to<wbr>Key</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+					<li class="tsd-signature tsd-kind-icon">to<wbr>Key<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/models/rule.ts#L52">models/rule.ts:52</a></li>
+							</ul>
+						</aside>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
+				<a name="tosourcestring" class="tsd-anchor"></a>
+				<h3>to<wbr>Source<wbr>String</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
+					<li class="tsd-signature tsd-kind-icon">to<wbr>Source<wbr>String<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<p>Inherited from <a href="_models_game_.igamenode.html">IGameNode</a>.<a href="_models_game_.igamenode.html#tosourcestring">toSourceString</a></p>
+							<ul>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/models/game.ts#L19">models/game.ts:19</a></li>
+							</ul>
+						</aside>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
+				<a name="tostring" class="tsd-anchor"></a>
+				<h3>to<wbr>String</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
+					<li class="tsd-signature tsd-kind-icon">to<wbr>String<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<p>Inherited from <a href="_models_game_.igamenode.html">IGameNode</a>.<a href="_models_game_.igamenode.html#tostring">toString</a></p>
+							<ul>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/models/game.ts#L18">models/game.ts:18</a></li>
+							</ul>
+						</aside>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+					</li>
+				</ul>
 			</section>
 		</section>
 		<footer class="with-border-bottom">

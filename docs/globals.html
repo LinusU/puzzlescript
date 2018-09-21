@@ -913,6 +913,13 @@ img { max-width: 100%; }
 	<div class="content-wrap">
 		<div class="tsd-panel tsd-typography">
 			<h1 id="terminal-puzzlescript">Terminal PuzzleScript</h1>
+			<p><a href="https://philschatz.com/gh-board/#/r/philschatz:puzzlescript-cli"><img src="https://img.shields.io/github/issues/philschatz/puzzlescript-cli.svg?label=kanban%20board%20%28gh-board%29" alt="gh-board"></a>
+				<a href="https://npmjs.org/package/puzzlescript-cli"><img src="https://img.shields.io/npm/v/puzzlescript-cli.svg" alt="NPM version"></a>
+				<a href="https://npmjs.org/package/puzzlescript-cli"><img src="https://img.shields.io/npm/dm/puzzlescript-cli.svg" alt="Downloads"></a>
+				<a href="https://travis-ci.org/philschatz/puzzlescript-cli"><img src="https://img.shields.io/travis/philschatz/puzzlescript-cli.svg" alt="build status"></a>
+				<a href="https://david-dm.org/philschatz/puzzlescript-cli"><img src="https://img.shields.io/david/philschatz/puzzlescript-cli.svg" alt="dependency status"></a>
+				<a href="https://david-dm.org/philschatz/puzzlescript-cli#info=devDependencies"><img src="https://img.shields.io/david/dev/philschatz/puzzlescript-cli.svg" alt="dev dependency status"></a>
+			<a href="https://codecov.io/gh/philschatz/puzzlescript-cli"><img src="https://img.shields.io/codecov/c/github/philschatz/puzzlescript-cli.svg" alt="code coverage"></a></p>
 			<p>This is a program that you can run in your terminal to play <a href="https://puzzlescript.net">PuzzleScript</a> games.</p>
 			<p>Also, it is <strong>accessible</strong>, meaning that <a href="#video-games-that-blind-people-can-play">blind or visually impaired people can play these games</a> too!</p>
 			<h2 id="install">Install</h2>
@@ -920,6 +927,15 @@ img { max-width: 100%; }
 				<li>Run <code>npm install -g puzzlescript-cli</code></li>
 				<li>Run <code>puzzlescript</code> to start playing</li>
 			</ol>
+			<h3 id="embed-in-a-browser">Embed in a Browser</h3>
+			<p>See <a href="./test/browser/html-table.xhtml">./test/browser/html-table.xhtml</a> for an example of embedding in a browser.</p>
+			<pre><code class="language-js"><span class="hljs-comment">// Include &lt;script src="node_modules/puzzlescript/dist/puzzlescript.js"&gt;&lt;/script&gt;</span>
+<span class="hljs-comment">// and then the following:</span>
+table = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'table'</span>) <span class="hljs-comment">// selector to the &lt;table&gt; that will be used</span>
+engine = <span class="hljs-keyword">new</span> PuzzleScript.HTMLTableEngine(table)
+engine.setGame(gameSourceString, <span class="hljs-number">0</span> <span class="hljs-comment">/*startLevel*/</span>)
+engine.startKeyboardListener()
+engine.startTickHandler()</code></pre>
 			<h1 id="screencaps">Screencaps</h1>
 			<p>Here are some screencaps of games being played.</p>
 			<h3 id="pot-wash-panic-original-">Pot Wash Panic! (<a href="https://hauntpun.itch.io/pot-wash-panic">original</a>)</h3>
@@ -943,19 +959,19 @@ img { max-width: 100%; }
 			<p>This screencap is a visual demonstration of exploring and then playing a level.</p>
 			<p><a href="https://asciinema.org/a/190028?t=4"><img width="600" alt="exploring and playing a level without sight (visual depiction)" src="https://asciinema.org/a/190028.png"/></a></p>
 			<p>This screencap is the <strong>non-visual</strong> version of the same steps as shown above. This is what vision-impaired people will read when they move the Inspector cursor around and then move the player to play the game.</p>
-			<p><a href="https://asciinema.org/a/191072?t=10"><img width="600" alt="exploring and playing a level without sight" src="https://asciinema.org/a/191072.png"/></a></p>
+			<p><a href="https://asciinema.org/a/193133?t=7"><img width="600" alt="exploring and playing a level without sight" src="https://asciinema.org/a/193133.png"/></a></p>
 			<h1 id="about">About</h1>
 			<p>The goal of this project is to do 3 things:</p>
 			<ol>
 				<li>make PuzzleScript easier to embed (like in 404 pages, easter eggs, etc). See <a href="https://philschatz.com/puzzlescript-cli/docs/classes/_engine_.gameengine.html">docs</a></li>
-				<li>allow <strong>blind people to play video games</strong></li>
+				<li>allow <strong>blind people to play video games</strong> (by passing the <code>--no-ui</code> argument)</li>
 				<li>use the terminal as a GUI for playing games</li>
 			</ol>
 			<h1 id="dev-notes">Dev Notes</h1>
 			<p>This is a remake of PuzzleScript that has the following features:</p>
 			<ul>
 				<li>There is <a href="https://philschatz.com/puzzlescript-cli/docs/">documentation</a> for using the <a href="https://www.npmjs.com/package/puzzlescript-cli">NPM package</a></li>
-				<li>There is a <a href="https://en.wikipedia.org/wiki/Parsing_expression_grammar">Grammar</a> file that parses the game file (uses <a href="https://github.com/harc/ohm">ohm</a>)</li>
+				<li>There is a <a href="https://en.wikipedia.org/wiki/Parsing_expression_grammar">Grammar</a> file that parses the game file (uses <a href="https://github.com/kach/nearley">nearley</a>)</li>
 				<li>The interpreter is a separate component</li>
 				<li>The rendering code is abstracted out so folks can add a different renderer (the example uses ASCII in the Terminal to show the game)<ul>
 						<li>This allows for fun things like adding an accessible-friendly interface to play the games</li>
@@ -970,15 +986,16 @@ img { max-width: 100%; }
 			<h2 id="commands">Commands</h2>
 			<ul>
 				<li><code>npm run docs</code> generates docs in the <code>./docs/</code> directory</li>
-				<li><code>npm run play</code> runs the games in the <a href="./gists/">./gists/</a> directory without debugging info (10x faster) (uses <code>NODE_ENV=production</code>)</li>
-				<li><code>npm run play-dev</code> runs the games in the <a href="./gists/">./gists/</a> directory with sprite info (useful for debugging)</li>
-				<li><code>npm run play-debug</code> runs the games in the <a href="./gists/">./gists/</a> directory with a Chrome Debugger open so you can set breakpoints</li>
-				<li><code>npm start</code> runs all of the games in the <a href="./gists/">./gists/</a> directory with a few sample moves (up/down/left/right/action)</li>
+				<li><code>npm start</code> runs a game in the <a href="./gists/">./gists/</a> directory without debugging info (10x faster) (uses <code>NODE_ENV=production</code>)</li>
+				<li><code>npm run start:dev</code> runs a game in the <a href="./gists/">./gists/</a> directory with sprite info (useful for debugging)</li>
+				<li><code>npm run start:debug</code> runs a game in the <a href="./gists/">./gists/</a> directory with a Chrome Debugger open so you can set breakpoints</li>
+				<li><code>npm demo</code> runs all of the games in the <a href="./gists/">./gists/</a> directory with a few sample moves (up/down/left/right/action)</li>
 				<li><code>npm test</code> runs all of the unit tests (including solutions in the <a href="./gist-solutions/">./gist-solutions/</a> directory)</li>
 				<li><code>npm run watch</code> Run the tests and when you update the source, it re-runs the tests</li>
-				<li><code>npm run test-debug</code> Run the tests but opens a debugger (remember to add a <code>debugger</code> line into the JavaScript)</li>
+				<li><code>npm run test:debug</code> Run the tests but opens a debugger (remember to add a <code>debugger</code> line into the JavaScript)</li>
 				<li><code>npm test; open coverage/lcov-report/index.html</code> to see test coverage</li>
 				<li><code>npm run coverage</code> generates a coverage report which includes the JS code as well as any games that you ran in dev mode (using <code>npm run dev</code>)</li>
+				<li>See the module dependency tree by running <code>npm run build:stats</code> and then uploading <code>webpack-stats.json</code> to <a href="https://webpack.github.io/analyse/#modules">https://webpack.github.io/analyse/#modules</a></li>
 			</ul>
 			<h2 id="objects">Objects</h2>
 			<ul>
@@ -989,6 +1006,28 @@ img { max-width: 100%; }
 				</li>
 				<li><strong>Cell</strong> contains a set of Sprites and is used to represent the current state of the Game</li>
 			</ul>
+			<h1 id="todo">TODO</h1>
+			<p>Want to help? Here is a roadmap of things that need to be implemented:</p>
+			<ul>
+				<li><input disabled="" type="checkbox"> support tabbing through the sprites to say where they are and how many of them are in the puzzle</li>
+				<li><input disabled="" type="checkbox"> output which sprites changed when the player moves or presses undo</li>
+				<li><input disabled="" type="checkbox"> improve the sound effects (needs an implementation of <a href="https://developer.mozilla.org/en-US/docs/Web/API/BiquadFilterNode">BiquadFilter</a> in NodeJS)</li>
+				<li><input disabled="" type="checkbox"> support the <code>RIGID</code> keyword</li>
+				<li><input checked="" disabled="" type="checkbox"> output a simple <code>BEL</code> (ASCII character 7) when the <code>speaker</code> package is not installed</li>
+				<li><input disabled="" type="checkbox"> output sound effects when any of the following occur:<ul>
+						<li>a sprite is <code>CREATE</code>, <code>DESTROY</code>, <code>CANTMOVE</code></li>
+						<li>a sprite is moved</li>
+						<li><code>RESTART</code>, <code>UNDO</code>, <code>TITLESCREEN</code>, <code>STARTGAME</code>, <code>STARTLEVEL</code>, <code>ENDLEVEL</code>, <code>ENDGAME</code>, <code>SHOWMESSAGE</code>, <code>CLOSEMESSAGE</code></li>
+					</ul>
+				</li>
+				<li><input checked="" disabled="" type="checkbox"> use HTML Tables to render in the browser (see <a href="./test/browser/html-table.xhtml">./test/browser/html-table.xhtml</a>)</li>
+				<li><input checked="" disabled="" type="checkbox"> Cache Improvements<ul>
+						<li><input checked="" disabled="" type="checkbox"> cache the <code>SimpleNeighbor.matchesCell()</code> function so we do not have to recompute if a cell matches a Neighbor</li>
+						<li><input checked="" disabled="" type="checkbox"> de-duplicate <code>SimpleNeighbor</code> that have a direction but none of the tiles depend on the direction (causes fewer caches to be updated)</li>
+						<li><input checked="" disabled="" type="checkbox"> improve <code>getMatches(level)</code> by storing a cache of all the sprites in each row/column so we can skip the row/column entirely if the necessary sprites are not available</li>
+					</ul>
+				</li>
+			</ul>
 		</div>
 		<section class="tsd-panel-group tsd-index-group">
 			<h2>Index</h2>
@@ -997,10 +1036,18 @@ img { max-width: 100%; }
 					<section class="tsd-index-section ">
 						<h3>External modules</h3>
 						<ul class="tsd-index-list">
+							<li class="tsd-kind-external-module"><a href="modules/_cli_playgame_.html" class="tsd-kind-icon">"cli/play<wbr>Game"</a></li>
+							<li class="tsd-kind-external-module"><a href="modules/_cli_rungames_.html" class="tsd-kind-icon">"cli/run<wbr>Games"</a></li>
+							<li class="tsd-kind-external-module"><a href="modules/_cli_solvedgames_.html" class="tsd-kind-icon">"cli/solved<wbr>Games"</a></li>
+							<li class="tsd-kind-external-module"><a href="modules/_cli_titlefonts_.html" class="tsd-kind-icon">"cli/title<wbr>Fonts"</a></li>
 							<li class="tsd-kind-external-module"><a href="modules/_colors_.html" class="tsd-kind-icon">"colors"</a></li>
 							<li class="tsd-kind-external-module"><a href="modules/_engine_.html" class="tsd-kind-icon">"engine"</a></li>
+							<li class="tsd-kind-external-module"><a href="modules/_font_ascii_.html" class="tsd-kind-icon">"font-<wbr>ascii"</a></li>
 							<li class="tsd-kind-external-module"><a href="modules/_index_.html" class="tsd-kind-icon">"index"</a></li>
+							<li class="tsd-kind-external-module"><a href="modules/_index_browser_.html" class="tsd-kind-icon">"index-<wbr>browser"</a></li>
 							<li class="tsd-kind-external-module"><a href="modules/_letters_.html" class="tsd-kind-icon">"letters"</a></li>
+							<li class="tsd-kind-external-module"><a href="modules/_lrucache_.html" class="tsd-kind-icon">"lru<wbr>Cache"</a></li>
+							<li class="tsd-kind-external-module"><a href="modules/_models_baseforlines_.html" class="tsd-kind-icon">"models/<wbr>Base<wbr>For<wbr>Lines"</a></li>
 							<li class="tsd-kind-external-module"><a href="modules/_models_collisionlayer_.html" class="tsd-kind-icon">"models/collision<wbr>Layer"</a></li>
 							<li class="tsd-kind-external-module"><a href="modules/_models_colors_.html" class="tsd-kind-icon">"models/colors"</a></li>
 							<li class="tsd-kind-external-module"><a href="modules/_models_command_.html" class="tsd-kind-icon">"models/command"</a></li>
@@ -1012,21 +1059,19 @@ img { max-width: 100%; }
 							<li class="tsd-kind-external-module"><a href="modules/_models_tile_.html" class="tsd-kind-icon">"models/tile"</a></li>
 							<li class="tsd-kind-external-module"><a href="modules/_models_wincondition_.html" class="tsd-kind-icon">"models/win<wbr>Condition"</a></li>
 							<li class="tsd-kind-external-module"><a href="modules/_parser_astrule_.html" class="tsd-kind-icon">"parser/ast<wbr>Rule"</a></li>
-							<li class="tsd-kind-external-module"><a href="modules/_parser_collisionlayergrammar_.html" class="tsd-kind-icon">"parser/collision<wbr>Layer<wbr>Grammar"</a></li>
-							<li class="tsd-kind-external-module"><a href="modules/_parser_gamegrammar_.html" class="tsd-kind-icon">"parser/game<wbr>Grammar"</a></li>
+							<li class="tsd-kind-external-module"><a href="modules/_parser_asttypes_.html" class="tsd-kind-icon">"parser/ast<wbr>Types"</a></li>
 							<li class="tsd-kind-external-module"><a href="modules/_parser_grammar_.html" class="tsd-kind-icon">"parser/grammar"</a></li>
-							<li class="tsd-kind-external-module"><a href="modules/_parser_levelgrammar_.html" class="tsd-kind-icon">"parser/level<wbr>Grammar"</a></li>
 							<li class="tsd-kind-external-module"><a href="modules/_parser_lookup_.html" class="tsd-kind-icon">"parser/lookup"</a></li>
 							<li class="tsd-kind-external-module"><a href="modules/_parser_parser_.html" class="tsd-kind-icon">"parser/parser"</a></li>
-							<li class="tsd-kind-external-module"><a href="modules/_parser_rulegrammar_.html" class="tsd-kind-icon">"parser/rule<wbr>Grammar"</a></li>
-							<li class="tsd-kind-external-module"><a href="modules/_parser_soundgrammar_.html" class="tsd-kind-icon">"parser/sound<wbr>Grammar"</a></li>
-							<li class="tsd-kind-external-module"><a href="modules/_parser_tilegrammar_.html" class="tsd-kind-icon">"parser/tile<wbr>Grammar"</a></li>
-							<li class="tsd-kind-external-module"><a href="modules/_parser_winconditiongrammar_.html" class="tsd-kind-icon">"parser/win<wbr>Condition<wbr>Grammar"</a></li>
-							<li class="tsd-kind-external-module"><a href="modules/_playgame_.html" class="tsd-kind-icon">"play<wbr>Game"</a></li>
 							<li class="tsd-kind-external-module"><a href="modules/_recordcoverage_.html" class="tsd-kind-icon">"record<wbr>Coverage"</a></li>
-							<li class="tsd-kind-external-module"><a href="modules/_rungames_.html" class="tsd-kind-icon">"run<wbr>Games"</a></li>
+							<li class="tsd-kind-external-module"><a href="modules/_sortedlist_.html" class="tsd-kind-icon">"sorted<wbr>List"</a></li>
+							<li class="tsd-kind-external-module"><a href="modules/_sound_riffwave_.html" class="tsd-kind-icon">"sound/riffwave"</a></li>
+							<li class="tsd-kind-external-module"><a href="modules/_sound_rng_.html" class="tsd-kind-icon">"sound/rng"</a></li>
 							<li class="tsd-kind-external-module"><a href="modules/_sounds_.html" class="tsd-kind-icon">"sounds"</a></li>
-							<li class="tsd-kind-external-module"><a href="modules/_ui_.html" class="tsd-kind-icon">"ui"</a></li>
+							<li class="tsd-kind-external-module"><a href="modules/_spritebitset_.html" class="tsd-kind-icon">"sprite<wbr>Bit<wbr>Set"</a></li>
+							<li class="tsd-kind-external-module"><a href="modules/_ui_base_.html" class="tsd-kind-icon">"ui/base"</a></li>
+							<li class="tsd-kind-external-module"><a href="modules/_ui_table_.html" class="tsd-kind-icon">"ui/table"</a></li>
+							<li class="tsd-kind-external-module"><a href="modules/_ui_terminal_.html" class="tsd-kind-icon">"ui/terminal"</a></li>
 							<li class="tsd-kind-external-module"><a href="modules/_util_.html" class="tsd-kind-icon">"util"</a></li>
 						</ul>
 					</section>

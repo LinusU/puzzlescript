@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>IParseable | puzzlescript-cli</title>
+	<title>NearleyRule | puzzlescript-cli</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<style type="text/css">/*! normalize.css v1.1.3 | MIT License | git.io/normalize */
@@ -907,52 +907,80 @@ img { max-width: 100%; }
 </header>
 <nav class="tsd-navigation secondary">
 	<ul>
-		<li class="current tsd-kind-interface tsd-parent-kind-external-module tsd-has-type-parameter">
-			<a href="_parser_gamegrammar_.iparseable.html" class="tsd-kind-icon">IParseable</a>
+		<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+			<a href="_parser_grammar_.lexer.html" class="tsd-kind-icon">Lexer</a>
+		</li>
+		<li class="current tsd-kind-interface tsd-parent-kind-external-module">
+			<a href="_parser_grammar_.nearleyrule.html" class="tsd-kind-icon">Nearley<wbr>Rule</a>
 			<ul>
 				<li class=" tsd-kind-property tsd-parent-kind-interface">
-					<a href="_parser_gamegrammar_.iparseable.html#parse" class="tsd-kind-icon">parse</a>
+					<a href="_parser_grammar_.nearleyrule.html#name" class="tsd-kind-icon">name</a>
 				</li>
 				<li class=" tsd-kind-property tsd-parent-kind-interface">
-					<a href="_parser_gamegrammar_.iparseable.html#primitivevalue" class="tsd-kind-icon">primitive<wbr>Value</a>
+					<a href="_parser_grammar_.nearleyrule.html#postprocess" class="tsd-kind-icon">postprocess</a>
+				</li>
+				<li class=" tsd-kind-property tsd-parent-kind-interface">
+					<a href="_parser_grammar_.nearleyrule.html#symbols" class="tsd-kind-icon">symbols</a>
 				</li>
 			</ul>
 		</li>
-		<li class=" tsd-kind-variable tsd-parent-kind-external-module">
-			<a href="../modules/_parser_gamegrammar_.html#common_grammar" class="tsd-kind-icon">COMMON_<wbr>GRAMMAR</a>
+		<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+			<a href="_parser_grammar_.token.html" class="tsd-kind-icon">Token</a>
+		</li>
+		<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
+			<a href="../modules/_parser_grammar_.html#nearleysymbol" class="tsd-kind-icon">Nearley<wbr>Symbol</a>
 		</li>
 		<li class=" tsd-kind-variable tsd-parent-kind-external-module">
-			<a href="../modules/_parser_gamegrammar_.html#metadata_grammar" class="tsd-kind-icon">METADATA_<wbr>GRAMMAR</a>
+			<a href="../modules/_parser_grammar_.html#parserrules" class="tsd-kind-icon">Parser<wbr>Rules</a>
 		</li>
 		<li class=" tsd-kind-variable tsd-parent-kind-external-module">
-			<a href="../modules/_parser_gamegrammar_.html#stringtoken_grammar" class="tsd-kind-icon">STRINGTOKEN_<wbr>GRAMMAR</a>
+			<a href="../modules/_parser_grammar_.html#parserstart" class="tsd-kind-icon">Parser<wbr>Start</a>
+		</li>
+		<li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported">
+			<a href="../modules/_parser_grammar_.html#tile_modifiers" class="tsd-kind-icon">TILE_<wbr>MODIFIERS</a>
+		</li>
+		<li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported">
+			<a href="../modules/_parser_grammar_.html#debugblacklist" class="tsd-kind-icon">debug<wbr>Black<wbr>List</a>
+		</li>
+		<li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported">
+			<a href="../modules/_parser_grammar_.html#debugwhitelist" class="tsd-kind-icon">debug<wbr>White<wbr>List</a>
 		</li>
 		<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
-			<a href="../modules/_parser_gamegrammar_.html#getconfigfield" class="tsd-kind-icon">get<wbr>Config<wbr>Field</a>
+			<a href="../modules/_parser_grammar_.html#concatchars" class="tsd-kind-icon">concat<wbr>Chars</a>
+		</li>
+		<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter tsd-is-not-exported">
+			<a href="../modules/_parser_grammar_.html#extractfirst" class="tsd-kind-icon">extract<wbr>First</a>
+		</li>
+		<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter tsd-is-not-exported">
+			<a href="../modules/_parser_grammar_.html#extractsecond" class="tsd-kind-icon">extract<wbr>Second</a>
+		</li>
+		<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter tsd-is-not-exported">
+			<a href="../modules/_parser_grammar_.html#extractthird" class="tsd-kind-icon">extract<wbr>Third</a>
 		</li>
 		<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
-			<a href="../modules/_parser_gamegrammar_.html#getconfigfieldsimple" class="tsd-kind-icon">get<wbr>Config<wbr>Field<wbr>Simple</a>
+			<a href="../modules/_parser_grammar_.html#id" class="tsd-kind-icon">id</a>
 		</li>
-		<li class=" tsd-kind-function tsd-parent-kind-external-module">
-			<a href="../modules/_parser_gamegrammar_.html#getgamesemantics" class="tsd-kind-icon">get<wbr>Game<wbr>Semantics</a>
+		<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter tsd-is-not-exported">
+			<a href="../modules/_parser_grammar_.html#nonemptylistof" class="tsd-kind-icon">nonempty<wbr>List<wbr>Of</a>
+		</li>
+		<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
+			<a href="../modules/_parser_grammar_.html#nuller" class="tsd-kind-icon">nuller</a>
+		</li>
+		<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
+			<a href="../modules/_parser_grammar_.html#todebug" class="tsd-kind-icon">to<wbr>Debug</a>
+		</li>
+		<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
+			<a href="../modules/_parser_grammar_.html#upperid" class="tsd-kind-icon">upper<wbr>Id</a>
 		</li>
 	</ul>
 </nav>
 <div class="container container-main">
 	<div class="content-wrap">
-		<section class="tsd-panel tsd-type-parameters">
-			<h3>Type parameters</h3>
-			<ul class="tsd-type-parameters">
-				<li>
-					<h4>T</h4>
-				</li>
-			</ul>
-		</section>
 		<section class="tsd-panel tsd-hierarchy">
 			<h3>Hierarchy</h3>
 			<ul class="tsd-hierarchy">
 				<li>
-					<span class="target">IParseable</span>
+					<span class="target">NearleyRule</span>
 				</li>
 			</ul>
 		</section>
@@ -963,8 +991,9 @@ img { max-width: 100%; }
 					<section class="tsd-index-section ">
 						<h3>Properties</h3>
 						<ul class="tsd-index-list">
-							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_parser_gamegrammar_.iparseable.html#parse" class="tsd-kind-icon">parse</a></li>
-							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_parser_gamegrammar_.iparseable.html#primitivevalue" class="tsd-kind-icon">primitive<wbr>Value</a></li>
+							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_parser_grammar_.nearleyrule.html#name" class="tsd-kind-icon">name</a></li>
+							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_parser_grammar_.nearleyrule.html#postprocess" class="tsd-kind-icon">postprocess</a></li>
+							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_parser_grammar_.nearleyrule.html#symbols" class="tsd-kind-icon">symbols</a></li>
 						</ul>
 					</section>
 				</div>
@@ -973,37 +1002,32 @@ img { max-width: 100%; }
 		<section class="tsd-panel-group tsd-member-group ">
 			<h2>Properties</h2>
 			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-				<a name="parse" class="tsd-anchor"></a>
-				<h3>parse</h3>
-				<div class="tsd-signature tsd-kind-icon">parse<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
+				<a name="name" class="tsd-anchor"></a>
+				<h3>name</h3>
+				<div class="tsd-signature tsd-kind-icon">name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/cefc082/src/parser/gameGrammar.ts#L16">parser/gameGrammar.ts:16</a></li>
+						<li>Defined in parser/grammar.ts:96</li>
 					</ul>
 				</aside>
-				<div class="tsd-type-declaration">
-					<h4>Type declaration</h4>
-					<ul class="tsd-parameters">
-						<li class="tsd-parameter-siganture">
-							<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-property tsd-is-not-exported">
-								<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span></li>
-							</ul>
-							<ul class="tsd-descriptions">
-								<li class="tsd-description">
-									<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</div>
 			</section>
 			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-				<a name="primitivevalue" class="tsd-anchor"></a>
-				<h3>primitive<wbr>Value</h3>
-				<div class="tsd-signature tsd-kind-icon">primitive<wbr>Value<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+				<a name="postprocess" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagOptional">Optional</span> postprocess</h3>
+				<div class="tsd-signature tsd-kind-icon">postprocess<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">function</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/cefc082/src/parser/gameGrammar.ts#L17">parser/gameGrammar.ts:17</a></li>
+						<li>Defined in parser/grammar.ts:98</li>
+					</ul>
+				</aside>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+				<a name="symbols" class="tsd-anchor"></a>
+				<h3>symbols</h3>
+				<div class="tsd-signature tsd-kind-icon">symbols<span class="tsd-signature-symbol">:</span> <a href="../modules/_parser_grammar_.html#nearleysymbol" class="tsd-signature-type">NearleySymbol</a><span class="tsd-signature-symbol">[]</span></div>
+				<aside class="tsd-sources">
+					<ul>
+						<li>Defined in parser/grammar.ts:97</li>
 					</ul>
 				</aside>
 			</section>

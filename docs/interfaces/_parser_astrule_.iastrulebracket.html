@@ -934,6 +934,9 @@ img { max-width: 100%; }
 		<li class=" tsd-kind-class tsd-parent-kind-external-module">
 			<a href="../classes/_parser_astrule_.asttilewithmodifier.html" class="tsd-kind-icon">ASTTile<wbr>With<wbr>Modifier</a>
 		</li>
+		<li class=" tsd-kind-class tsd-parent-kind-external-module">
+			<a href="../classes/_parser_astrule_.abstractruleish.html" class="tsd-kind-icon">Abstract<wbr>Ruleish</a>
+		</li>
 		<li class="current tsd-kind-interface tsd-parent-kind-external-module">
 			<a href="_parser_astrule_.iastrulebracket.html" class="tsd-kind-icon">IASTRule<wbr>Bracket</a>
 			<ul>
@@ -942,9 +945,6 @@ img { max-width: 100%; }
 				</li>
 				<li class=" tsd-kind-property tsd-parent-kind-interface">
 					<a href="_parser_astrule_.iastrulebracket.html#clone" class="tsd-kind-icon">clone</a>
-				</li>
-				<li class=" tsd-kind-property tsd-parent-kind-interface">
-					<a href="_parser_astrule_.iastrulebracket.html#hasellipsis" class="tsd-kind-icon">has<wbr>Ellipsis</a>
 				</li>
 				<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a href="_parser_astrule_.iastrulebracket.html#tokey" class="tsd-kind-icon">to<wbr>Key</a>
@@ -1002,7 +1002,6 @@ img { max-width: 100%; }
 						<ul class="tsd-index-list">
 							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_parser_astrule_.iastrulebracket.html#_getallneighbors" class="tsd-kind-icon">_get<wbr>All<wbr>Neighbors</a></li>
 							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_parser_astrule_.iastrulebracket.html#clone" class="tsd-kind-icon">clone</a></li>
-							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_parser_astrule_.iastrulebracket.html#hasellipsis" class="tsd-kind-icon">has<wbr>Ellipsis</a></li>
 							<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_parser_astrule_.iastrulebracket.html#tokey" class="tsd-kind-icon">to<wbr>Key</a></li>
 							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_parser_astrule_.iastrulebracket.html#tosimple" class="tsd-kind-icon">to<wbr>Simple</a></li>
 						</ul>
@@ -1018,7 +1017,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">_get<wbr>All<wbr>Neighbors<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/parser/astRule.ts#L369">parser/astRule.ts:369</a></li>
+						<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/parser/astRule.ts#L327">parser/astRule.ts:327</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-type-declaration">
@@ -1043,7 +1042,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">clone<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/parser/astRule.ts#L366">parser/astRule.ts:366</a></li>
+						<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/parser/astRule.ts#L324">parser/astRule.ts:324</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-type-declaration">
@@ -1074,31 +1073,6 @@ img { max-width: 100%; }
 					</ul>
 				</div>
 			</section>
-			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-				<a name="hasellipsis" class="tsd-anchor"></a>
-				<h3>has<wbr>Ellipsis</h3>
-				<div class="tsd-signature tsd-kind-icon">has<wbr>Ellipsis<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
-				<aside class="tsd-sources">
-					<ul>
-						<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/parser/astRule.ts#L368">parser/astRule.ts:368</a></li>
-					</ul>
-				</aside>
-				<div class="tsd-type-declaration">
-					<h4>Type declaration</h4>
-					<ul class="tsd-parameters">
-						<li class="tsd-parameter-siganture">
-							<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-property tsd-is-not-exported">
-								<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
-							</ul>
-							<ul class="tsd-descriptions">
-								<li class="tsd-description">
-									<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</div>
-			</section>
 			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 				<a name="tokey" class="tsd-anchor"></a>
 				<h3>to<wbr>Key</h3>
@@ -1106,7 +1080,7 @@ img { max-width: 100%; }
 				<aside class="tsd-sources">
 					<p>Inherited from <a href="_util_.icacheable.html">ICacheable</a>.<a href="_util_.icacheable.html#tokey">toKey</a></p>
 					<ul>
-						<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/util.ts#L110">util.ts:110</a></li>
+						<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/util.ts#L160">util.ts:160</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-type-declaration">
@@ -1131,7 +1105,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">to<wbr>Simple<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/parser/astRule.ts#L367">parser/astRule.ts:367</a></li>
+						<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/parser/astRule.ts#L325">parser/astRule.ts:325</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-type-declaration">

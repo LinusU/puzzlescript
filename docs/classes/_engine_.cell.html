@@ -919,6 +919,9 @@ img { max-width: 100%; }
 				<li class=" tsd-kind-property tsd-parent-kind-class">
 					<a href="_engine_.cell.html#rowindex" class="tsd-kind-icon">row<wbr>Index</a>
 				</li>
+				<li class=" tsd-kind-property tsd-parent-kind-class">
+					<a href="_engine_.cell.html#spritebitset" class="tsd-kind-icon">sprite<wbr>Bit<wbr>Set</a>
+				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class">
 					<a href="_engine_.cell.html#_deletewantstomove" class="tsd-kind-icon">_delete<wbr>Wants<wbr>ToMove</a>
 				</li>
@@ -930,9 +933,6 @@ img { max-width: 100%; }
 				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class">
 					<a href="_engine_.cell.html#clearwantstomove" class="tsd-kind-icon">clear<wbr>Wants<wbr>ToMove</a>
-				</li>
-				<li class=" tsd-kind-method tsd-parent-kind-class">
-					<a href="_engine_.cell.html#deletewantstomovecollisionlayer" class="tsd-kind-icon">delete<wbr>Wants<wbr>ToMove<wbr>Collision<wbr>Layer</a>
 				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class">
 					<a href="_engine_.cell.html#fromsnapshot" class="tsd-kind-icon">from<wbr>Snapshot</a>
@@ -970,8 +970,14 @@ img { max-width: 100%; }
 				<li class=" tsd-kind-method tsd-parent-kind-class">
 					<a href="_engine_.cell.html#removesprite" class="tsd-kind-icon">remove<wbr>Sprite</a>
 				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+					<a href="_engine_.cell.html#replacespriteinlevel" class="tsd-kind-icon">replace<wbr>Sprite<wbr>InLevel</a>
+				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class">
 					<a href="_engine_.cell.html#setwantstomovecollisionlayer" class="tsd-kind-icon">set<wbr>Wants<wbr>ToMove<wbr>Collision<wbr>Layer</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class">
+					<a href="_engine_.cell.html#tokey" class="tsd-kind-icon">to<wbr>Key</a>
 				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class">
 					<a href="_engine_.cell.html#tosnapshot" class="tsd-kind-icon">to<wbr>Snapshot</a>
@@ -979,28 +985,37 @@ img { max-width: 100%; }
 				<li class=" tsd-kind-method tsd-parent-kind-class">
 					<a href="_engine_.cell.html#tostring" class="tsd-kind-icon">to<wbr>String</a>
 				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class">
+					<a href="_engine_.cell.html#updatesprite" class="tsd-kind-icon">update<wbr>Sprite</a>
+				</li>
 			</ul>
 		</li>
 		<li class=" tsd-kind-class tsd-parent-kind-external-module">
 			<a href="_engine_.gameengine.html" class="tsd-kind-icon">Game<wbr>Engine</a>
 		</li>
 		<li class=" tsd-kind-class tsd-parent-kind-external-module">
+			<a href="_engine_.level.html" class="tsd-kind-icon">Level</a>
+		</li>
+		<li class=" tsd-kind-class tsd-parent-kind-external-module">
 			<a href="_engine_.levelengine.html" class="tsd-kind-icon">Level<wbr>Engine</a>
+		</li>
+		<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
+			<a href="../interfaces/_engine_.icollisionlayerstate.html" class="tsd-kind-icon">ICollision<wbr>Layer<wbr>State</a>
+		</li>
+		<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+			<a href="../interfaces/_engine_.iloadingcellsevent.html" class="tsd-kind-icon">ILoading<wbr>Cells<wbr>Event</a>
 		</li>
 		<li class=" tsd-kind-interface tsd-parent-kind-external-module">
 			<a href="../interfaces/_engine_.iloadingprogresshandler.html" class="tsd-kind-icon">ILoading<wbr>Progress<wbr>Handler</a>
 		</li>
-		<li class=" tsd-kind-type-alias tsd-parent-kind-external-module tsd-is-not-exported">
-			<a href="../modules/_engine_.html#collisionlayerstate" class="tsd-kind-icon">Collision<wbr>Layer<wbr>State</a>
+		<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
+			<a href="../interfaces/_engine_.itickresult.html" class="tsd-kind-icon">ITick<wbr>Result</a>
 		</li>
 		<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
-			<a href="../modules/_engine_.html#loadingcellsevent" class="tsd-kind-icon">Loading<wbr>Cells<wbr>Event</a>
+			<a href="../modules/_engine_.html#cellsavestate" class="tsd-kind-icon">Cell<wbr>Save<wbr>State</a>
 		</li>
 		<li class=" tsd-kind-type-alias tsd-parent-kind-external-module tsd-is-not-exported">
 			<a href="../modules/_engine_.html#snapshot" class="tsd-kind-icon">Snapshot</a>
-		</li>
-		<li class=" tsd-kind-type-alias tsd-parent-kind-external-module tsd-is-not-exported">
-			<a href="../modules/_engine_.html#tickresult" class="tsd-kind-icon">Tick<wbr>Result</a>
 		</li>
 	</ul>
 </nav>
@@ -1012,7 +1027,7 @@ img { max-width: 100%; }
 					<p>The state of sprites in one position of the current level being played.</p>
 				</div>
 				<p>This stores all the sprites and which direction those sprites want to move.</p>
-				<p>The <a href="_ui_.terminalui.html">TerminalUI</a> uses this object to render and the <a href="_engine_.gameengine.html">GameEngine</a> uses this to maintain the state
+				<p>The <a href="_ui_terminal_.terminalui.html">TerminalUI</a> uses this object to render and the <a href="_engine_.gameengine.html">GameEngine</a> uses this to maintain the state
 				of one position of the current level.</p>
 			</div>
 		</section>
@@ -1039,6 +1054,7 @@ img { max-width: 100%; }
 						<ul class="tsd-index-list">
 							<li class="tsd-kind-property tsd-parent-kind-class"><a href="_engine_.cell.html#colindex" class="tsd-kind-icon">col<wbr>Index</a></li>
 							<li class="tsd-kind-property tsd-parent-kind-class"><a href="_engine_.cell.html#rowindex" class="tsd-kind-icon">row<wbr>Index</a></li>
+							<li class="tsd-kind-property tsd-parent-kind-class"><a href="_engine_.cell.html#spritebitset" class="tsd-kind-icon">sprite<wbr>Bit<wbr>Set</a></li>
 						</ul>
 					</section>
 					<section class="tsd-index-section ">
@@ -1048,7 +1064,6 @@ img { max-width: 100%; }
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="_engine_.cell.html#_setwantstomove" class="tsd-kind-icon">_set<wbr>Wants<wbr>ToMove</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="_engine_.cell.html#addsprite" class="tsd-kind-icon">add<wbr>Sprite</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="_engine_.cell.html#clearwantstomove" class="tsd-kind-icon">clear<wbr>Wants<wbr>ToMove</a></li>
-							<li class="tsd-kind-method tsd-parent-kind-class"><a href="_engine_.cell.html#deletewantstomovecollisionlayer" class="tsd-kind-icon">delete<wbr>Wants<wbr>ToMove<wbr>Collision<wbr>Layer</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="_engine_.cell.html#fromsnapshot" class="tsd-kind-icon">from<wbr>Snapshot</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="_engine_.cell.html#getcollisionlayerwantstomove" class="tsd-kind-icon">get<wbr>Collision<wbr>Layer<wbr>Wants<wbr>ToMove</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="_engine_.cell.html#getcollisionlayers" class="tsd-kind-icon">get<wbr>Collision<wbr>Layers</a></li>
@@ -1061,9 +1076,12 @@ img { max-width: 100%; }
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="_engine_.cell.html#hascollisionwithsprite" class="tsd-kind-icon">has<wbr>Collision<wbr>With<wbr>Sprite</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="_engine_.cell.html#hassprite" class="tsd-kind-icon">has<wbr>Sprite</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="_engine_.cell.html#removesprite" class="tsd-kind-icon">remove<wbr>Sprite</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="_engine_.cell.html#replacespriteinlevel" class="tsd-kind-icon">replace<wbr>Sprite<wbr>InLevel</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="_engine_.cell.html#setwantstomovecollisionlayer" class="tsd-kind-icon">set<wbr>Wants<wbr>ToMove<wbr>Collision<wbr>Layer</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class"><a href="_engine_.cell.html#tokey" class="tsd-kind-icon">to<wbr>Key</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="_engine_.cell.html#tosnapshot" class="tsd-kind-icon">to<wbr>Snapshot</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="_engine_.cell.html#tostring" class="tsd-kind-icon">to<wbr>String</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class"><a href="_engine_.cell.html#updatesprite" class="tsd-kind-icon">update<wbr>Sprite</a></li>
 						</ul>
 					</section>
 				</div>
@@ -1075,19 +1093,19 @@ img { max-width: 100%; }
 				<a name="constructor" class="tsd-anchor"></a>
 				<h3>constructor</h3>
 				<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-					<li class="tsd-signature tsd-kind-icon">new <wbr>Cell<span class="tsd-signature-symbol">(</span>engine<span class="tsd-signature-symbol">: </span><a href="../modules/_util_.html#optional" class="tsd-signature-type">Optional</a><span class="tsd-signature-symbol">&lt;</span><a href="_engine_.levelengine.html" class="tsd-signature-type">LevelEngine</a><span class="tsd-signature-symbol">&gt;</span>, sprites<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Set</span><span class="tsd-signature-symbol">&lt;</span><a href="_models_tile_.gamesprite.html" class="tsd-signature-type">GameSprite</a><span class="tsd-signature-symbol">&gt;</span>, rowIndex<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, colIndex<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_engine_.cell.html" class="tsd-signature-type">Cell</a></li>
+					<li class="tsd-signature tsd-kind-icon">new <wbr>Cell<span class="tsd-signature-symbol">(</span>level<span class="tsd-signature-symbol">: </span><a href="../modules/_util_.html#optional" class="tsd-signature-type">Optional</a><span class="tsd-signature-symbol">&lt;</span><a href="_engine_.level.html" class="tsd-signature-type">Level</a><span class="tsd-signature-symbol">&gt;</span>, sprites<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Set</span><span class="tsd-signature-symbol">&lt;</span><a href="_models_tile_.gamesprite.html" class="tsd-signature-type">GameSprite</a><span class="tsd-signature-symbol">&gt;</span>, rowIndex<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, colIndex<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_engine_.cell.html" class="tsd-signature-type">Cell</a></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/engine.ts#L41">engine.ts:41</a></li>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/engine.ts#L42">engine.ts:42</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5>engine: <a href="../modules/_util_.html#optional" class="tsd-signature-type">Optional</a><span class="tsd-signature-symbol">&lt;</span><a href="_engine_.levelengine.html" class="tsd-signature-type">LevelEngine</a><span class="tsd-signature-symbol">&gt;</span></h5>
+								<h5>level: <a href="../modules/_util_.html#optional" class="tsd-signature-type">Optional</a><span class="tsd-signature-symbol">&lt;</span><a href="_engine_.level.html" class="tsd-signature-type">Level</a><span class="tsd-signature-symbol">&gt;</span></h5>
 							</li>
 							<li>
 								<h5>sprites: <span class="tsd-signature-type">Set</span><span class="tsd-signature-symbol">&lt;</span><a href="_models_tile_.gamesprite.html" class="tsd-signature-type">GameSprite</a><span class="tsd-signature-symbol">&gt;</span></h5>
@@ -1112,7 +1130,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">col<wbr>Index<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/engine.ts#L41">engine.ts:41</a></li>
+						<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/engine.ts#L37">engine.ts:37</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -1122,7 +1140,17 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">row<wbr>Index<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/engine.ts#L40">engine.ts:40</a></li>
+						<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/engine.ts#L36">engine.ts:36</a></li>
+					</ul>
+				</aside>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<a name="spritebitset" class="tsd-anchor"></a>
+				<h3>sprite<wbr>Bit<wbr>Set</h3>
+				<div class="tsd-signature tsd-kind-icon">sprite<wbr>Bit<wbr>Set<span class="tsd-signature-symbol">:</span> <a href="_spritebitset_.spritebitset.html" class="tsd-signature-type">SpriteBitSet</a></div>
+				<aside class="tsd-sources">
+					<ul>
+						<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/engine.ts#L38">engine.ts:38</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -1139,7 +1167,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/engine.ts#L79">engine.ts:79</a></li>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/engine.ts#L78">engine.ts:78</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1162,7 +1190,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/engine.ts#L71">engine.ts:71</a></li>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/engine.ts#L57">engine.ts:57</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1188,7 +1216,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/engine.ts#L205">engine.ts:205</a></li>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/engine.ts#L176">engine.ts:176</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1214,7 +1242,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/engine.ts#L201">engine.ts:201</a></li>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/engine.ts#L172">engine.ts:172</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1228,29 +1256,6 @@ img { max-width: 100%; }
 				</ul>
 			</section>
 			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-				<a name="deletewantstomovecollisionlayer" class="tsd-anchor"></a>
-				<h3>delete<wbr>Wants<wbr>ToMove<wbr>Collision<wbr>Layer</h3>
-				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-					<li class="tsd-signature tsd-kind-icon">delete<wbr>Wants<wbr>ToMove<wbr>Collision<wbr>Layer<span class="tsd-signature-symbol">(</span>collisionLayer<span class="tsd-signature-symbol">: </span><a href="_models_collisionlayer_.collisionlayer.html" class="tsd-signature-type">CollisionLayer</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
-				</ul>
-				<ul class="tsd-descriptions">
-					<li class="tsd-description">
-						<aside class="tsd-sources">
-							<ul>
-								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/engine.ts#L110">engine.ts:110</a></li>
-							</ul>
-						</aside>
-						<h4 class="tsd-parameters-title">Parameters</h4>
-						<ul class="tsd-parameters">
-							<li>
-								<h5>collisionLayer: <a href="_models_collisionlayer_.collisionlayer.html" class="tsd-signature-type">CollisionLayer</a></h5>
-							</li>
-						</ul>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 				<a name="fromsnapshot" class="tsd-anchor"></a>
 				<h3>from<wbr>Snapshot</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -1260,7 +1265,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/engine.ts#L243">engine.ts:243</a></li>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/engine.ts#L227">engine.ts:227</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1283,7 +1288,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/engine.ts#L163">engine.ts:163</a></li>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/engine.ts#L144">engine.ts:144</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1321,7 +1326,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/engine.ts#L129">engine.ts:129</a></li>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/engine.ts#L109">engine.ts:109</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <a href="_models_collisionlayer_.collisionlayer.html" class="tsd-signature-type">CollisionLayer</a><span class="tsd-signature-symbol">[]</span></h4>
@@ -1338,7 +1343,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/engine.ts#L180">engine.ts:180</a></li>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/engine.ts#L152">engine.ts:152</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1364,7 +1369,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/engine.ts#L154">engine.ts:154</a></li>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/engine.ts#L134">engine.ts:134</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -1381,7 +1386,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/engine.ts#L125">engine.ts:125</a></li>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/engine.ts#L105">engine.ts:105</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1407,7 +1412,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/engine.ts#L134">engine.ts:134</a></li>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/engine.ts#L114">engine.ts:114</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <a href="_models_tile_.gamesprite.html" class="tsd-signature-type">GameSprite</a><span class="tsd-signature-symbol">[]</span></h4>
@@ -1424,7 +1429,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/engine.ts#L146">engine.ts:146</a></li>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/engine.ts#L126">engine.ts:126</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Set</span><span class="tsd-signature-symbol">&lt;</span><a href="_models_tile_.gamesprite.html" class="tsd-signature-type">GameSprite</a><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -1441,7 +1446,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/engine.ts#L195">engine.ts:195</a></li>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/engine.ts#L166">engine.ts:166</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1479,7 +1484,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/engine.ts#L198">engine.ts:198</a></li>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/engine.ts#L169">engine.ts:169</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1502,7 +1507,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/engine.ts#L167">engine.ts:167</a></li>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/engine.ts#L148">engine.ts:148</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1525,7 +1530,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/engine.ts#L222">engine.ts:222</a></li>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/engine.ts#L209">engine.ts:209</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1535,6 +1540,32 @@ img { max-width: 100%; }
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+				<a name="replacespriteinlevel" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagProtected">Protected</span> replace<wbr>Sprite<wbr>InLevel</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+					<li class="tsd-signature tsd-kind-icon">replace<wbr>Sprite<wbr>InLevel<span class="tsd-signature-symbol">(</span>cellSprite<span class="tsd-signature-symbol">: </span><a href="../modules/_util_.html#optional" class="tsd-signature-type">Optional</a><span class="tsd-signature-symbol">&lt;</span><a href="_models_tile_.gamesprite.html" class="tsd-signature-type">GameSprite</a><span class="tsd-signature-symbol">&gt;</span>, newSprite<span class="tsd-signature-symbol">: </span><a href="_models_tile_.gamesprite.html" class="tsd-signature-type">GameSprite</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/engine.ts#L237">engine.ts:237</a></li>
+							</ul>
+						</aside>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5>cellSprite: <a href="../modules/_util_.html#optional" class="tsd-signature-type">Optional</a><span class="tsd-signature-symbol">&lt;</span><a href="_models_tile_.gamesprite.html" class="tsd-signature-type">GameSprite</a><span class="tsd-signature-symbol">&gt;</span></h5>
+							</li>
+							<li>
+								<h5>newSprite: <a href="_models_tile_.gamesprite.html" class="tsd-signature-type">GameSprite</a></h5>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 					</li>
 				</ul>
 			</section>
@@ -1548,7 +1579,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/engine.ts#L95">engine.ts:95</a></li>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/engine.ts#L92">engine.ts:92</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1565,6 +1596,23 @@ img { max-width: 100%; }
 				</ul>
 			</section>
 			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+				<a name="tokey" class="tsd-anchor"></a>
+				<h3>to<wbr>Key</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+					<li class="tsd-signature tsd-kind-icon">to<wbr>Key<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/engine.ts#L217">engine.ts:217</a></li>
+							</ul>
+						</aside>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 				<a name="tosnapshot" class="tsd-anchor"></a>
 				<h3>to<wbr>Snapshot</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -1574,7 +1622,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/engine.ts#L240">engine.ts:240</a></li>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/engine.ts#L224">engine.ts:224</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Set</span><span class="tsd-signature-symbol">&lt;</span><a href="_models_tile_.gamesprite.html" class="tsd-signature-type">GameSprite</a><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -1591,10 +1639,36 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/9aa64c6/src/engine.ts#L237">engine.ts:237</a></li>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/engine.ts#L214">engine.ts:214</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+				<a name="updatesprite" class="tsd-anchor"></a>
+				<h3>update<wbr>Sprite</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+					<li class="tsd-signature tsd-kind-icon">update<wbr>Sprite<span class="tsd-signature-symbol">(</span>sprite<span class="tsd-signature-symbol">: </span><a href="_models_tile_.gamesprite.html" class="tsd-signature-type">GameSprite</a>, wantsToMove<span class="tsd-signature-symbol">: </span><a href="../enums/_util_.rule_direction.html" class="tsd-signature-type">RULE_DIRECTION</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/engine.ts#L193">engine.ts:193</a></li>
+							</ul>
+						</aside>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5>sprite: <a href="_models_tile_.gamesprite.html" class="tsd-signature-type">GameSprite</a></h5>
+							</li>
+							<li>
+								<h5>wantsToMove: <a href="../enums/_util_.rule_direction.html" class="tsd-signature-type">RULE_DIRECTION</a></h5>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
 					</li>
 				</ul>
 			</section>
