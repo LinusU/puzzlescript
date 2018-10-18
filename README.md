@@ -34,7 +34,16 @@ engine.start()
 
 Here are some screencaps of games being played.
 
+### Mirror Isles ([original](http://www.draknek.org/games/puzzlescript/mirrors.php))
+
+This screencast shows playing the game in a terminal using ASCII and ANSI colors.
+
+![mirror-isles](https://user-images.githubusercontent.com/253202/47133542-ce0d1700-d26e-11e8-851f-233d27aaf0b8.gif)
+
+
 ### Pot Wash Panic! ([original](https://hauntpun.itch.io/pot-wash-panic))
+
+(click to see the ascii screencast)
 
 <a href="https://asciinema.org/a/188014?t=25"><img width="300" alt="video of install and a couple games" src="https://asciinema.org/a/188014.png"/></a>
 
@@ -62,6 +71,9 @@ PuzzleScript lends itself nicely to be playable by people with low or no vision:
 1. the games do not require quick reflexes and have Undo built-in so it is easy to think and try different options
 1. we can just print to the terminal whenever something needs to be read (presumably the terminal is read aloud to the person)
 
+If you are blind, you can play the games by running `puzzlescript --no-ui` and use the <kbd>I</kbd>, <kbd>K</kbd>, <kbd>J</kbd>, <kbd>L</kbd>, and <kbd>P</kbd> keys to move the cursor to explore the level.
+
+If you want to experience what a non-sighted person would experience but still see the level, run `NODE_ENV=development puzzlescript` and use the <kbd>I</kbd>, <kbd>K</kbd>, <kbd>J</kbd>, <kbd>L</kbd>, and <kbd>P</kbd> keys to move the cursor to explore the level.
 
 ### Screencap
 
