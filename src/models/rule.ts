@@ -1,5 +1,6 @@
 import BitSet from 'bitset'
 import { Cell, Level } from '../engine'
+import { LOG_LEVEL, logger } from '../logger'
 import LruCache from '../lruCache'
 import { SpriteBitSet } from '../spriteBitSet'
 import TerminalUI from '../ui/terminal'
@@ -102,8 +103,8 @@ function buildPermutations<T>(cells: T[][]) {
 }
 
 export class SimpleRuleGroup extends BaseForLines implements IRule {
+    public isRandom: boolean
     private rules: IRule[]
-    private isRandom: boolean
     constructor(source: IGameCode, isRandom: boolean, rules: IRule[]) {
         super(source)
         this.rules = rules
@@ -121,7 +122,7 @@ export class SimpleRuleGroup extends BaseForLines implements IRule {
 
     public evaluate(level: Level, onlyEvaluateFirstMatch: boolean) {
         let start
-        if (process.env.LOG_LEVEL === 'debug') {
+        if (logger.isLevel(LOG_LEVEL.DEBUG)) {
             start = Date.now()
         }
         // Keep looping as long as one of the rules evaluated something
@@ -131,8 +132,8 @@ export class SimpleRuleGroup extends BaseForLines implements IRule {
             if (process.env.NODE_ENV === 'development' && iteration === MAX_ITERATIONS_IN_LOOP - 10) {
                 // Provide a breakpoint just before we run out of MAX_ITERATIONS_IN_LOOP
                 // so that we can step through the evaluations.
-                console.error(this.toString()) // tslint:disable-line:no-console
-                console.error('BUG: Iterated too many times in startloop or + (rule group)') // tslint:disable-line:no-console
+                logger.warn(this.toString())
+                logger.warn('BUG: Iterated too many times in startloop or + (rule group)')
                 if (process.stdout) { TerminalUI.debugRenderScreen() } debugger // tslint:disable-line:no-debugger
             }
             if (iteration === MAX_ITERATIONS_IN_LOOP - 1) {
@@ -176,12 +177,12 @@ export class SimpleRuleGroup extends BaseForLines implements IRule {
 
         }
 
-        if (process.env.LOG_LEVEL === 'debug') {
+        if (logger.isLevel(LOG_LEVEL.DEBUG)) {
             if (allMutations.length > 0) {
                 if (start && (Date.now() - start) > 30 /*only show times for rules that took a long time*/) {
-                    console.error(`Rule ${this.__getSourceLineAndColumn().lineNum} applied. ${iteration === 1 ? '' : `(x${iteration})`} [[${Date.now() - start}ms]]`) // tslint:disable-line:no-console
+                    logger.debug(`Rule ${this.__getSourceLineAndColumn().lineNum} applied. ${iteration === 1 ? '' : `(x${iteration})`} [[${Date.now() - start}ms]]`)
                 } else {
-                    console.error(`Rule ${this.__getSourceLineAndColumn().lineNum} applied. ${iteration === 1 ? '' : `(x${iteration})`}`) // tslint:disable-line:no-console
+                    logger.debug(`Rule ${this.__getSourceLineAndColumn().lineNum} applied. ${iteration === 1 ? '' : `(x${iteration})`}`)
                 }
             }
         }
@@ -244,21 +245,21 @@ export class SimpleRuleLoop extends SimpleRuleGroup {
 // DOWN [ DOWN player LEFT cat RIGHT dog UP crate UP wall ] -> [ RIGHT crate RIGHT dog ]
 // DOWN [ DOWN player LEFT cat RIGHT dog UP crate DOWN wall ] -> [ RIGHT crate RIGHT dog ]
 export class SimpleRule extends BaseForLines implements ICacheable, IRule {
-    private evaluationDirection: RULE_DIRECTION
-    private conditionBrackets: ISimpleBracket[]
-    private actionBrackets: ISimpleBracket[]
-    private commands: AbstractCommand[]
+    public conditionBrackets: ISimpleBracket[]
+    public actionBrackets: ISimpleBracket[]
+    public commands: AbstractCommand[]
+    public debugFlag: Optional<DEBUG_FLAG>
+    // private evaluationDirection: RULE_DIRECTION
     private _isLate: boolean
     private readonly isRigid: boolean
     private isSubscribedToCellChanges: boolean
-    private debugFlag: Optional<DEBUG_FLAG>
 
-    constructor(source: IGameCode, evaluationDirection: RULE_DIRECTION,
+    constructor(source: IGameCode,
                 conditionBrackets: ISimpleBracket[], actionBrackets: ISimpleBracket[],
                 commands: AbstractCommand[], isLate: boolean, isRigid: boolean, debugFlag: Optional<DEBUG_FLAG>) {
 
         super(source)
-        this.evaluationDirection = evaluationDirection
+        // this.evaluationDirection = evaluationDirection
         this.conditionBrackets = conditionBrackets
         this.actionBrackets = actionBrackets
         this.commands = commands
@@ -274,11 +275,11 @@ export class SimpleRule extends BaseForLines implements ICacheable, IRule {
         }
     }
     public toKey() {
-        const dir = this.dependsOnDirection() ? this.evaluationDirection : ''
+        // const dir = this.dependsOnDirection() ? this.evaluationDirection : ''
         const conditions = this.conditionBrackets.map((x) => x.toKey())
         const actions = this.actionBrackets.map((x) => x.toKey())
         const commands = this.commands.map((c) => c.toKey())
-        return `{Late?${this._isLate}} {Rigid?${this.isRigid}}  ${dir} ${conditions} -> ${actions} ${commands.join(' ')} {debugger?${this.debugFlag}}`
+        return `{Late?${this._isLate}} {Rigid?${this.isRigid}} ${conditions} -> ${actions} ${commands.join(' ')} {debugger?${this.debugFlag}}`
     }
     public getChildRules(): IRule[] {
         return []
@@ -330,7 +331,7 @@ export class SimpleRule extends BaseForLines implements ICacheable, IRule {
         let ret: IMutation[] = []
         if (process.env.NODE_ENV === 'development') {
             // A "DEBUGGER" flag was set in the game so we are pausing here
-            if (process.env.LOG_LEVEL === 'debug' && process.stdout) { TerminalUI.renderScreen(false) }
+            if ((logger.isLevel(LOG_LEVEL.TRACE) && process.stdout) || (logger.isLevel(LOG_LEVEL.DEBUG) && this.debugFlag === DEBUG_FLAG.BREAKPOINT)) { TerminalUI.renderScreen(false) }
             if (this.debugFlag === DEBUG_FLAG.BREAKPOINT) {
                 debugger // tslint:disable-line:no-debugger
             }
@@ -435,10 +436,6 @@ export class SimpleRule extends BaseForLines implements ICacheable, IRule {
             bracket.addCellsToEmptyRules(cells)
         }
     }
-    private dependsOnDirection() {
-        return !!(this.conditionBrackets.find((b) => b.dependsOnDirection()) || this.actionBrackets.find((b) => b.dependsOnDirection()))
-    }
-
 }
 
 export class SimpleTileWithModifier extends BaseForLines implements ICacheable {
@@ -662,9 +659,14 @@ interface IMatchedCellAndCorrespondingNeighbors {
 }
 
 class MatchedCellsForRule {
-    public readonly cellsAndNeighbors: Iterable<IMatchedCellAndCorrespondingNeighbors>
-    constructor(cellsAndNeighbors: Iterable<IMatchedCellAndCorrespondingNeighbors>) {
+    public readonly cellsAndNeighbors: IMatchedCellAndCorrespondingNeighbors[]
+    private cellKeys: Map<Cell, string>
+    constructor(cellsAndNeighbors: IMatchedCellAndCorrespondingNeighbors[]) {
         this.cellsAndNeighbors = cellsAndNeighbors
+        this.cellKeys = new Map()
+        for (const { cell } of this.cellsAndNeighbors) {
+            this.cellKeys.set(cell, cell.toKey())
+        }
     }
 
     public firstCell() {
@@ -687,9 +689,15 @@ class MatchedCellsForRule {
 
     public doesStillMatch() {
         for (const { cell, condition } of this.cellsAndNeighbors) {
+            // Check the cell key (cheap) to see if the cell still matches
+            if (cell.toKey() === this.cellKeys.get(cell)) {
+                continue
+            }
             if (!condition.matchesCellSimple(cell)) {
                 return false
             }
+            // if the cell updated but still matches then update the cellKey
+            this.cellKeys.set(cell, cell.toKey())
         }
         return true
     }
@@ -1129,8 +1137,8 @@ class MultiMap<A, B> {
 }
 
 export class SimpleEllipsisBracket extends ISimpleBracket {
-    private beforeEllipsisBracket: SimpleBracket
-    private afterEllipsisBracket: SimpleBracket
+    public beforeEllipsisBracket: SimpleBracket
+    public afterEllipsisBracket: SimpleBracket
     private linkages: MultiMap<Cell, Cell> // 1 before may have many afters
     constructor(source: IGameCode, direction: RULE_DIRECTION, beforeEllipsisNeighbors: SimpleNeighbor[], afterEllipsisNeighbors: SimpleNeighbor[], debugFlag: Optional<DEBUG_FLAG>) {
         super(source, direction, [...beforeEllipsisNeighbors, ...afterEllipsisNeighbors], debugFlag)

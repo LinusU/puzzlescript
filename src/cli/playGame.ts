@@ -11,6 +11,7 @@ import * as pify from 'pify'
 import * as supportsColor from 'supports-color'
 
 import { closeSounds, GameData, GameEngine, ILoadingCellsEvent, Optional, Parser, playSound, RULE_DIRECTION } from '..'
+import { logger } from '../logger'
 import { saveCoverageFile } from '../recordCoverage'
 import TerminalUI, { getTerminalSize } from '../ui/terminal'
 import SOLVED_GAMES from './solvedGames'
@@ -210,6 +211,12 @@ async function startPromptsAndPlayGame(gamePath: string, gistId: Optional<string
 
     console.log('')
     console.log(`Opened Game: "${chalk.blueBright(data.title)}"`)
+    if (data.metadata.author) {
+        console.log(`Author     : ${chalk.bold.whiteBright(data.metadata.author)}`)
+    }
+    if (data.metadata.homepage) {
+        console.log(`Homepage   : ${chalk.bold.underline.blueBright(data.metadata.homepage)}`)
+    }
     console.log('')
 
     showControls()
@@ -262,9 +269,7 @@ async function startPromptsAndPlayGame(gamePath: string, gistId: Optional<string
 async function playGame(data: GameData, currentLevelNum: number, recordings: ISaveFile, ticksToRunFirst: string,
                         absPath: string, solutionsPath: string, cliUi: boolean, onlyOneLevel: boolean, nosound: Optional<boolean>) {
 
-    if (process.env.LOG_LEVEL === 'debug') {
-        console.error(`Start playing "${data.title}". Level ${currentLevelNum}`)
-    }
+    logger.debug(() => `Start playing "${data.title}". Level ${currentLevelNum}`)
 
     const ticksToRunFirstAry = ticksToRunFirst.split('')
 
@@ -539,7 +544,7 @@ async function playGame(data: GameData, currentLevelNum: number, recordings: ISa
     keypresses = [...ticksToRunFirstAry]
 
     while (true) {
-        let maxSleepTime = 50
+        let maxSleepTime = process.env.NODE_ENV === 'development' ? 500 : 50
         // Exit the game if the user pressed escape
         if (shouldExitGame) {
             break // so we can detach key listeners
@@ -809,15 +814,15 @@ function percentComplete(game: IGameInfo) {
         const numerator = recordings.solutions.filter((s) => s && s.solution && s.solution.length > 1).length
         const denominator = recordings.totalMapLevels
         const percent = 100 * numerator / denominator
-        let colorFn = chalk.bold.red
+        let colorFn = chalk.bold.green
         if (numerator === denominator) {
             colorFn = chalk.blueBright
         } else if (percent > 75) {
-            colorFn = chalk.greenBright
+            colorFn = chalk.redBright
         } else if (percent > 25) {
             colorFn = chalk.yellowBright
         } else if (percent > 0) {
-            colorFn = chalk.redBright
+            colorFn = chalk.greenBright
         }
 
         message = chalk.gray(`(${colorFn(`${numerator}/${denominator}`)})`)

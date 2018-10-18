@@ -1,4 +1,5 @@
 import { EventEmitter2, Listener } from 'eventemitter2'
+import { logger } from './logger'
 import { CollisionLayer } from './models/collisionLayer'
 import { AbstractCommand, COMMAND_TYPE } from './models/command'
 import { GameData } from './models/game'
@@ -441,9 +442,7 @@ export class LevelEngine extends EventEmitter2 {
     }
 
     public tick() {
-        if (process.env.LOG_LEVEL === 'debug') {
-            console.error(``) // tslint:disable-line:no-console
-        }
+        logger.debug(() => ``)
 
         if (this.hasAgainThatNeedsToRun) {
             // run the AGAIN rules
@@ -470,17 +469,17 @@ export class LevelEngine extends EventEmitter2 {
                 case COMMAND_TYPE.WIN:
                     hasWinCommand = true
                     break
+                case COMMAND_TYPE.AGAIN:
+                case COMMAND_TYPE.CANCEL:
+                case COMMAND_TYPE.CHECKPOINT:
+                    break
                 default:
-                    // console.error(`BUG: Unsupported command "${command.getType()}"`) // tslint:disable-line:no-console
+                    throw new Error(`BUG: Unsupported command "${command.getType()}"`)
             }
         }
-        if (process.env.LOG_LEVEL === 'debug') {
-            console.error(`checking win condition.`) // tslint:disable-line:no-console
-        }
+        logger.debug(() => `checking win condition.`)
         if (this.hasAgainThatNeedsToRun) {
-            if (process.env.LOG_LEVEL === 'debug') {
-                console.error(`AGAIN command executed, with changes detected - will execute another turn.`) // tslint:disable-line:no-console
-            }
+            logger.debug(() => `AGAIN command executed, with changes detected - will execute another turn.`)
         }
 
         return {
@@ -494,6 +493,10 @@ export class LevelEngine extends EventEmitter2 {
 
     public hasAgain() {
         return this.hasAgainThatNeedsToRun
+    }
+
+    public canUndo() {
+        return this.undoStack.length > 1
     }
 
     public press(direction: RULE_DIRECTION) {
@@ -593,16 +596,12 @@ export class LevelEngine extends EventEmitter2 {
     }
 
     private tickUpdateCells() {
-        if (process.env.LOG_LEVEL === 'debug') {
-            console.error(`applying rules`) // tslint:disable-line:no-console
-        }
+        logger.debug(() => `applying rules`)
         return this._tickUpdateCells(this.gameData.rules.filter((r) => !r.isLate()))
     }
 
     private tickUpdateCellsLate() {
-        if (process.env.LOG_LEVEL === 'debug') {
-            console.error(`applying late rules`) // tslint:disable-line:no-console
-        }
+        logger.debug(() => `applying late rules`)
         return this._tickUpdateCells(this.gameData.rules.filter((r) => r.isLate()))
     }
 
@@ -620,15 +619,15 @@ export class LevelEngine extends EventEmitter2 {
             for (const mutation of cellMutations) {
                 changedMutations.add(mutation)
             }
-            // if (process.env['LOG_LEVEL'] === 'debug') {
+            // if (logger.isLevel(LOG_LEVEL.DEBUG)) {
             //     if (rule.timesRan && rule.totalTimeMs) {
             //         const avg = rule.totalTimeMs // Math.round(rule.totalTimeMs / rule.timesRan)
             //         if (avg > 100) {
-            //             console.error(`Took:${avg}ms (${cellMutations.length} changed) ${rule.toString()}`) // tslint:disable-line:no-console
+            //             logger.debug(`Took:${avg}ms (${cellMutations.length} changed) ${rule.toString()}`)
             //         }
             //     }
             //     // if (cellMutations.length > 0) {
-            //     //     console.error(`Took:${rule.totalTimeMs}ms (${cellMutations.length} changed) ${rule.toString()}`) // tslint:disable-line:no-console
+            //     //     logger.debug(`Took:${rule.totalTimeMs}ms (${cellMutations.length} changed) ${rule.toString()}`)
             //     // }
             // }
         }
@@ -713,10 +712,8 @@ export class LevelEngine extends EventEmitter2 {
         if (this.pendingPlayerWantsToMove) {
             this.takeSnapshot(initialSnapshot)
 
-            if (process.env.LOG_LEVEL === 'debug') {
-                console.error(`=======================`) // tslint:disable-line:no-console
-                console.error(`Turn starts with input of ${this.pendingPlayerWantsToMove.toLowerCase()}.`) // tslint:disable-line:no-console
-            }
+            logger.debug(`=======================\nTurn starts with input of ${this.pendingPlayerWantsToMove.toLowerCase()}.`)
+
             const t = this.gameData.getPlayer()
             for (const cell of t.getCellsThatMatch()) {
                 for (const sprite of t.getSpritesThatMatch(cell)) {
@@ -726,9 +723,7 @@ export class LevelEngine extends EventEmitter2 {
             }
             this.pendingPlayerWantsToMove = null
         } else {
-            if (process.env.LOG_LEVEL === 'debug') {
-                console.error(`Turn starts with no input.`) // tslint:disable-line:no-console
-            }
+            logger.debug(() => `Turn starts with no input.`)
         }
 
         const { changedCells: changedCellMutations2, evaluatedRules, commands } = this.tickUpdateCells()
@@ -872,6 +867,9 @@ export class GameEngine {
     }
     public hasAgain() {
         return this.levelEngine.hasAgain()
+    }
+    public canUndo() {
+        return this.levelEngine.canUndo()
     }
     public setLevel(levelNum: number) {
         this.messageShownAndWaitingForActionPress = false

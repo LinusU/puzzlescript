@@ -4,7 +4,7 @@
     "lint:js": "standardx --fix ./test/**/*.js",
     "lint:ts": "tslint --fix --config ./tslint.json --project ./ --format stylish",
     "compile": "npm run-script compile:grammar && npm run-script compile:ts && npm run-script build",
-    "compile:grammar": "nearleyc ./src/parser/grammar.ne > ./src/parser/grammar.ts",
+    "compile:grammar": "nearleyc --minify-rule-names ./src/parser/grammar.ne > ./src/parser/grammar.ts",
     "compile:ts": "tsc && cp ./src/sound/sfxr.js ./lib/sound/ && cp ./src/sound/sfxr-browser.js ./lib/sound/",
     "ci": "npm run-script test",
     "postci": "codecov",
@@ -19,8 +19,8 @@
     "demo:coverage": "LOG_LEVEL=debug NODE_ENV=development istanbul cover -x '**/node_modules/**' ./bin/puzzlescript-demo.js 2> ./start.log",
     "demo:debug": "LOG_LEVEL=debug NODE_ENV=development node --inspect-brk ./bin/puzzlescript-demo.js 2> ./start.log",
     "demo:debug-cli": "LOG_LEVEL=debug NODE_ENV=development node inspect ./bin/puzzlescript-demo.js 2> ./start.log",
-    "coverage": "istanbul report --root ./coverage/ lcov",
-    "pretest": "npm run-script compile && node ./doBatchStuff.js",
+    "coverage": "remap-istanbul --exclude 'sfxr.js,helper.js' --input ./coverage/coverage-final.json --output ./coverage/coverage-final.json && istanbul report --root ./coverage/ lcov",
+    "pretest": "npm run-script compile && node ./script/doBatchStuff.js",
     "test": "VERIFY_MATCHES=1 NODE_ENV=development jest --coverage --updateSnapshot --verbose",
     "posttest": "npm run-script test:cli && npm run-script coverage && npm run-script lint",
     "test:debug": "NODE_ENV=development node --inspect-brk -r source-map-support/register $(npm bin)/jest -i --updateSnapshot $@",
@@ -48,7 +48,7 @@
     "inquirer": "6.2.0",
     "inquirer-autocomplete-prompt": "^1.0.1",
     "keymaster": "^1.6.2",
-    "nearley": "^2.15.1",
+    "nearley": "github:philschatz/nearley#24685991e203fd6645a6f687198687aa42b7d6f2",
     "pify": "^4.0.0",
     "quick-lru": "^1.1.0",
     "standardx": "^2.1.0",
@@ -59,7 +59,7 @@
   "devDependencies": {
     "@types/ansi-escapes": "^3.0.0",
     "@types/ansi-styles": "^3.2.0",
-    "@types/glob": "^7.1.0",
+    "@types/glob": "^7.1.1",
     "@types/inquirer": "0.0.43",
     "@types/keymaster": "^1.6.28",
     "@types/nearley": "^2.11.0",
@@ -74,19 +74,20 @@
     "jest": "^23.3.0",
     "mkdirp": "^0.5.1",
     "node-fetch": "^2.1.2",
-    "puppeteer": "^1.8.0",
+    "puppeteer": "^1.9.0",
+    "remap-istanbul": "^0.12.0",
     "source-map-loader": "^0.2.4",
     "source-map-support": "^0.5.9",
     "sourcemapped-stacktrace-node": "github:philschatz/sourcemapped-stacktrace-node#2a76787b5f9356b3798788942947e05a5bc8ecc2",
     "standard": "^12.0.0",
-    "ts-jest": "^23.10.0",
+    "ts-jest": "^23.10.3",
     "tslint": "^5.11.0",
     "tslint-config-prettier": "^1.15.0",
     "tslint-config-standard": "^7.1.0",
-    "typedoc": "^0.12.0",
+    "typedoc": "^0.13.0",
     "typescript": "^3.0.1",
-    "webpack": "^4.16.2",
-    "webpack-cli": "^3.1.0"
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.2"
   },
   "optionalDependencies": {
     "speaker": "github:philschatz/node-speaker#cac7c5b7c434b52619bfbbd9530ab0871156e815"
@@ -116,9 +117,9 @@
       "typescript"
     ]
   },
-  "name": "puzzlescript-cli",
+  "name": "puzzlescript",
   "description": "Play PuzzleScript games in your terminal!",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "main": "lib/index.js",
   "directories": {
     "lib": "lib",
@@ -126,7 +127,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/philschatz/puzzlescript-cli.git"
+    "url": "git+https://github.com/philschatz/puzzlescript.git"
   },
   "keywords": [
     "puzzlescript",
@@ -140,7 +141,7 @@
   "author": "Philip Schatz",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/philschatz/puzzlescript-cli/issues"
+    "url": "https://github.com/philschatz/puzzlescript/issues"
   },
-  "homepage": "https://github.com/philschatz/puzzlescript-cli"
+  "homepage": "https://github.com/philschatz/puzzlescript"
 }

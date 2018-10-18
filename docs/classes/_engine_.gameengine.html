@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>GameEngine | puzzlescript-cli</title>
+	<title>GameEngine | puzzlescript</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<style type="text/css">/*! normalize.css v1.1.3 | MIT License | git.io/normalize */
@@ -879,7 +879,7 @@ img { max-width: 100%; }
 		<div class="container">
 			<div class="table-wrap">
 				<div class="table-cell">
-					<strong><a href="../index.html">puzzlescript-cli</a></strong>
+					<strong><a href="../index.html">puzzlescript</a></strong>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -915,6 +915,9 @@ img { max-width: 100%; }
 			<ul>
 				<li class=" tsd-kind-constructor tsd-parent-kind-class">
 					<a href="_engine_.gameengine.html#constructor" class="tsd-kind-icon">constructor</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class">
+					<a href="_engine_.gameengine.html#canundo" class="tsd-kind-icon">can<wbr>Undo</a>
 				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class">
 					<a href="_engine_.gameengine.html#getcurrentlevel" class="tsd-kind-icon">get<wbr>Current<wbr>Level</a>
@@ -1046,6 +1049,7 @@ engine.tick()</code></pre>
 					<section class="tsd-index-section ">
 						<h3>Methods</h3>
 						<ul class="tsd-index-list">
+							<li class="tsd-kind-method tsd-parent-kind-class"><a href="_engine_.gameengine.html#canundo" class="tsd-kind-icon">can<wbr>Undo</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="_engine_.gameengine.html#getcurrentlevel" class="tsd-kind-icon">get<wbr>Current<wbr>Level</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="_engine_.gameengine.html#getcurrentlevelcells" class="tsd-kind-icon">get<wbr>Current<wbr>Level<wbr>Cells</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class"><a href="_engine_.gameengine.html#getcurrentlevelnum" class="tsd-kind-icon">get<wbr>Current<wbr>Level<wbr>Num</a></li>
@@ -1084,7 +1088,7 @@ engine.tick()</code></pre>
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/engine.ts#L849">engine.ts:849</a></li>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/028e3af/src/engine.ts#L844">engine.ts:844</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1101,6 +1105,23 @@ engine.tick()</code></pre>
 		<section class="tsd-panel-group tsd-member-group ">
 			<h2>Methods</h2>
 			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+				<a name="canundo" class="tsd-anchor"></a>
+				<h3>can<wbr>Undo</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+					<li class="tsd-signature tsd-kind-icon">can<wbr>Undo<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/028e3af/src/engine.ts#L871">engine.ts:871</a></li>
+							</ul>
+						</aside>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 				<a name="getcurrentlevel" class="tsd-anchor"></a>
 				<h3>get<wbr>Current<wbr>Level</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -1110,7 +1131,7 @@ engine.tick()</code></pre>
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/engine.ts#L867">engine.ts:867</a></li>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/028e3af/src/engine.ts#L862">engine.ts:862</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <a href="../interfaces/_models_level_.ilevel.html" class="tsd-signature-type">ILevel</a></h4>
@@ -1127,7 +1148,7 @@ engine.tick()</code></pre>
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/engine.ts#L864">engine.ts:864</a></li>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/028e3af/src/engine.ts#L859">engine.ts:859</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <a href="_engine_.cell.html" class="tsd-signature-type">Cell</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">[]</span></h4>
@@ -1144,7 +1165,7 @@ engine.tick()</code></pre>
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/engine.ts#L870">engine.ts:870</a></li>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/028e3af/src/engine.ts#L865">engine.ts:865</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -1161,7 +1182,7 @@ engine.tick()</code></pre>
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/engine.ts#L861">engine.ts:861</a></li>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/028e3af/src/engine.ts#L856">engine.ts:856</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <a href="_models_game_.gamedata.html" class="tsd-signature-type">GameData</a></h4>
@@ -1178,7 +1199,7 @@ engine.tick()</code></pre>
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/engine.ts#L1023">engine.ts:1023</a></li>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/028e3af/src/engine.ts#L1021">engine.ts:1021</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">object</span></h4>
@@ -1203,7 +1224,7 @@ engine.tick()</code></pre>
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/engine.ts#L873">engine.ts:873</a></li>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/028e3af/src/engine.ts#L868">engine.ts:868</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -1220,7 +1241,7 @@ engine.tick()</code></pre>
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/engine.ts#L1031">engine.ts:1031</a></li>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/028e3af/src/engine.ts#L1029">engine.ts:1029</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1243,7 +1264,7 @@ engine.tick()</code></pre>
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/engine.ts#L858">engine.ts:858</a></li>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/028e3af/src/engine.ts#L853">engine.ts:853</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1269,7 +1290,7 @@ engine.tick()</code></pre>
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/engine.ts#L994">engine.ts:994</a></li>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/028e3af/src/engine.ts#L992">engine.ts:992</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1292,7 +1313,7 @@ engine.tick()</code></pre>
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/engine.ts#L1009">engine.ts:1009</a></li>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/028e3af/src/engine.ts#L1007">engine.ts:1007</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -1309,7 +1330,7 @@ engine.tick()</code></pre>
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/engine.ts#L1000">engine.ts:1000</a></li>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/028e3af/src/engine.ts#L998">engine.ts:998</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -1326,7 +1347,7 @@ engine.tick()</code></pre>
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/engine.ts#L1003">engine.ts:1003</a></li>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/028e3af/src/engine.ts#L1001">engine.ts:1001</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -1343,7 +1364,7 @@ engine.tick()</code></pre>
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/engine.ts#L1013">engine.ts:1013</a></li>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/028e3af/src/engine.ts#L1011">engine.ts:1011</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -1360,7 +1381,7 @@ engine.tick()</code></pre>
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/engine.ts#L1006">engine.ts:1006</a></li>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/028e3af/src/engine.ts#L1004">engine.ts:1004</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -1377,7 +1398,7 @@ engine.tick()</code></pre>
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/engine.ts#L1017">engine.ts:1017</a></li>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/028e3af/src/engine.ts#L1015">engine.ts:1015</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -1394,7 +1415,7 @@ engine.tick()</code></pre>
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/engine.ts#L997">engine.ts:997</a></li>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/028e3af/src/engine.ts#L995">engine.ts:995</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -1411,7 +1432,7 @@ engine.tick()</code></pre>
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/engine.ts#L1054">engine.ts:1054</a></li>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/028e3af/src/engine.ts#L1052">engine.ts:1052</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -1428,7 +1449,7 @@ engine.tick()</code></pre>
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/engine.ts#L1027">engine.ts:1027</a></li>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/028e3af/src/engine.ts#L1025">engine.ts:1025</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <a href="../modules/_engine_.html#cellsavestate" class="tsd-signature-type">CellSaveState</a></h4>
@@ -1445,7 +1466,7 @@ engine.tick()</code></pre>
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/engine.ts#L876">engine.ts:876</a></li>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/028e3af/src/engine.ts#L874">engine.ts:874</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1468,7 +1489,7 @@ engine.tick()</code></pre>
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/engine.ts#L1050">engine.ts:1050</a></li>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/028e3af/src/engine.ts#L1048">engine.ts:1048</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1491,7 +1512,7 @@ engine.tick()</code></pre>
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/1af4675/src/engine.ts#L887">engine.ts:887</a></li>
+								<li>Defined in <a href="https://github.com/philschatz/puzzlescript-console/blob/028e3af/src/engine.ts#L885">engine.ts:885</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <a href="../interfaces/_engine_.itickresult.html" class="tsd-signature-type">ITickResult</a></h4>

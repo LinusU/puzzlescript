@@ -133,6 +133,24 @@ class TableUI extends BaseUI {
         this.tableCells = []
     }
 
+    public isCurrentLevelAMessage() {
+        if (!this.engine) {
+            throw new Error(`BUG: engine has not been set yet`)
+        }
+        return !this.engine.getCurrentLevel().isMap()
+    }
+
+    public getCurrentLevelMessage() {
+        if (!this.engine) {
+            throw new Error(`BUG: engine has not been set yet`)
+        }
+        const level = this.engine.getCurrentLevel()
+        if (level.isMap()) {
+            throw new Error(`BUG: current level is not a message level`)
+        }
+        return level.getMessage()
+    }
+
     protected renderLevelScreen(levelRows: Cell[][], renderScreenDepth: number) {
         this.drawCells(_flatten(levelRows), false, renderScreenDepth)
     }
@@ -183,9 +201,9 @@ class TableUI extends BaseUI {
 
     private markAcceptingInput(flag: boolean) {
         if (flag) {
-            this.table.classList.add('ps-accepting-input')
+            this.table.setAttribute('data-ps-accepting-input', 'true')
         } else {
-            this.table.classList.remove('ps-accepting-input')
+            this.table.setAttribute('data-ps-accepting-input', 'false')
         }
     }
 
@@ -303,24 +321,6 @@ class TableUI extends BaseUI {
                 }
             })
         })
-    }
-
-    isCurrentLevelAMessage() {
-        if (!this.engine) {
-            throw new Error(`BUG: engine has not been set yet`)
-        }
-        return !this.engine.getCurrentLevel().isMap()
-    }
-
-    getCurrentLevelMessage() {
-        if (!this.engine) {
-            throw new Error(`BUG: engine has not been set yet`)
-        }
-        const level = this.engine.getCurrentLevel()
-        if (level.isMap()) {
-            throw new Error(`BUG: current level is not a message level`)
-        }
-        return level.getMessage()
     }
 }
 

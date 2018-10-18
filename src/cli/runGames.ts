@@ -5,7 +5,9 @@ import * as path from 'path'
 import * as pify from 'pify'
 
 import { GameEngine, Parser, RULE_DIRECTION } from '..'
+import { logger } from '../logger'
 import { getLineAndColumn } from '../models/BaseForLines'
+import Serializer from '../parser/serializer'
 import { saveCoverageFile } from '../recordCoverage'
 import { closeSounds } from '../sounds'
 import TerminalUI from '../ui/terminal'
@@ -28,7 +30,25 @@ async function run() {
 
         const code = readFileSync(filename, 'utf-8')
         let startTime = Date.now()
-        const { data, validationMessages } = Parser.parse(code)
+        const { data: originalData, validationMessages } = Parser.parse(code)
+
+        // Check that we can serialize the game out to JSON
+        const json = new Serializer(originalData).toJson()
+        const data2 = Serializer.fromJson(json, originalData.getPlayer().__source.code)
+
+        // // verify the toKey representation of all the rules is the same as before
+        // if (originalData.rules.length !== data2.rules.length) {
+        //     throw new Error(`BUG: rule lengths do not match`)
+        // }
+        // originalData.rules.forEach((rule, index) => {
+        //     const rule2 = data2.rules[index]
+        //     if (rule.toKey() !== rule2.toKey()) {
+        //         debugger
+        //         throw new Error(`BUG: rule.toKey mismatch.\norig=${rule.toKey()}\nnew =${rule2.toKey()}`)
+        //     }
+        // })
+
+        const data = data2
 
         if (!data) {
             throw new Error(`BUG: gameData was not set yet`)
@@ -77,12 +97,9 @@ async function run() {
             const engine = new GameEngine(data)
             const levelNum = data.levels.indexOf(currentLevel)
             engine.setLevel(levelNum)
-            if (process.env.LOG_LEVEL === 'debug') {
-                console.error('')
-                console.error('')
-                console.error(`Start playing "${data.title}". Level ${levelNum}`)
-            }
-            console.log(`Loading Cells into the level took ${Date.now() - startTime}ms`)
+            logger.debug(() => `\n\nStart playing "${data.title}". Level ${levelNum}`)
+
+            logger.info(() => `Loading Cells into the level took ${Date.now() - startTime}ms`)
 
             // engine.on('cell:updated', cell => {
             //   UI.drawCellAt(cell, cell.rowIndex, cell.colIndex, false)
