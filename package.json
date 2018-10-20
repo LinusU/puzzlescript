@@ -44,6 +44,7 @@
     "eventemitter2": "^5.0.1",
     "firstline": "^2.0.2",
     "font-ascii": "^1.1.16",
+    "fs-extra": "^7.0.0",
     "glob": "^7.1.2",
     "inquirer": "6.2.0",
     "inquirer-autocomplete-prompt": "^1.0.1",
@@ -119,7 +120,7 @@
   },
   "name": "puzzlescript",
   "description": "Play PuzzleScript games in your terminal!",
-  "version": "3.0.2",
+  "version": "3.1.0",
   "main": "lib/index.js",
   "directories": {
     "lib": "lib",
